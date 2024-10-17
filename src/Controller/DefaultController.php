@@ -6,13 +6,30 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
+
 class DefaultController extends AbstractController
 {
-    #[Route('/default', name: 'home_default')]
+  
     public function index(): Response
     {
         return $this->render('default/default.html.twig', [
             'controller_name' => 'DefaultController',
         ]);
     }
+
+    public function apropos(): Response
+    {
+        return $this->render('default/apropos.html.twig', [
+            'controller_name' => 'DefaultController',
+        ]);
+    }
+
+
+    public function contact(): Response
+    {
+        return $this->render('default/contact.html.twig', [
+            'controller_name' => 'DefaultController',
+        ]);
+    }
 }
+

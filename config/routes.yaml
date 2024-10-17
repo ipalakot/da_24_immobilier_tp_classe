@@ -4,5 +4,20 @@ controllers:
         namespace: App\Controller
     type: attribute
 
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+
+home:
+    path: /home
+    controller: App\Controller\DefaultController::index
+
+about:
+    path: /apropos
+    controller: App\Controller\DefaultController::apropos
+
+contact:
+    path: /apropos
+    controller: App\Controller\DefaultController::contact
 
 
