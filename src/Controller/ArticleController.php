@@ -15,4 +15,20 @@ class ArticleController extends AbstractController
             'controller_name' => 'ArticleController',
         ]);
     }
+
+    //#[Route('/location', name: 'articles_location')]
+    public function location(): Response
+    {
+        return $this->render('article/index.html.twig', [
+            'controller_name' => 'ArticleController',
+        ]);
+    }
+
+    //#[Route('/vente', name: 'article_vente')]
+    public function vente(): Response
+    {
+        return $this->render('article/index.html.twig', [
+            'controller_name' => 'ArticleController',
+        ]);
+    }
 }

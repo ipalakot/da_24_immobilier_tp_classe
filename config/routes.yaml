@@ -16,8 +16,20 @@ about:
     path: /apropos
     controller: App\Controller\DefaultController::apropos
 
+article_location:
+    path: /location
+    controller: App\Controller\ArticleController::location
+
+article_vente:
+    path: /vente
+    controller: App\Controller\ArticleController::vente
+
 contact:
-    path: /apropos
+    path: /contact
     controller: App\Controller\DefaultController::contact
+
+connexion:
+    path: /connexion
+    controller: App\Controller\DefaultController::connexion
 
 
