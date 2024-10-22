@@ -49,8 +49,6 @@ class ArticleController extends AbstractController
         ]);
     }
 
-
-
     //#[Route('/vente', name: 'article_vente')]
     public function vente(): Response
     {
