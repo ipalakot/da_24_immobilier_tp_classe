@@ -9,30 +9,10 @@
 	<!-- Header-->
 	{% include 'tools/header.html.twig'  %}
 	<!-- Section-->
-	<!-- Main-->
-		<div
-		class="container"> <!-- Article main content -->
-		<article class="col-md-12 maincontent">
-			<div class="container">
-				<div class="row">
-					<h3>Agence / {{title}}
-					</h3>
-
-					<hr style="width:100%; height:10px; background-color:#1B4F72 ">
-
-
-					<br><br><br><br>
-
-					<!-- Section-->
-					{% include 'tools/section.html.twig'  %}
-
-
-				</div>
-
-			</div>
-		</article>
-	</div>
-
+{% set texte = 'greeting' ~ tableau[1]|lower %}
+{{ texte }}
+    
+     {{ tableau[0]}} \ <br>  {{ tableau[1]}} \ {{ tableau[2]}} \ {{ tableau[3]}} \ {{ tableau[4]}}
 
 	<!-- Footer-->
 	<footer class="py-5 bg-dark">

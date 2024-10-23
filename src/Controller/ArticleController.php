@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 //#[Route('/article', name: '')]
 class ArticleController extends AbstractController
@@ -17,11 +18,21 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    
+    public function contact(Request $request)
+    {
+        //dd('$contact');
+        $contact = $request ->attributes->get('contact'); 
+        return new Response(" Vous êtes le Cont N° $contact");
+        //die(); 
+    }
+
     //#[Route('/location', name: 'location')]
     public function location(): Response
     {
         return $this->render('article/page.html.twig', [
             'controller_name' => 'ArticleController',
+            'title'=>'Location de Biens'
         ]);
     }
 

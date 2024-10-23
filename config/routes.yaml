@@ -35,14 +35,21 @@ article_vente:
     #host: localhost
     schemes: [https,http]
 
-contact:
-    path: /contact
-    controller: App\Controller\DefaultController::contact
+#contact:
+#    path: /contact
+#    controller: App\Controller\DefaultController::contact
     #host: localhost
-    schemes: [https,http]
+#    schemes: [https,http]
+
+contact:
+    path: /contact/{contact}
+    controller: App\Controller\UserController::contact
+    defaults: 
+        contact: 0
 
 connexion:
     path: /connexion
     controller: App\Controller\DefaultController::connexion
     #host: localhost
     schemes: [https,http]
+
