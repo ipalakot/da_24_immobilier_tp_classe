@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+
 
 	<div class="container">
 		<a class="navbar-brand" href="{{ path('index')}}">Agence Immo</a>
@@ -22,18 +23,18 @@
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
 						<li>
-							<a class="dropdown-item" href="{{ path('artlocation_apprt')}}">Appartement</a>
+							<a class="dropdown-item" href="{{ path('locationapprt')}}">Appartement</a>
 
 
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ path('artlocation_maison')}}">Maison</a>
+							<a class="dropdown-item" href="{{ path('locationmaison')}}">Maison</a>
 
 
 						</li>
 						<li><hr class="dropdown-divider"></li>
 						<li>
-							<a class="dropdown-item" href="{{ path('artlocation_terrain')}}">Autres</a>
+							<a class="dropdown-item" href="{{ path('locationterrain')}}">Autres</a>
 
 
 						</li>
@@ -47,18 +48,19 @@
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
 						<li>
-							<a class="dropdown-item" href="{{ path('artvente_appart')}}">Appartement</a>
+							<a class="dropdown-item" href="{{ path('vente_appart')}}">Appartement</a>
 
 
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ path('artvente_maison')}}">Maison</a>
+							<a class="dropdown-item" href="{{ path('vente_maison')}}">Maison</a>
 
 
 						</li>
 						<li><hr class="dropdown-divider"></li>
 						<li>
-							<a class="dropdown-item" href="{{ path('artlocation_apprt')}}">Autres</a>
+							<a class="dropdown-item" href="{{ path('vente_terrain')}}">Autres</a>
+
 
 						</li>
 					</ul>

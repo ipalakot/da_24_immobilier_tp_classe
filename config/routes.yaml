@@ -7,29 +7,43 @@ controllers:
 index:
     path: /
     controller: App\Controller\DefaultController::index
+    methods: [GET, POST]
+    #host: localhost
+    schemes: [https,http]
+
 
 home:
     path: /home
     controller: App\Controller\DefaultController::index
+    #host: localhost
+    schemes: [https,http]
 
 about:
     path: /apropos
     controller: App\Controller\DefaultController::apropos
+    #host: localhost
+    schemes: [https,http]
 
 article_location:
     path: /location
     controller: App\Controller\ArticleController::location
+    #host: localhost
+    schemes: [https,http]
 
 article_vente:
     path: /vente
     controller: App\Controller\ArticleController::vente
+    #host: localhost
+    schemes: [https,http]
 
 contact:
     path: /contact
     controller: App\Controller\DefaultController::contact
+    #host: localhost
+    schemes: [https,http]
 
 connexion:
     path: /connexion
     controller: App\Controller\DefaultController::connexion
-
-
+    #host: localhost
+    schemes: [https,http]
