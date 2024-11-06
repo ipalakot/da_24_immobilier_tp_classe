@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\CategorieRepository;
+use App\Entity\Categorie;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,4 +19,19 @@ class CategorieController extends AbstractController
             'categories'=> $categorieRepository->findAll()
         ]);
     }
+
+
+
+    #[Route('/categorie/{id}', name: 'categorie_affichage')]
+    public function affichage(Categorie $categorie): Response
+    {
+        return $this->render('categorie/affichage.html.twig', [
+         'categorie'=> $categorie,
+        ]);
+    }
+
+
+
+
+
 }
