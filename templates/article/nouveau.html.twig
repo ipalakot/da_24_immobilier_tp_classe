@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formCreatArticle 'bootstrap_4_layout.html.twig'  %}
+
+
+{% block body %}
+
+
+	<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
+	<div class="container">
+		<hr/>
+
+		{{ form_start(formCreatArticle) }}
+		   
+            {{ form_widget(formCreatArticle) }}
+
+            <button type="submit" class="btn btn-success">
+                Register !
+            </button>
+            </br></br></br>
+            
+		{{ form_end(formCreatArticle) }}
+
+
+{% endblock %}
