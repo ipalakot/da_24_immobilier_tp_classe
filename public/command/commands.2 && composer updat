@@ -1,0 +1,1 @@
+cd immobilier-v10.23.2 && composer update && symfony server:start -d && symfony open:local

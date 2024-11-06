@@ -1,0 +1,56 @@
+Siege
+-	directeur 
+-	capital 
+-	nom 
+-	adresse
+
+Agence 
+-	numeroagence 
+-	adresse
+
+Directeur
+-	nom
+-	prenom
+-	revenue
+
+Employe
+-	Nom
+-	Prenom
+-	Dateembauche
+
+Articles / BIENS
+-	Titre,
+-	Description,
+-	Adresse,
+-	Photos,
+-	Date de Création,
+-	Type de bien,
+-	Propriétaire,
+-	Surface,
+-	Resumé,
+-	Le gestionnaire,
+-	Agence
+
+Catégorie
+  -	Titre
+  -	Resumé
+
+Utilisateur
+  -	Nom,
+  -	Prénoms
+  -	Date de naissance,
+  -	Bien,
+
+
+Client 
+  -	Nom
+  -	Prenom
+  -	Adresse
+  -	Type
+  -	Photo
+  -	Datenaissance
+  -	login 
+  -	email 
+  -	password
+
+Categorie / Client
