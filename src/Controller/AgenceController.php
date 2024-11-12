@@ -73,8 +73,6 @@ class AgenceController extends AbstractController
                 'formCreatAgence' => $form->createView(),
             ]);
         }
-
-
          //affichage d'une seule Agence dans la liste des Agences
          #[Route('/agences/{id}', name: 'agence_affichage')]
          public function affichage(Agence $agence): Response
@@ -83,6 +81,4 @@ class AgenceController extends AbstractController
                 'formModifAgence' => $form->createView()
                 ]);
          }
-
-
 }
