@@ -63,7 +63,6 @@ class ArticleController extends AbstractController
         ]);
     }
     
-
     #[Route('/articles/{id}', name: 'article_affichage', methods: ['GET'])]
     public function affichage(Article $article): Response
     {
