@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme  formModifAgence 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+	<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
+	<div class="container">
+		<hr/>
+
+
+		<div class="jumbotron">
+			{{ form_start(formModifAgence) }}
+			{{ form_widget(formModifAgence) }}
+
+			<button type"submit" class="btn btn-success">
+				Je modifie !
+			</button>
+
+			{{ form_end(formModifAgence) }}
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% form_theme formCreatAgence 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+    <!-- Navigation-->
+        {% include 'tools/navigation.html.twig'  %}
+        <!-- Header-->
+        {% include 'tools/header.html.twig'  %}
+
+    <!-- Section-->
+        <div class="container">
+            <hr/>
+
+
+            <div class="jumbotron">
+                {{ form_start(formCreatAgence) }}
+                {{ form_widget(formCreatAgence) }}
+
+                <button type"submit" class="btn btn-success">
+                    J'enregistre
+                </button>
+
+                {{ form_end(formCreatAgence) }}
+            </div>
+        </div>
+
+{% endblock %}
+
+
+
