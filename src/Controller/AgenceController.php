@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Agence;
 use App\Repository\AgenceRepository;
 use Doctrine\ORM\EntityManagerInterface;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,21 +28,16 @@ class AgenceController extends AbstractController
     {
         $agence = new Agence();
         $form = $this->createFormBuilder($agence)
-       
             ->add('numeroAgence')
             ->add('adresse')
             ->getForm();
-
         $form->handleRequest($request); // Le Request
-
         if ($form->isSubMitted() && $form->isValid()) { // Soumission du Formulaire
 
             $manager->persist($agence); // Persistancede mon agence
             $manager->flush(); // Enregistrement de l'agence dans la BD
-
             return $this->redirectToRoute('agence_affichage', ['id' => $agence->getId()]); // Redirection vers l'agence
         }
-
         return $this->render('agence/nouveau.html.twig', [
             'formCreatAgence' => $form->createView(),
         ]);
@@ -58,14 +52,14 @@ class AgenceController extends AbstractController
                 ->add('numeroAgence')
                 ->add('adresse')
                 ->getForm();
-    
+
             $form->handleRequest($request); // Le Request
-    
+
             if ($form->isSubMitted() && $form->isValid()) { // Soumission du Formulaire
     
                 $manager->persist($agence); // Persistancede mon agence
                 $manager->flush(); // Enregistrement de l'agence dans la BD
-    
+
                 return $this->redirectToRoute('agence_affichage', ['id' => $agence->getId()]); // Redirection vers l'agence
             }
     
@@ -73,7 +67,8 @@ class AgenceController extends AbstractController
                 'formCreatAgence' => $form->createView(),
             ]);
         }
-         //affichage d'une seule Agence dans la liste des Agences
+                 
+        //affichage d'une seule Agence dans la liste des Agences
          #[Route('/agences/{id}', name: 'agence_affichage')]
          public function affichage(Agence $agence): Response
          {
@@ -81,4 +76,5 @@ class AgenceController extends AbstractController
                 'formModifAgence' => $form->createView()
                 ]);
          }
+
 }
