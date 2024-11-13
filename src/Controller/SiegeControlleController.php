@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
-use App\Repository\siegeRepository;
+use App\Repository\SiegeRepository;
 use App\Entity\Siege;
+
 use Doctrine\ORM\EntityManagerInterface;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,10 +15,12 @@ use Symfony\Component\Routing\Attribute\Route;
 class SiegeControlleController extends AbstractController
 {
     #[Route('/siege', name: 'app_siege_controlle')]
-    public function index(): Response
+    public function index(SiegeRepository $siegeRepository): Response
     {
         return $this->render('siege/index.html.twig', [
             'controller_name' => 'SiegeControlleController',
+            'sieges'=> $siegeRepository->findAll(),
+            
         ]);
     }
 
@@ -34,7 +38,7 @@ class SiegeControlleController extends AbstractController
         if ($form->isSubMitted() && $form->isValid()) {
             $manager->persist($siege);
             $manager->flush();
-            return $this->redirectToRoute('siege_affichage', ['id' => $siege->getId()]);
+            //return $this->redirectToRoute('siege_affichage', ['id' => $siege->getId()]);
             }
         
         return $this->render('siege/nouveau.html.twig', [
@@ -56,7 +60,7 @@ class SiegeControlleController extends AbstractController
         if ($form->isSubMitted() && $form->isValid()) {
             $manager->persist($siege);
             $manager->flush();
-            return $this->redirectToRoute('siege_affichage', ['id' => $siege->getId()]);
+            return $this->redirectToRoute('siege', ['id' => $siege->getId()]);
             }
         
         return $this->render('siege/modif.html.twig', [
