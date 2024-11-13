@@ -38,7 +38,7 @@ class SiegeControlleController extends AbstractController
         if ($form->isSubMitted() && $form->isValid()) {
             $manager->persist($siege);
             $manager->flush();
-            //return $this->redirectToRoute('siege_affichage', ['id' => $siege->getId()]);
+            return $this->redirectToRoute('siege', ['id' => $siege->getId()]);
             }
         
         return $this->render('siege/nouveau.html.twig', [
