@@ -20,14 +20,7 @@ class DirecteurController extends AbstractController
         ]);
     }
 
-    #[Route('/directeur/{id}', name: 'app_directeur')]
-    public function affichage(directeur $directeur): Response
-    {
-        return $this->render('directeur/affichage.html.twig', [
-            'controller_name' => 'DirecteurController',
-            'directeur' => $directeur,
-        ]);
-    }
+
 
     #[Route('/directeur/nouveau', name: 'directeur_nouveau')]
     public function ajoutDirecteur(Request $request, EntityManagerInterface $manager)
@@ -69,4 +62,15 @@ class DirecteurController extends AbstractController
             'formCreatDirecteur' => $form->createView(),
         ]);
     }
+
+    #[Route('/directeur/{id}', name: 'directeur_affichage')]
+    public function affichage(directeur $directeur): Response
+    {
+        return $this->render('directeur/affichage.html.twig', [
+            'controller_name' => 'DirecteurController',
+            'directeur' => $directeur,
+        ]);
+    }
+
+    
 }

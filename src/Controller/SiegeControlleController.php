@@ -46,7 +46,6 @@ class SiegeControlleController extends AbstractController
     #[Route('/siege/modif/{id}', name: 'app_siege_modif')]
     public function modifSiege(Siege $siege, Request $request, EntityManagerInterface $manager)
     {
-        $siege= new Siege();
         $form = $this->createFormBuilder($siege)
         ->add('nom')
         ->add('capital')
