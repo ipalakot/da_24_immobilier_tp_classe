@@ -18,7 +18,7 @@ class UtilisateurController extends AbstractController
             'controller_name' => 'UtilisateurController',
         ]);
     }
-#[Route('utilisateur/nouveau', name:'app_utilisateur_nouveau')]
+#[Route('utilisateur/modif/{id}', name:'app_utilisateur_modif')]
     public function ajoutUtilisateur(Request $request, EntityManagerInterface $manager) {
         $utilisateur = new Utilisateur();
         $form=$this->createFormBuilder($utilisateur)
@@ -34,4 +34,22 @@ class UtilisateurController extends AbstractController
         return $this->render("utilisateur/nouveau.html.twig", [
         "formCreateUtilisateur"=>$form->createView()]);
     }
+
+    #[Route('utilisateur/modif', name:'app_utilisateur_modif')]
+    public function modifUtilisateur(Request $request, EntityManagerInterface $manager) {
+       // $utilisateur = new Utilisateur();
+        $form=$this->createFormBuilder($utilisateur)
+        ->add('nom')
+        ->add('prenoms')
+        ->add('adresse')
+        ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager->persist($utilisateur);
+            $manager->flush();
+        }
+        return $this->render("utilisateur/nouveau.html.twig", [
+        "formCreateUtilisateur"=>$form->createView()]);
+    }
+
 }

@@ -72,10 +72,36 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    #[Route('/articles/modif/{id}', name: 'article_modif')]
+    public function modifArticle(Request $request, Article $article, EntityManagerInterface $manager)
+    {
+        $form = $this->createFormBuilder($article)
+            ->add('titre')
+            ->add('adresse')
+            ->add('images')
+            ->add('type')
+            ->add('surface')
+            ->add('prix')
+            ->add('owner')
+            ->add('owner')
+            ->add('gestionnaire')
+            ->add('agence')
+            ->add('description')
+            ->getForm();
 
-    
+        $form->handleRequest($request); 
 
+        if ($form->isSubMitted() && $form->isValid()) { 
+            $manager->persist($article); 
+            $manager->flush(); 
 
+            return $this->redirectToRoute('article_affichage', ['id' => $article->getId()]);
+        }
+
+        return $this->render('article/edit.html.twig', [
+            'formCreatArticle' => $form->createView(),
+        ]);
+    }
   
     public function contact(Request $request)
     {

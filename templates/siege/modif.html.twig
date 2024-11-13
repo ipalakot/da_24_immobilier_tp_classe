@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% form_theme formCreatDirecteur 'bootstrap_4_layout.html.twig'  %}
+{% form_theme formCreatSiege 'bootstrap_4_layout.html.twig'  %}
 
 
 {% block body %}
@@ -15,16 +15,16 @@
 	<div class="container">
 		<hr/>
 
-		{{ form_start(formCreatDirecteur) }}
+		{{ form_start(formCreatSiege) }}
 		   
-	{{ form_widget(formCreatDirecteur) }}
+            {{ form_widget(formCreatSiege) }}
 
             <button type="submit" class="btn btn-success">
                 Register !
             </button>
             </br></br></br>
             
-		{{ form_end(formCreatDirecteur) }}
+		{{ form_end(formCreatSiege) }}
 
 
 {% endblock %}
