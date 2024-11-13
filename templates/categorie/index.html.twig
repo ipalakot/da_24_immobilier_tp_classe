@@ -1,38 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-    categorie /Liste
-{% endblock %}
-
+{% block title %}Categorie index{% endblock %}
 
 {% block body %}
+    <h1>Categorie index</h1>
 
-<!-- Navigation-->
-	{% include 'tools/navigation.html.twig'  %}
-	<!-- Header-->
-	{% include 'tools/header.html.twig'  %}
-	<!-- Section-->
-	<!-- Main-->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>{{ categorie.id }}</td>
+                <td>{{ categorie.titre }}</td>
+                <td>{{ categorie.description }}</td>
+                <td>
+                    <a href="{{ path('app_categorie_show', {'id': categorie.id}) }}">show</a>
+                    <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-            
-
-
-                    {% for categorie in categories %}
-						<tr>
-							<td>{{ categorie.id }}</td>
-							<td>
-								{{ categorie.titre }}
-
-							</td>
-
-							</tr>
-                            <br><br>
-							{% else %}
-								<tr>
-									<td colspan="5">
-										Aucune categorie pour le momentdans cette application
-									</td>
-								</tr>
-					{% endfor %}
-
-{% endblock %}  
+    <a href="{{ path('app_categorie_new') }}">Create new</a>
+{% endblock %}
