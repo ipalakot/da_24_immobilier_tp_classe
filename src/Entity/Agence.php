@@ -32,6 +32,9 @@ class Agence
         $this->articles = new ArrayCollection();
     }
 
+    
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,4 +93,5 @@ class Agence
 
         return $this;
     }
-}
+
+    }

@@ -21,6 +21,7 @@
 					<th>Id</th>
 					<th>Titre</th>
 					<th>Categorie</th>
+					<th>Agence</th>
 					<th>Owner</th>
 					<th>Adresse</th>
 					<th>Type</th>
@@ -33,6 +34,7 @@
 					<tr>
 						<td>{{ article.id }}</td>
 						<td>{{ article.titre }}</td>
+						<td>{{ article.Agence.id }}</td>
 						<td>{{ article.Categorie.titre }}</td>
 						<td>{{ article.Client.prenom }}</td>
 						<td>{{ article.adresse }}</td>

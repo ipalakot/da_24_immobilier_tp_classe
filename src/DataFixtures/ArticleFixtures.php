@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Article;
 use App\Entity\Categorie;
 use App\Entity\Client;
+use App\Entity\Agence;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -22,8 +23,6 @@ class ArticleFixtures extends Fixture
         // $manager->persist($product);
         $faker = Faker\Factory::create('fr_FR');
 
-
-
         // Créer des occurences des Clients
         for ($k = 0; $k < 50; $k++) {
             $client = new Client();
@@ -33,13 +32,8 @@ class ArticleFixtures extends Fixture
                 ->setType($faker->sentence())
                 ->setPhoto($faker->sentence())
                 ->setDateNaissance($faker->dateTime())
-                ->setLogin($faker->login())
-                ->setEmail($faker->email())
-                ->setLogin($faker->login())
-                ->setLogin($faker->password());
-
-            $manager->persist($auteur);
-
+                ->setEmail($faker->email());
+            $manager->persist($client);
 
         // Creer 4 categories
         for ($i = 0; $i < 4; $i++) {
@@ -48,12 +42,20 @@ class ArticleFixtures extends Fixture
                         ->setDescription($faker->sentence(10));
             $manager->persist($categorie);
 
+        // Mise en place des Agnece 
+        for ($l=0; $l < 4; $l++) { 
+                $agence = new Agence();
+                $agence->setNumeroAgence($faker->randomNumber($nbDigits = NULL, $strict = false))
+                ->setAdresse($faker->streetAddress());
+            $manager->persist($agence);
+
         
-        for ($j = 0; $j < 10; $j++) {
+        for ($j = 0; $j < 5; $j++) {
             $article = new Article();
             $article->setTitre($faker->sentence())
                 ->setClient($client)
                 ->setCategorie($categorie )
+                ->setAgence($agence)
                 ->setAdresse($faker->streetAddress())
                 ->setImages($faker->imageUrl($width = 400, $height = 200))
                 ->setType($faker->numberBetween(1, 6))
@@ -61,13 +63,14 @@ class ArticleFixtures extends Fixture
                 ->setPrix($faker->numberBetween(200, 300))
                 ->setOwner($faker->sentence())
                 ->setDescription($faker->paragraph($nbSentences = 10, $variableNbSentences = true))
-                ->setGestionnaire($faker->sentence())
-                ->setAgence($faker->sentence());
+                ->setGestionnaire($faker->sentence());
+                
 
             $manager->persist($article);
         }
     }
 }
+        }
 
         $manager->flush();
 

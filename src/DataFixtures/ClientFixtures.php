@@ -25,9 +25,9 @@ class ClientFixtures extends Fixture
                 ->setType(array_rand($types))
                 ->setPhoto('Photo')
                 ->setDateNaissance($faker->dateTime($max = 'now', $timezone = null))
-                ->setLogin($faker->sentence())
+
                 ->setEmail($faker->email())
-                ->setPassword($faker->password())
+
             ;
             $manager->persist($client);
         }

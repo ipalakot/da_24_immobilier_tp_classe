@@ -34,14 +34,9 @@ class Client
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dateNaissance = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $login = null;
 
     #[ORM\Column(length: 255)]
     private ?string $email = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $password = null;
 
     /**
      * @var Collection<int, Article>
@@ -131,18 +126,6 @@ class Client
         return $this;
     }
 
-    public function getLogin(): ?string
-    {
-        return $this->login;
-    }
-
-    public function setLogin(string $login): static
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
     public function getEmail(): ?string
     {
         return $this->email;
@@ -155,17 +138,7 @@ class Client
         return $this;
     }
 
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): static
-    {
-        $this->password = $password;
-
-        return $this;
-    }
+   
 
     /**
      * @return Collection<int, Article>
