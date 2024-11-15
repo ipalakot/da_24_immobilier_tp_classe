@@ -1,0 +1,169 @@
+@startuml agence
+
+left to right direction
+
+class Siege {
+    -directeur : Directeur
+    -capital : float
+    -nom : string
+    -adresse : string
+
+    +getDirecteur() : directeur
+    +getCapital() : float
+    +getNom() : string
+    +getAdresse() : string
+
+    +setDirecteur(Directeur)
+    +setCapital(float)
+    +setNom(string)
+    +setAdresse(string)
+}
+
+class Agence {
+    -numeroagence : int
+    -adresse : string
+
+    +getNumeroagence() : int
+    +getAdresse() : string
+
+    +setNumeroagence(int)
+    +setAdresse(string)
+}
+
+class Directeur {
+    -nom : string
+    -prenom : string
+    -revenue : float
+
+    +getNom() : string
+    +getPrenom() : string
+    +getRevenue() : float
+
+    +setNom(string)
+    +setPrenom(string)
+    +setRevenue(float)
+}
+
+class Employe {
+    -nom : string
+    -prenom : string
+    -dateembauche : string
+
+    +getNom() : string
+    +getPrenom() : string
+    +getDateembauche() : string
+
+    +setNom(string)
+    +setPrenom(string)
+    +setDateembauche(string)
+}
+
+class Client {
+    -nom : string
+    -prenom : string
+    -adresse : string
+    -type : array
+    -photo : blob
+    -datenaissance : string
+    -login : string
+    -email : string
+    -password : string
+
+    +getNom() : string
+    +getPrenom() : string
+    +getAdresse() : string
+    +getType() : array
+    +getPhoto() : blob
+    +getDatenaissance() : string
+    +getLogin() : string
+    +getEmail() : string
+    +getPassword() : string
+
+    +setNom(string)
+    +setPrenom(string)
+    +setAdresse(string)
+    +setType(array)
+    +setPhoto(blob)
+    +setDatenaissance(string)
+    +setLogin(string)
+    +setEmail(string)
+    +setPassword(string)
+}
+
+class Proprietaire {
+    -nom : string
+    -prenom : string
+    -compteLoyerLocataire : int
+    -historiqueCompteCredit : float
+
+    +getNom() : string 
+    +getPrenom() : string
+    +getCompteLoyerLocataire() : int
+    +getHistoriqueCharges() : float
+
+    +setNom(string)
+    +setPrenom(string)
+    +setCompteLoyerLocataire(int)
+    +setHistoriqueCompteCredit(float) 
+}
+
+class Locataire {
+    -nom : string
+    -prenom : string
+    -loyerFraisCharges : float
+    -historiqueCharges : float
+    -numeroCompte : int
+
+    -getNom() : string 
+    -getPrenom() : string
+    +getLoyerFraisCharges() : float
+    +getHistoriqueCharges() : float
+    +getNumeroCompte() : int
+
+    +setNom(string)
+    +setPrenom(string)
+    +setLoyerFraisCharges(float)
+    +setHistoriqueCharges(float)
+    +setNumeroCompte(int)
+}
+
+class Bien {
+    -titre : array
+    -description : string
+    -surface : float
+    -localité : string
+    -type : array
+    -nombrechambre : int
+    -nombreetage : int
+    -prix : float
+
+    +getTitre() : array
+    +getDescription() : string
+    +getSurface() : float
+    +getLocalité() : string
+    +getType() : array
+    +getNombrechambre() : int
+    +getNombreetage() : int
+    +getPrix() : float
+
+    +setTitre(array)
+    +setDescription(string)
+    +setSurface(float)
+    +setLocalité(string)
+    +setType(array)
+    +setNombrechambre(int)
+    +setNombreetage(int)
+    +setPrix(float)
+}
+
+Employe <|-- Client
+
+Directeur "1" -- "1" Siege : gérer
+Siege "*" -- Agence : contient
+Agence "1" -- "0..*" Employe : employer
+Agence "1" -- "0..*" Client : avoir
+Client "1" -- "0..*" Bien : possède
+
+Proprietaire "1" -- "1" Agence : affilier
+Locataire "1" -- "1" Agence : louer
+@enduml

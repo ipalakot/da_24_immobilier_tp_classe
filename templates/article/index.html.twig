@@ -20,6 +20,7 @@
 				<tr>
 					<th>Id</th>
 					<th>Titre</th>
+					<th>Categorie</th>
 					<th>Adresse</th>
 					<th>Type</th>
 					<th>Surface</th>
@@ -31,19 +32,12 @@
 					<tr>
 						<td>{{ article.id }}</td>
 						<td>{{ article.titre }}</td>
+						<td>{{ article.Categorie.titre }}</td>
 						<td>{{ article.adresse }}</td>
-
-						<td>
-							{{ article.type }}</td>
-						<td>{{ article.surface }}
-							m2</td>
-						<td>{{ article.prix }}€
-						</td>
-						<td><a href="{{ path('article_modif', {'id': article.id}) }}" class="btn btn-primary">Modifier</a>
-						</td>
-						
-		
-
+						<td>{{ article.type }}</td>
+						<td>{{ article.surface }}m2</td>
+						<td>{{ article.prix }}€</td>
+						<td><a href="{{ path('article_modif', {'id': article.id}) }}" class="btn btn-primary">Modifier</a></td>
 					</tr>
 				{% else %}
 					<tr>

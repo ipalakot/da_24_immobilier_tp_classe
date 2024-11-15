@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ClientRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -40,6 +42,17 @@ class Client
 
     #[ORM\Column(length: 255)]
     private ?string $password = null;
+
+    /**
+     * @var Collection<int, Article>
+     */
+    #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'client')]
+    private Collection $articles;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -150,6 +163,36 @@ class Client
     public function setPassword(string $password): static
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Article>
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): static
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles->add($article);
+            $article->setClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): static
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getClient() === $this) {
+                $article->setClient(null);
+            }
+        }
 
         return $this;
     }
