@@ -21,6 +21,7 @@
 					<th>Id</th>
 					<th>Titre</th>
 					<th>Categorie</th>
+					<th>Owner</th>
 					<th>Adresse</th>
 					<th>Type</th>
 					<th>Surface</th>
@@ -33,6 +34,7 @@
 						<td>{{ article.id }}</td>
 						<td>{{ article.titre }}</td>
 						<td>{{ article.Categorie.titre }}</td>
+						<td>{{ article.Client.prenom }}</td>
 						<td>{{ article.adresse }}</td>
 						<td>{{ article.type }}</td>
 						<td>{{ article.surface }}m2</td>
