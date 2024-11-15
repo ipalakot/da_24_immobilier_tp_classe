@@ -38,9 +38,6 @@ class Article
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $gestionnaire = null;
-
     #[ORM\ManyToOne(inversedBy: 'articles')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Categorie $categorie = null;
@@ -52,6 +49,10 @@ class Article
     #[ORM\ManyToOne(inversedBy: 'articles')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Agence $agence = null;
+
+    #[ORM\ManyToOne(inversedBy: 'articles')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Employe $employe = null;
 
     public function getId(): ?int
     {
@@ -154,19 +155,7 @@ class Article
         return $this;
     }
 
-    public function getGestionnaire(): ?string
-    {
-        return $this->gestionnaire;
-    }
-
-    public function setGestionnaire(string $gestionnaire): static
-    {
-        $this->gestionnaire = $gestionnaire;
-
-        return $this;
-    }
-
-    
+     
 
     public function getCategorie(): ?Categorie
     {
@@ -200,6 +189,18 @@ class Article
     public function setAgence(?Agence $agence): static
     {
         $this->agence = $agence;
+
+        return $this;
+    }
+
+    public function getEmploye(): ?Employe
+    {
+        return $this->employe;
+    }
+
+    public function setEmploye(?Employe $employe): static
+    {
+        $this->employe = $employe;
 
         return $this;
     }

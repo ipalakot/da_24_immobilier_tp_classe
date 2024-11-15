@@ -23,6 +23,8 @@
 					<th>Categorie</th>
 					<th>Agence</th>
 					<th>Owner</th>
+					<th>Gestionnaire</th>
+
 					<th>Adresse</th>
 					<th>Type</th>
 					<th>Surface</th>
@@ -36,7 +38,8 @@
 						<td>{{ article.titre }}</td>
 						<td>{{ article.Agence.id }}</td>
 						<td>{{ article.Categorie.titre }}</td>
-						<td>{{ article.Client.prenom }}</td>
+						<td>{{ article.Client.nom }}</td>
+						<td>{{ article.Employe.nom }}</td>
 						<td>{{ article.adresse }}</td>
 						<td>{{ article.type }}</td>
 						<td>{{ article.surface }}m2</td>
