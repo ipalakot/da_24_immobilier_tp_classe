@@ -13,6 +13,12 @@ class ClientFixtures extends Fixture
     {
         $faker = Factory::create('fr_FR');
 
+        for ($i=0; $i < 50; $i++) { 
+            $employe = new Employe();
+            $employe->setNom($faker->lastName());
+            $manager->persist($employe);
+
+        
         $types = [
             'Locataire',
             'Propriétaire',
