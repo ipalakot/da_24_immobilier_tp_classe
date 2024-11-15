@@ -44,6 +44,9 @@ class Client
     #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'client')]
     private Collection $articles;
 
+    #[ORM\ManyToOne(inversedBy: 'clients')]
+    private ?Employe $employe = null;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -166,6 +169,18 @@ class Client
                 $article->setClient(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEmploye(): ?Employe
+    {
+        return $this->employe;
+    }
+
+    public function setEmploye(?Employe $employe): static
+    {
+        $this->employe = $employe;
 
         return $this;
     }
