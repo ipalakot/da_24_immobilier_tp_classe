@@ -27,9 +27,24 @@ class Agence
     #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'agence')]
     private Collection $articles;
 
+    /**
+     * @var Collection<int, Client>
+     */
+    #[ORM\OneToMany(targetEntity: Client::class, mappedBy: 'agence')]
+    private Collection $client;
+
+    #[ORM\ManyToOne(inversedBy: 'agences')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Directeur $directeur = null;
+
+    #[ORM\ManyToOne(inversedBy: 'agences')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Siege $siege = null;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->client = new ArrayCollection();
     }
 
     
@@ -90,6 +105,60 @@ class Agence
                 $article->setAgence(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Client>
+     */
+    public function getClient(): Collection
+    {
+        return $this->client;
+    }
+
+    public function addClient(Client $client): static
+    {
+        if (!$this->client->contains($client)) {
+            $this->client->add($client);
+            $client->setAgence($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClient(Client $client): static
+    {
+        if ($this->client->removeElement($client)) {
+            // set the owning side to null (unless already changed)
+            if ($client->getAgence() === $this) {
+                $client->setAgence(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getDirecteur(): ?Directeur
+    {
+        return $this->directeur;
+    }
+
+    public function setDirecteur(?Directeur $directeur): static
+    {
+        $this->directeur = $directeur;
+
+        return $this;
+    }
+
+    public function getSiege(): ?Siege
+    {
+        return $this->siege;
+    }
+
+    public function setSiege(?Siege $siege): static
+    {
+        $this->siege = $siege;
 
         return $this;
     }

@@ -47,6 +47,10 @@ class Client
     #[ORM\ManyToOne(inversedBy: 'clients')]
     private ?Employe $employe = null;
 
+    #[ORM\ManyToOne(inversedBy: 'client')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Agence $agence = null;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -181,6 +185,18 @@ class Client
     public function setEmploye(?Employe $employe): static
     {
         $this->employe = $employe;
+
+        return $this;
+    }
+
+    public function getAgence(): ?Agence
+    {
+        return $this->agence;
+    }
+
+    public function setAgence(?Agence $agence): static
+    {
+        $this->agence = $agence;
 
         return $this;
     }

@@ -36,7 +36,7 @@ class ClientFixtures extends Fixture
 
             ;
             $manager->persist($client);
-        }
+        }}
         // $product = new Product();
         // $manager->persist($product);
 

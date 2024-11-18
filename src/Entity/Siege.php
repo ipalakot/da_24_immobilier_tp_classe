@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SiegeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SiegeRepository::class)]
@@ -24,6 +26,17 @@ class Siege
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Directeur $directeur = null;
+
+    /**
+     * @var Collection<int, Agence>
+     */
+    #[ORM\OneToMany(targetEntity: Agence::class, mappedBy: 'siege')]
+    private Collection $agences;
+
+    public function __construct()
+    {
+        $this->agences = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -74,6 +87,36 @@ class Siege
     public function setDirecteur(?Directeur $directeur): static
     {
         $this->directeur = $directeur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Agence>
+     */
+    public function getAgences(): Collection
+    {
+        return $this->agences;
+    }
+
+    public function addAgence(Agence $agence): static
+    {
+        if (!$this->agences->contains($agence)) {
+            $this->agences->add($agence);
+            $agence->setSiege($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAgence(Agence $agence): static
+    {
+        if ($this->agences->removeElement($agence)) {
+            // set the owning side to null (unless already changed)
+            if ($agence->getSiege() === $this) {
+                $agence->setSiege(null);
+            }
+        }
 
         return $this;
     }

@@ -42,6 +42,10 @@ class Employe
     #[ORM\OneToMany(targetEntity: Client::class, mappedBy: 'employe')]
     private Collection $clients;
 
+    #[ORM\ManyToOne(inversedBy: 'employes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Directeur $directeur = null;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -169,6 +173,18 @@ class Employe
                 $client->setEmploye(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDirecteur(): ?Directeur
+    {
+        return $this->directeur;
+    }
+
+    public function setDirecteur(?Directeur $directeur): static
+    {
+        $this->directeur = $directeur;
 
         return $this;
     }
