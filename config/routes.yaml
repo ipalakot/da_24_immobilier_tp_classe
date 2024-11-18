@@ -23,6 +23,20 @@ about:
     #host: localhost
     schemes: [https,http]
 
+categorienouveau:
+    path: /categorie/nouveau
+    controller: App\Controller\CategorieController::nouvcateg
+    #methods: [GET, POST]
+    #host: localhost
+    #schemes: [https,http]
+
+clientnouveau:
+    path: /client/nouveau
+    controller: App\Controller\ClientController::nouvClient
+    methods: [GET, POST]
+    #host: localhost
+    #schemes: [https,http]
+
 article_location:
     path: /location
     controller: App\Controller\ArticleController::location

@@ -3,33 +3,26 @@
 namespace App\Form;
 
 use App\Entity\Agence;
-use App\Entity\Client;
-use App\Entity\Employe;
+use App\Entity\Directeur;
+use App\Entity\Siege;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ClientType extends AbstractType
+class AgenceType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
+            ->add('numeroAgence')
             ->add('adresse')
-            ->add('type')
-            ->add('photo')
-            ->add('dateNaissance', null, [
-                'widget' => 'single_text',
-            ])
-            ->add('email')
-            ->add('employe', EntityType::class, [
-                'class' => Employe::class,
+            ->add('directeur', EntityType::class, [
+                'class' => Directeur::class,
                 'choice_label' => 'id',
             ])
-            ->add('agence', EntityType::class, [
-                'class' => Agence::class,
+            ->add('siege', EntityType::class, [
+                'class' => Siege::class,
                 'choice_label' => 'id',
             ])
         ;
@@ -38,7 +31,7 @@ class ClientType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Client::class,
+            'data_class' => Agence::class,
         ]);
     }
 }

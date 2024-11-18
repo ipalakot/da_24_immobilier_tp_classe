@@ -22,8 +22,9 @@ final class CategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_categorie_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    //#[Route('/categorie/nouveau', name: 'categorie_nouveau')]
+    //#[Route('/categorie/nouvcat', name: 'acategorie_new')]
+    public function nouvcateg(Request $request, EntityManagerInterface $entityManager): Response
     {
         $categorie = new Categorie();
         $form = $this->createForm(CategorieType::class, $categorie);

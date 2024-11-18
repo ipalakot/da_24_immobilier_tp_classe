@@ -2,31 +2,21 @@
 
 namespace App\Form;
 
-use App\Entity\Agence;
 use App\Entity\Directeur;
-use App\Entity\Employe;
+use App\Entity\Siege;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class EmployeType extends AbstractType
+class SiegeFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('capital')
             ->add('nom')
-            ->add('prenom')
-            ->add('createdAt', null, [
-                'widget' => 'single_text',
-            ])
-            ->add('updatedAt', null, [
-                'widget' => 'single_text',
-            ])
-            ->add('agence', EntityType::class, [
-                'class' => Agence::class,
-                'choice_label' => 'id',
-            ])
+            ->add('adresse')
             ->add('directeur', EntityType::class, [
                 'class' => Directeur::class,
                 'choice_label' => 'id',
@@ -37,7 +27,7 @@ class EmployeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Employe::class,
+            'data_class' => Siege::class,
         ]);
     }
 }

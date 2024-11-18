@@ -6,6 +6,8 @@ use App\Entity\Article;
 use App\Entity\Client;
 
 use App\Repository\ArticleRepository;
+use App\Form\ArticleType;
+
 
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -32,9 +34,10 @@ class ArticleController extends AbstractController
     public function ajoutArticle(Request $request, EntityManagerInterface $manager)
     {
         $article = new Article();
-        $form = $this->createFormBuilder($article)
-        
-        // SIMPLIFICATION DE LA TACHE
+        //$form = $this->createFormBuilder($article)
+        $form = $this->createForm(ArticleType::class, $article);
+
+       /* // Formulaire à l'interieur du controleur
             ->add('titre')
             ->add('adresse')
             ->add('images')
@@ -46,7 +49,8 @@ class ArticleController extends AbstractController
             ->add('gestionnaire')
             ->add('agence')
             ->add('description')
-            ->getForm();
+
+            ->getForm(); */
 
         $form->handleRequest($request); // Le Request
 
