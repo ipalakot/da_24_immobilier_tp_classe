@@ -31,9 +31,9 @@
                 <td>{{ client.type }}</td>
                 <td>{{ client.photo }}</td>
                 <td>{{ client.dateNaissance ? client.dateNaissance|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ client.login }}</td>
+               
                 <td>{{ client.email }}</td>
-                <td>{{ client.password }}</td>
+                
                 <td>
                     <a href="{{ path('app_client_show', {'id': client.id}) }}">show</a>
                     <a href="{{ path('app_client_edit', {'id': client.id}) }}">edit</a>
@@ -41,11 +41,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="11">no records found</td>
+                <td colspan="11">Pas de Client pour le moment</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_client_new') }}">Create new</a>
+    <a href="{{ path('app_client_new') }}">Creer un Nouveau Client</a>
 {% endblock %}

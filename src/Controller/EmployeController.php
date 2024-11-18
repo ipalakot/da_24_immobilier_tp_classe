@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Employe;
-use App\Form\EmployeType;
+use App\Form\Employe1Type;
 use App\Repository\EmployeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,11 +22,11 @@ final class EmployeController extends AbstractController
         ]);
     }
 
-    #[Route('/employe/nouveau', name: 'app_employe_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_employe_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $employe = new Employe();
-        $form = $this->createForm(EmployeType::class, $employe);
+        $form = $this->createForm(Employe1Type::class, $employe);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -38,7 +38,7 @@ final class EmployeController extends AbstractController
 
         return $this->render('employe/new.html.twig', [
             'employe' => $employe,
-            'formEmploye' => $form,
+            'form' => $form,
         ]);
     }
 
@@ -48,5 +48,34 @@ final class EmployeController extends AbstractController
         return $this->render('employe/show.html.twig', [
             'employe' => $employe,
         ]);
+    }
+
+    #[Route('/{id}/edit', name: 'app_employe_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, Employe $employe, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(Employe1Type::class, $employe);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_employe_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('employe/edit.html.twig', [
+            'employe' => $employe,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/{id}', name: 'app_employe_delete', methods: ['POST'])]
+    public function delete(Request $request, Employe $employe, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$employe->getId(), $request->getPayload()->getString('_token'))) {
+            $entityManager->remove($employe);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('app_employe_index', [], Response::HTTP_SEE_OTHER);
     }
 }
