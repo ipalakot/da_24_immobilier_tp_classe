@@ -22,7 +22,7 @@ final class AgenceController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_agence_new', methods: ['GET', 'POST'])]
+    #[Route('/nouveau', name: 'app_agence_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $agence = new Agence();

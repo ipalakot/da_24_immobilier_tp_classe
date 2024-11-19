@@ -22,8 +22,7 @@ final class CategorieController extends AbstractController
         ]);
     }
 
-    //#[Route('/categorie/nouveau', name: 'categorie_nouveau')]
-    //#[Route('/categorie/nouvcat', name: 'acategorie_new')]
+    #[Route('/nouveau', name: 'categorie_nouveau')]
     public function nouvcateg(Request $request, EntityManagerInterface $entityManager): Response
     {
         $categorie = new Categorie();

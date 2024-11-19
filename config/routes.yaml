@@ -23,9 +23,9 @@ about:
     #host: localhost
     schemes: [https,http]
 
-categorienouveau:
-    path: /categorie/nouveau
-    controller: App\Controller\CategorieController::nouvcateg
+#categorienouveau:
+#    path: /categorie/nouveau
+#    controller: App\Controller\CategorieController::nouvcateg
     #methods: [GET, POST]
     #host: localhost
     #schemes: [https,http]
