@@ -20,29 +20,50 @@ class ArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titre', TextType::class, [])
-            ->add('adresse', TextareaType::class)
-            ->add('images')
+            ->add('titre', TextType::class, [
+                'label' => 'Intitulé',
+                'required'   => true,
+                'disabled'=> true, 
+                'empty_data' => 'Sans Reference',
+            ])
+
+            ->add('adresse', TextareaType::class, [
+                'label' => 'Adresse',
+                'required'   => true,
+                'disabled'=> false, 
+               
+            ])
+            ->add('images',TextType::class, [
+                'label' => 'Intitulé',
+                'required'   => false,
+                'disabled'=> true, 
+                'empty_data' => 'https://img.leboncoin.fr/api/v1/lbcpb1/images/04/de/81/04de81467bcb4f5ec2379f7289bc752a63bcd9e0.jpg?rule=classified-1200x800-webp',
+                ])
+
             ->add('type', TextType::class, [])
             ->add('surface', IntegerType::class, [])
             ->add('prix', IntegerType::class, [])
-            ->add('owner', TextType::class, [])
-            ->add('description', TextareaType::class)
+            ->add('owner', TextType::class, [
+                'label' => 'Gestionnaire'])
+            ->add('description', TextareaType::class, [
+                'label' => 'Description'])
             ->add('categorie', EntityType::class, [
                 'class' => Categorie::class,
-                'choice_label' => 'id',
+                'choice_label' => 'titre',
             ])
             ->add('client', EntityType::class, [
                 'class' => Client::class,
-                'choice_label' => 'id',
+                'choice_label' => 'nom',
+                'label'=>"Proprio"
             ])
             ->add('agence', EntityType::class, [
                 'class' => Agence::class,
-                'choice_label' => 'id',
+                'choice_label' => 'numeroAgence',
             ])
             ->add('employe', EntityType::class, [
                 'class' => Employe::class,
                 'choice_label' => 'id',
+                'label'=>"Gestionnaire"
             ])
         ;
     }
