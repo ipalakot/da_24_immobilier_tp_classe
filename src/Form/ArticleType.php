@@ -3,28 +3,31 @@
 namespace App\Form;
 
 use App\Entity\Agence;
-use App\Entity\Article;
-use App\Entity\Categorie;
 use App\Entity\Client;
+use App\Entity\Article;
 use App\Entity\Employe;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Categorie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titre')
-            ->add('adresse')
+            ->add('titre', TextType::class, [])
+            ->add('adresse', TextareaType::class)
             ->add('images')
-            ->add('type')
-            ->add('surface')
-            ->add('prix')
-            ->add('owner')
-            ->add('description')
+            ->add('type', TextType::class, [])
+            ->add('surface', IntegerType::class, [])
+            ->add('prix', IntegerType::class, [])
+            ->add('owner', TextType::class, [])
+            ->add('description', TextareaType::class)
             ->add('categorie', EntityType::class, [
                 'class' => Categorie::class,
                 'choice_label' => 'id',
