@@ -12,6 +12,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
@@ -40,7 +41,16 @@ class ArticleType extends AbstractType
                 'empty_data' => 'https://img.leboncoin.fr/api/v1/lbcpb1/images/04/de/81/04de81467bcb4f5ec2379f7289bc752a63bcd9e0.jpg?rule=classified-1200x800-webp',
                 ])
 
-            ->add('type', TextType::class, [])
+            ->add('type', ChoiceType::class, [
+                'choices'  => [
+                    'F1' => '1',
+                    'F2' => '2',
+                    'F3' => '3',
+                    'F4' => '4',
+                    'F5' => '5',
+                ],
+                ])
+
             ->add('surface', IntegerType::class, [])
             ->add('prix', IntegerType::class, [])
             ->add('owner', TextType::class, [

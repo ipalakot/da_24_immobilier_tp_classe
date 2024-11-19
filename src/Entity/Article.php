@@ -2,9 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ArticleRepository;
+use Assert\NotBlank;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ArticleRepository;
+
+use Symfony\Component\Validator\Constraints as Assert;
+//use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
@@ -15,6 +19,13 @@ class Article
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\Length(
+        min: 5,
+        max: 50,
+        minMessage: 'taille minimale est  {{ limit }} characters',
+        maxMessage: 'la taille maximale est de  {{ limit }} characters',
+    )]
     private ?string $titre = null;
 
     #[ORM\Column(type: Types::TEXT)]
