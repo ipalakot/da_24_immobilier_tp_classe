@@ -24,7 +24,7 @@ class ArticleType extends AbstractType
             ->add('titre', TextType::class, [
                 'label' => 'Intitulé',
                 'required'   => true,
-                'disabled'=> true, 
+                'disabled'=> false, 
                 'empty_data' => 'Sans Reference',
             ])
 
@@ -35,7 +35,7 @@ class ArticleType extends AbstractType
                
             ])
             ->add('images',TextType::class, [
-                'label' => 'Intitulé',
+                'label' => 'Photo',
                 'required'   => false,
                 'disabled'=> true, 
                 'empty_data' => 'https://img.leboncoin.fr/api/v1/lbcpb1/images/04/de/81/04de81467bcb4f5ec2379f7289bc752a63bcd9e0.jpg?rule=classified-1200x800-webp',

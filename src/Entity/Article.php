@@ -29,21 +29,27 @@ class Article
     private ?string $titre = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
     private ?string $adresse = null;
 
     #[ORM\Column(length: 255)]
+  //  #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
     private ?string $images = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
     private ?string $type = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
     private ?float $surface = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
     private ?int $prix = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
     private ?string $owner = null;
 
     #[ORM\Column(type: Types::TEXT)]

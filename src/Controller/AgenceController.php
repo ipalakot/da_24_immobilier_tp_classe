@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Agence;
-use App\Form\Agence1Type;
+use App\Form\AgenceType;
 use App\Repository\AgenceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +26,7 @@ final class AgenceController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $agence = new Agence();
-        $form = $this->createForm(Agence1Type::class, $agence);
+        $form = $this->createForm(AgenceType::class, $agence);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,7 +53,7 @@ final class AgenceController extends AbstractController
     #[Route('/{id}/edit', name: 'app_agence_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Agence $agence, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(Agence1Type::class, $agence);
+        $form = $this->createForm(AgenceType::class, $agence);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

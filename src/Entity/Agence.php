@@ -16,9 +16,15 @@ class Agence
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\Type(
+        type: 'integer',
+        message: 'The value {{ value }} is not a valid {{ type }}.',
+    )]
     private ?float $numeroAgence = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
     private ?string $adresse = null;
 
     /**
@@ -48,8 +54,6 @@ class Agence
     }
 
     
-
-
     public function getId(): ?int
     {
         return $this->id;
