@@ -80,7 +80,7 @@ class ArticleController extends AbstractController
     #[Route('/{id}', name: 'article_affichage', methods: ['GET'])]
     public function affichage($id, ArticleRepository $articlerepo ): Response
     {
-        $articles = $articlerepo->find($id);
+        $articles = $articlerepo->find($id); //find($id)
         return $this->render('article/affichage.html.twig', [
             'controller_name' => 'ArticleController',
             'article'=> $articles,
@@ -90,7 +90,7 @@ class ArticleController extends AbstractController
     #[Route('/articles/liste', name: 'article_affichage_liste', methods: ['GET'])]
     public function affichageListe(ArticleRepository $artrepo)
     {
-        $articles = $artrepo->findOneBy(array('titre' => 'John Doe'));
+        $articles = $artrepo->findOneBy(array('titre' => 'John Doe')); //findOneBy()
         return $this->render(
             'article/affichage.html.twig', [
             'article' => $articles,
@@ -101,8 +101,8 @@ class ArticleController extends AbstractController
     #[Route('/articles/liste2', name: 'article_affichage_liste', methods: ['GET'])]
     public function affichageListe2(ArticleRepository $artrepo)
     {
-        $articles = $artrepo->findOneBy(
-          ['titre' => 'John Doe', 'id' => 'ASC'] );
+        $articles = $artrepo->findBy(
+          ['titre' => 'John Doe', 'id' => 'ASC'] );//findBy()
 
         return $this->render(
             'article/affichage.html.twig', [
@@ -112,6 +112,17 @@ class ArticleController extends AbstractController
 
     }
 
+    
+    #[Route('/articles/liste3', name: 'article_affichage_liste', methods: ['GET'])]
+    public function findByTitre(ArticleRepository $artrepo)
+    {
+        $articles = $artrepo->findByTitre(array('maison à louer'));
+        return $this->render(
+            'article/affichage.html.twig', [
+            'articles' => $articles,
+            ]
+        );
+    }
 
 
     #[Route('/modif/{id}', name: 'article_modif')]
