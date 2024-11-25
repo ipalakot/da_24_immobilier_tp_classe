@@ -16,12 +16,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-//#[Route('/article', name: '')]
+#[Route('/articles', name: '')]
 class ArticleController extends AbstractController
 {
        
     
-    #[Route('/articles', name: 'article_index')]
+    #[Route('/', name: 'article_index')]
     public function index(ArticleRepository $articleRepository): Response
     {
         return $this->render('article/index.html.twig', [
@@ -30,7 +30,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/articles/nouveau', name: 'article_nouveau')]
+    #[Route('/nouveau', name: 'article_nouveau')]
     public function ajoutArticle(Request $request, EntityManagerInterface $manager)
     {
         $article = new Article();
@@ -67,17 +67,48 @@ class ArticleController extends AbstractController
             'formCreatArticle' => $form->createView(),
         ]);
     }
-    
-    #[Route('/articles/{id}', name: 'article_affichage', methods: ['GET'])]
+    /*
+    #[Route('/{id}', name: 'article_affichage', methods: ['GET'])]
     public function affichage(Article $article): Response
     {
         return $this->render('article/affichage.html.twig', [
             'controller_name' => 'ArticleController',
             'article'=> $article,
         ]);
+    } */
+
+    #[Route('/{id}', name: 'article_affichage', methods: ['GET'])]
+    public function affichage($id, ArticleRepository $articlerepo ): Response
+    {
+        $articles = $articlerepo->find($id);
+        return $this->render('article/affichage.html.twig', [
+            'controller_name' => 'ArticleController',
+            'article'=> $articles,
+        ]);
     }
 
-    #[Route('/articles/modif/{id}', name: 'article_modif')]
+    
+    /**
+     * Affiche en details d'un Bien locatif
+     * @param $id
+     * @param LocationRepository $immorepo
+     * @Route("/articles2/{id}", name="location.affich")
+    */
+   /* public function affichage2($id, ArticleRepository $articlerepo ) 
+    {
+        // Appel à Doctrine & au repository
+        // $repo = $this->getDoctrine()->getRepository(Location::class);
+        //Recherche de l'article avec son identifaint
+        $articles = $articlerepo->find($id);
+        // Passage à Twig de tableau avec des variables à utiliser
+        return $this->render('article/affichage.html.twig', [
+            'controller_name' => 'articleController',
+            'articles' => $articles
+        ]);
+    }*/
+
+
+    #[Route('/modif/{id}', name: 'article_modif')]
     public function modifArticle(Request $request, Article $article, EntityManagerInterface $manager)
     {
         $form = $this->createFormBuilder($article)
@@ -180,4 +211,5 @@ class ArticleController extends AbstractController
             'controller_name' => 'ArticleController',
         ]);
     }
+
 }
