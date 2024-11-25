@@ -87,8 +87,8 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/articleaffindOne/test', name: 'article_affichage3', methods: ['GET'])]
-    public function getArticleTitle(ArticleRepository $artrepo)
+    #[Route('/articles/liste', name: 'article_affichage_liste', methods: ['GET'])]
+    public function affichageListe(ArticleRepository $artrepo)
     {
         $articles = $artrepo->findOneBy(array('titre' => 'John Doe'));
         return $this->render(
@@ -97,6 +97,21 @@ class ArticleController extends AbstractController
             ]
         );
     }
+
+    #[Route('/articles/liste2', name: 'article_affichage_liste', methods: ['GET'])]
+    public function affichageListe2(ArticleRepository $artrepo)
+    {
+        $articles = $artrepo->findOneBy(
+          ['titre' => 'John Doe', 'id' => 'ASC'] );
+
+        return $this->render(
+            'article/affichage.html.twig', [
+            'article' => $articles,
+            ]
+        );
+
+    }
+
 
 
     #[Route('/modif/{id}', name: 'article_modif')]
