@@ -87,25 +87,16 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    
-    /**
-     * Affiche en details d'un Bien locatif
-     * @param $id
-     * @param LocationRepository $immorepo
-     * @Route("/articles2/{id}", name="location.affich")
-    */
-   /* public function affichage2($id, ArticleRepository $articlerepo ) 
+    #[Route('/articleaffindOne/test', name: 'article_affichage3', methods: ['GET'])]
+    public function getArticleTitle(ArticleRepository $artrepo)
     {
-        // Appel à Doctrine & au repository
-        // $repo = $this->getDoctrine()->getRepository(Location::class);
-        //Recherche de l'article avec son identifaint
-        $articles = $articlerepo->find($id);
-        // Passage à Twig de tableau avec des variables à utiliser
-        return $this->render('article/affichage.html.twig', [
-            'controller_name' => 'articleController',
-            'articles' => $articles
-        ]);
-    }*/
+        $articles = $artrepo->findOneBy(array('titre' => 'John Doe'));
+        return $this->render(
+            'article/affichage.html.twig', [
+            'article' => $articles,
+            ]
+        );
+    }
 
 
     #[Route('/modif/{id}', name: 'article_modif')]
@@ -211,5 +202,7 @@ class ArticleController extends AbstractController
             'controller_name' => 'ArticleController',
         ]);
     }
+
+    
 
 }
