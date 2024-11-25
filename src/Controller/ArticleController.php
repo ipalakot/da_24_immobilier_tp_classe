@@ -3,30 +3,24 @@
 namespace App\Controller;
 
 use App\Entity\Article;
-use App\Entity\Client;
-
-use App\Repository\ArticleRepository;
 use App\Form\ArticleType;
-
-
+use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
-
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 //#[Route('/article', name: '')]
 class ArticleController extends AbstractController
 {
-       
-    
+
     #[Route('/articles', name: 'article_index')]
     public function index(ArticleRepository $articleRepository): Response
     {
         return $this->render('article/index.html.twig', [
             'controller_name' => 'ArticleController',
-            'articles'=> $articleRepository->findAll(),
+            'articles' => $articleRepository->findAll(),
         ]);
     }
 
@@ -37,20 +31,20 @@ class ArticleController extends AbstractController
         //$form = $this->createFormBuilder($article)
         $form = $this->createForm(ArticleType::class, $article);
 
-       /* // Formulaire à l'interieur du controleur
-            ->add('titre')
-            ->add('adresse')
-            ->add('images')
-            ->add('type')
-            ->add('surface')
-            ->add('prix')
-            ->add('owner')
-            ->add('owner')
-            ->add('gestionnaire')
-            ->add('agence')
-            ->add('description')
+        /* // Formulaire à l'interieur du controleur
+        ->add('titre')
+        ->add('adresse')
+        ->add('images')
+        ->add('type')
+        ->add('surface')
+        ->add('prix')
+        ->add('owner')
+        ->add('owner')
+        ->add('gestionnaire')
+        ->add('agence')
+        ->add('description')
 
-            ->getForm(); */
+        ->getForm(); */
 
         $form->handleRequest($request); // Le Request
 
@@ -67,38 +61,39 @@ class ArticleController extends AbstractController
             'formCreatArticle' => $form->createView(),
         ]);
     }
-    
+
     #[Route('/articles/{id}', name: 'article_affichage', methods: ['GET'])]
     public function affichage(Article $article): Response
     {
         return $this->render('article/affichage.html.twig', [
             'controller_name' => 'ArticleController',
-            'article'=> $article,
+            'article' => $article,
         ]);
     }
 
     #[Route('/articles/modif/{id}', name: 'article_modif')]
     public function modifArticle(Request $request, Article $article, EntityManagerInterface $manager)
     {
-        $form = $this->createFormBuilder($article)
-            ->add('titre')
-            ->add('adresse')
-            ->add('images')
-            ->add('type')
-            ->add('surface')
-            ->add('prix')
-            ->add('owner')
-            ->add('owner')
-            ->add('gestionnaire')
-            ->add('agence')
-            ->add('description')
-            ->getForm();
+        $form = $this->createForm(ArticleType::class, $article);
+        // $form = $this->createFormBuilder($article)
+        /*  ->add('titre')
+        ->add('adresse')
+        ->add('images')
+        ->add('type')
+        ->add('surface')
+        ->add('prix')
+        ->add('owner')
+        ->add('owner')
+        ->add('gestionnaire')
+        ->add('agence')
+        ->add('description')
+        ->getForm(); */
 
-        $form->handleRequest($request); 
+        $form->handleRequest($request);
 
-        if ($form->isSubMitted() && $form->isValid()) { 
-            $manager->persist($article); 
-            $manager->flush(); 
+        if ($form->isSubMitted() && $form->isValid()) {
+            $manager->persist($article);
+            $manager->flush();
 
             return $this->redirectToRoute('article_affichage', ['id' => $article->getId()]);
         }
@@ -107,13 +102,13 @@ class ArticleController extends AbstractController
             'formCreatArticle' => $form->createView(),
         ]);
     }
-  
+
     public function contact(Request $request)
     {
         //dd('$contact');
-        $contact = $request ->attributes->get('contact'); 
+        $contact = $request->attributes->get('contact');
         return new Response(" Vous êtes le Cont N° $contact");
-        //die(); 
+        //die();
     }
 
     //#[Route('/location', name: 'location')]
@@ -121,7 +116,7 @@ class ArticleController extends AbstractController
     {
         return $this->render('article/page.html.twig', [
             'controller_name' => 'ArticleController',
-            'title'=>'Location de Biens'
+            'title' => 'Location de Biens',
         ]);
     }
 

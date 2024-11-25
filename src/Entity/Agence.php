@@ -2,10 +2,14 @@
 
 namespace App\Entity;
 
+use App\Entity\Article;
 use App\Repository\AgenceRepository;
+use Assert\NotBlank;
+use Assert\Type;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpKernel\Client;
 
 #[ORM\Entity(repositoryClass: AgenceRepository::class)]
 class Agence
@@ -16,15 +20,15 @@ class Agence
     private ?int $id = null;
 
     #[ORM\Column]
-    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
-    #[Assert\Type(
+    #[NotBlank(message: 'ce champ ne peut pas être vide')]
+    #[Type(
         type: 'integer',
         message: 'The value {{ value }} is not a valid {{ type }}.',
     )]
     private ?float $numeroAgence = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
     private ?string $adresse = null;
 
     /**
@@ -53,7 +57,6 @@ class Agence
         $this->client = new ArrayCollection();
     }
 
-    
     public function getId(): ?int
     {
         return $this->id;
@@ -167,4 +170,9 @@ class Agence
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->numeroAgence;
     }
+
+}
