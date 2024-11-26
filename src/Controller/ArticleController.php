@@ -106,8 +106,21 @@ class ArticleController extends AbstractController
 
     }
 
-    #[Route('/articles/liste3', name: 'article_affichage_liste', methods: ['GET'])]
+    
+
+    #[Route('/articles/listetitre', name: 'article_affichage_liste', methods: ['GET'])]
     public function findByTitre(ArticleRepository $artrepo)
+    {
+        $articles = $artrepo->findByTitre(array('maison à louer'));
+        return $this->render(
+            'article/affichage.html.twig', [
+                'articles' => $articles,
+            ]
+        );
+    }
+
+    #[Route('/articles/liste1titre', name: 'article_affichage_liste', methods: ['GET'])]
+    public function findOneByTitre(ArticleRepository $artrepo)
     {
         $articles = $artrepo->findByTitre(array('maison à louer'));
         return $this->render(
