@@ -3,30 +3,24 @@
 namespace App\Controller;
 
 use App\Entity\Article;
-use App\Entity\Client;
-
-use App\Repository\ArticleRepository;
 use App\Form\ArticleType;
-
-
+use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
-
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/articles', name: '')]
 class ArticleController extends AbstractController
 {
-       
-    
+
     #[Route('/', name: 'article_index')]
     public function index(ArticleRepository $articleRepository): Response
     {
         return $this->render('article/index.html.twig', [
             'controller_name' => 'ArticleController',
-            'articles'=> $articleRepository->findAll(),
+            'articles' => $articleRepository->findAll(),
         ]);
     }
 
@@ -37,20 +31,20 @@ class ArticleController extends AbstractController
         //$form = $this->createFormBuilder($article)
         $form = $this->createForm(ArticleType::class, $article);
 
-       /* // Formulaire à l'interieur du controleur
-            ->add('titre')
-            ->add('adresse')
-            ->add('images')
-            ->add('type')
-            ->add('surface')
-            ->add('prix')
-            ->add('owner')
-            ->add('owner')
-            ->add('gestionnaire')
-            ->add('agence')
-            ->add('description')
+        /* // Formulaire à l'interieur du controleur
+        ->add('titre')
+        ->add('adresse')
+        ->add('images')
+        ->add('type')
+        ->add('surface')
+        ->add('prix')
+        ->add('owner')
+        ->add('owner')
+        ->add('gestionnaire')
+        ->add('agence')
+        ->add('description')
 
-            ->getForm(); */
+        ->getForm(); */
 
         $form->handleRequest($request); // Le Request
 
@@ -71,19 +65,19 @@ class ArticleController extends AbstractController
     #[Route('/{id}', name: 'article_affichage', methods: ['GET'])]
     public function affichage(Article $article): Response
     {
-        return $this->render('article/affichage.html.twig', [
-            'controller_name' => 'ArticleController',
-            'article'=> $article,
-        ]);
+    return $this->render('article/affichage.html.twig', [
+    'controller_name' => 'ArticleController',
+    'article'=> $article,
+    ]);
     } */
 
     #[Route('/{id}', name: 'article_affichage', methods: ['GET'])]
-    public function affichage($id, ArticleRepository $articlerepo ): Response
+    public function affichage($id, ArticleRepository $articlerepo): Response
     {
         $articles = $articlerepo->find($id); //find($id)
         return $this->render('article/affichage.html.twig', [
             'controller_name' => 'ArticleController',
-            'article'=> $articles,
+            'article' => $articles,
         ]);
     }
 
@@ -93,7 +87,7 @@ class ArticleController extends AbstractController
         $articles = $artrepo->findOneBy(array('titre' => 'John Doe')); //findOneBy()
         return $this->render(
             'article/affichage.html.twig', [
-            'article' => $articles,
+                'article' => $articles,
             ]
         );
     }
@@ -102,28 +96,26 @@ class ArticleController extends AbstractController
     public function affichageListe2(ArticleRepository $artrepo)
     {
         $articles = $artrepo->findBy(
-          ['titre' => 'John Doe', 'id' => 'ASC'] );//findBy()
+            ['titre' => 'John Doe', 'id' => 'ASC']); //findBy()
 
         return $this->render(
             'article/affichage.html.twig', [
-            'article' => $articles,
+                'article' => $articles,
             ]
         );
 
     }
 
-    
     #[Route('/articles/liste3', name: 'article_affichage_liste', methods: ['GET'])]
     public function findByTitre(ArticleRepository $artrepo)
     {
         $articles = $artrepo->findByTitre(array('maison à louer'));
         return $this->render(
             'article/affichage.html.twig', [
-            'articles' => $articles,
+                'articles' => $articles,
             ]
         );
     }
-
 
     #[Route('/modif/{id}', name: 'article_modif')]
     public function modifArticle(Request $request, Article $article, EntityManagerInterface $manager)
@@ -137,16 +129,16 @@ class ArticleController extends AbstractController
             ->add('prix')
             ->add('owner')
             ->add('owner')
-            ->add('gestionnaire')
+            ->add('employe')
             ->add('agence')
             ->add('description')
             ->getForm();
 
-        $form->handleRequest($request); 
+        $form->handleRequest($request);
 
-        if ($form->isSubMitted() && $form->isValid()) { 
-            $manager->persist($article); 
-            $manager->flush(); 
+        if ($form->isSubMitted() && $form->isValid()) {
+            $manager->persist($article);
+            $manager->flush();
 
             return $this->redirectToRoute('article_affichage', ['id' => $article->getId()]);
         }
@@ -155,13 +147,13 @@ class ArticleController extends AbstractController
             'formCreatArticle' => $form->createView(),
         ]);
     }
-  
+
     public function contact(Request $request)
     {
         //dd('$contact');
-        $contact = $request ->attributes->get('contact'); 
+        $contact = $request->attributes->get('contact');
         return new Response(" Vous êtes le Cont N° $contact");
-        //die(); 
+        //die();
     }
 
     //#[Route('/location', name: 'location')]
@@ -169,7 +161,7 @@ class ArticleController extends AbstractController
     {
         return $this->render('article/page.html.twig', [
             'controller_name' => 'ArticleController',
-            'title'=>'Location de Biens'
+            'title' => 'Location de Biens',
         ]);
     }
 
@@ -228,7 +220,5 @@ class ArticleController extends AbstractController
             'controller_name' => 'ArticleController',
         ]);
     }
-
-    
 
 }

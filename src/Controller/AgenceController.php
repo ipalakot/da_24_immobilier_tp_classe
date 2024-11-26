@@ -23,7 +23,7 @@ final class AgenceController extends AbstractController
     }
 
     #[Route('/nouveau', name: 'app_agence_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new (Request $request, EntityManagerInterface $entityManager): Response
     {
         $agence = new Agence();
         $form = $this->createForm(AgenceType::class, $agence);
@@ -71,7 +71,7 @@ final class AgenceController extends AbstractController
     #[Route('/{id}', name: 'app_agence_delete', methods: ['POST'])]
     public function delete(Request $request, Agence $agence, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$agence->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $agence->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($agence);
             $entityManager->flush();
         }

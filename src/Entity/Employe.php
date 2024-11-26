@@ -27,13 +27,13 @@ class Employe
     #[ORM\Column]
     private ?\DateTimeImmutable $updatedAt = null;
 
-    #[ORM\ManyToOne(inversedBy: 'employe')]
+    #[ORM\ManyToOne(inversedBy : 'employe')]
     private ?Agence $agence = null;
 
     /**
      * @var Collection<int, Article>
      */
-    #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'employe', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity : Article::class, mappedBy: 'employe', orphanRemoval: true)]
     private Collection $articles;
 
     /**
@@ -187,5 +187,10 @@ class Employe
         $this->directeur = $directeur;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getNom();
     }
 }

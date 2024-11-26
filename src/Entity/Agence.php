@@ -16,7 +16,7 @@ class Agence
     private ?int $id = null;
 
     #[ORM\Column]
-    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
     #[Assert\Type(
         type: 'integer',
         message: 'The value {{ value }} is not a valid {{ type }}.',
@@ -24,7 +24,7 @@ class Agence
     private ?float $numeroAgence = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
     private ?string $adresse = null;
 
     /**
@@ -53,7 +53,6 @@ class Agence
         $this->client = new ArrayCollection();
     }
 
-    
     public function getId(): ?int
     {
         return $this->id;
@@ -169,7 +168,7 @@ class Agence
 
     public function __toString()
     {
-        return $this->numeroAgence();
+        return $this->getNumeroAgence();
     }
 
-    }
+}
