@@ -23,30 +23,29 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenoms</th>
-                <th>Adresse</th>
-                <th>DateNaissance</th>
-                <th>Telephone</th>
-                <th>Email</th>
-                <th>Login</th>
-                <th>Password</th>
-                <th>actions</th>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Nom
+                </th>
+                <th>
+                    Prénom
+                </th>
             </tr>
         </thead>
         <tbody>
             {% for utilisateur in utilisateurs %}
                 <tr>
-                    <td>
-                        {{ utilisateur.id }}
-                    </td>
-                    <td>
-                        {{ utilisateur.nom }}
-                    </td>
-                    <td>
-                        {{ utilisateur.prenoms }}
-                    </td>
+            <td>{{ utilisateur.id }}</td>
+                <td>{{ utilisateur.nom }}</td>
+                <td>{{ utilisateur.prenoms }}</td>
+                <td>{{ utilisateur.adresse }}</td>
+                <td>{{ utilisateur.dateNaissance ? utilisateur.dateNaissance|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ utilisateur.telephone }}</td>
+                <td>{{ utilisateur.Email }}</td>
+                <td>{{ utilisateur.login }}</td>
+                <td>{{ utilisateur.password }}</td>
                     
                 </tr>
             {% else %}
