@@ -27,9 +27,6 @@ class Utilisateur
     private ?\DateTimeInterface $dateNaissance = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $telephone = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $Email = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -37,6 +34,9 @@ class Utilisateur
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $password = null;
+
+    #[ORM\Column]
+    private ?int $phone = null;
 
     public function getId(): ?int
     {
@@ -91,17 +91,7 @@ class Utilisateur
         return $this;
     }
 
-    public function getTelephone(): ?string
-    {
-        return $this->telephone;
-    }
 
-    public function setTelephone(string $telephone): static
-    {
-        $this->telephone = $telephone;
-
-        return $this;
-    }
 
     public function getEmail(): ?string
     {
@@ -135,6 +125,18 @@ class Utilisateur
     public function setPassword(?string $password): static
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    public function getPhone(): ?int
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(int $phone): static
+    {
+        $this->phone = $phone;
 
         return $this;
     }

@@ -14,17 +14,19 @@ class UtilisateurFixtures extends Fixture
     {
         $faker = Factory::create('fr_FR');
 
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 200; $i++) {
             $user = new Utilisateur();
             $user->setNom($faker->lastName())
                 ->setPrenoms($faker->firstName())
                 ->setAdresse($faker->streetAddress())
-               // ->setDateNaissance($faker->dateTime($max = 'now', $timezone = null))
-            ;
+                ->setDateNaissance($faker->dateTime($max = 'now', $timezone = null))
+                ->setPhone($faker->numberBetween(6))
+                ->setEmail($faker->email())
+                ->setLogin($faker->sentence())
+                ->setPassword($faker->sentence());
 
             $manager->persist($user);
-/*             echo "Adding reference: " . self::UTILISATEUR_REFERENCE . $i . "\n";
- */            $this->addReference(self::UTILISATEUR_REFERENCE . $i, $user);
+
         }
         // $product = new Product();
         // $manager->persist($product);

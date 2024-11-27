@@ -18,7 +18,7 @@ class UtilisateurType extends AbstractType
             ->add('dateNaissance', null, [
                 'widget' => 'single_text',
             ])
-            ->add('telephone')
+            ->add('phone')
             ->add('Email')
             ->add('login')
             ->add('password')
