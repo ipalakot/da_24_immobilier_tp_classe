@@ -23,9 +23,6 @@ class Utilisateur
     #[ORM\Column(type: Types::TEXT)]
     private ?string $adresse = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $dateNaissance = null;
-
     #[ORM\Column(length: 255)]
     private ?string $Email = null;
 
@@ -37,6 +34,9 @@ class Utilisateur
 
     #[ORM\Column]
     private ?int $phone = null;
+
+    #[ORM\Column]
+    private ?int $age = null;
 
     public function getId(): ?int
     {
@@ -78,20 +78,6 @@ class Utilisateur
 
         return $this;
     }
-
-    public function getDateNaissance(): ?\DateTimeInterface
-    {
-        return $this->dateNaissance;
-    }
-
-    public function setDateNaissance(\DateTimeInterface $dateNaissance): static
-    {
-        $this->dateNaissance = $dateNaissance;
-
-        return $this;
-    }
-
-
 
     public function getEmail(): ?string
     {
@@ -140,4 +126,18 @@ class Utilisateur
 
         return $this;
     }
+
+    public function getAge(): ?int
+    {
+        return $this->age;
+    }
+
+    public function setAge(int $age): static
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+
 }

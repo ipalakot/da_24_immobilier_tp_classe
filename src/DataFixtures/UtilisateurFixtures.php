@@ -14,12 +14,12 @@ class UtilisateurFixtures extends Fixture
     {
         $faker = Factory::create('fr_FR');
 
-        for ($i = 0; $i < 200; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $user = new Utilisateur();
             $user->setNom($faker->lastName())
                 ->setPrenoms($faker->firstName())
                 ->setAdresse($faker->streetAddress())
-                ->setDateNaissance($faker->dateTime($max = 'now', $timezone = null))
+                ->setAge($faker->numberBetween(10,100))
                 ->setPhone($faker->numberBetween(6))
                 ->setEmail($faker->email())
                 ->setLogin($faker->sentence())

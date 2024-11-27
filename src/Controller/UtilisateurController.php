@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Utilisateur;
 use App\Form\UtilisateurType;
+
 use App\Repository\UtilisateurRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -78,4 +79,16 @@ final class UtilisateurController extends AbstractController
 
         return $this->redirectToRoute('app_utilisateur_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+        # Afficher les Utilisateurss entre une tranche d'age
+        #[Route('/utilisateur2', name: 'utilisateur_affiche2')]
+        public function listAgeBetween(Request $request, UtilisateurRepository $utilisateurs)
+        {
+            $utilisateurs = $utilisateurs->rechUtilAge(16/07/2007, 01/07/2020);
+    
+        return $this->render('utilisateur/index2.html.twig', [
+               'utilisateurs' => $utilisateurs,
+            ]);
+        }
 }

@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Utilisateur;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,9 +16,7 @@ class UtilisateurType extends AbstractType
             ->add('nom')
             ->add('prenoms')
             ->add('adresse')
-            ->add('dateNaissance', null, [
-                'widget' => 'single_text',
-            ])
+            ->add('age')
             ->add('phone')
             ->add('Email')
             ->add('login')

@@ -27,12 +27,12 @@
                 <th>Nom</th>
                 <th>Prenoms</th>
                 <th>Adresse</th>
-                <th>DateNaissance</th>
+                <th>Age</th>
                 <th>Telephone</th>
                 <th>Email</th>
                 <th>Login</th>
                 <th>Password</th>
-                <th>actions</th>
+
             </tr>
         </thead>
         <tbody>
@@ -42,7 +42,8 @@
                 <td>{{ utilisateur.nom }}</td>
                 <td>{{ utilisateur.prenoms }}</td>
                 <td>{{ utilisateur.adresse }}</td>
-                <td>{{ utilisateur.dateNaissance ? utilisateur.dateNaissance|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ utilisateur.age }}</td>
+                {#...  <td>{{ utilisateur.dateNaissance ? utilisateur.dateNaissance|date('Y-m-d H:i:s') : '' }}</td> #}
                 <td>{{ utilisateur.phone }}</td>
                 <td>{{ utilisateur.Email }}</td>
                 <td>{{ utilisateur.login }}</td>
@@ -60,4 +61,5 @@
             {% endfor %}
         </tbody>
     </table>
+    <br><br>
 {% endblock %}
