@@ -6,6 +6,8 @@ use App\Repository\UtilisateurRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 #[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
 class Utilisateur
 {
@@ -15,24 +17,63 @@ class Utilisateur
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\Length(
+        min: 3,
+        max: 25,
+        minMessage: 'taille minimale est  {{ limit }} characters',
+        maxMessage: 'la taille maximale est de  {{ limit }} characters',
+    )]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\Length(
+        min: 3,
+        max: 50,
+        minMessage: 'taille minimale est  {{ limit }} characters',
+        maxMessage: 'la taille maximale est de  {{ limit }} characters',
+    )]
     private ?string $prenoms = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\Length(
+        min: 3,
+        max: 50,
+        minMessage: 'taille minimale est  {{ limit }} characters',
+        maxMessage: 'la taille maximale est de  {{ limit }} characters',)]
     private ?string $adresse = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Unique]
     private ?string $Email = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\Length(
+        min: 3,
+        max: 50,
+        minMessage: 'taille minimale est  {{ limit }} characters',
+        maxMessage: 'la taille maximale est de  {{ limit }} characters',)]
     private ?string $login = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\Length(
+        min: 3,
+        max: 50,
+        minMessage: 'taille minimale est  {{ limit }} characters',
+        maxMessage: 'la taille maximale est de  {{ limit }} characters',)]
     private ?string $password = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\Length(
+        min: 6,
+        max: 12,
+        minMessage: 'taille minimale est  {{ limit }} characters',
+        maxMessage: 'la taille maximale est de  {{ limit }} characters',)]
     private ?int $phone = null;
 
     #[ORM\Column]

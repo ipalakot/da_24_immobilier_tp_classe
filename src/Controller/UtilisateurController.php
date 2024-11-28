@@ -81,8 +81,8 @@ final class UtilisateurController extends AbstractController
     }
 
 
-        # Afficher les Utilisateurss entre une tranche d'age
-        #[Route('/utilisateur2', name: 'utilisateur_affiche2')]
+    # Afficher les Utilisateurss entre une tranche d'age
+    #[Route('/utilisAgeentre', name: 'utilisateur_affiche2')]
         public function listAgeBetween(Request $request, UtilisateurRepository $utilisateurs)
         {
             $utilisateurs = $utilisateurs->rechUtilAge(16/07/2007, 01/07/2020);
@@ -91,4 +91,16 @@ final class UtilisateurController extends AbstractController
                'utilisateurs' => $utilisateurs,
             ]);
         }
-}
+
+
+    #[Route('/utilisateurage', name: 'utilisateur_ages')]
+     public function usersAge(UtilisateurRepository $utilisateurRepository): Response
+    {
+         $utilisateurs= $utilisateurRepository->findUtilisateursAge();
+         return $this->render('utilisateur/index.html.twig', [
+            'utilisateurs' => $utilisateurs,
+        ]);
+    }
+
+    }
+
