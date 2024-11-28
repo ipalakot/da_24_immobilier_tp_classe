@@ -7,6 +7,11 @@ use App\Entity\Utilisateur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class UtilisateurType extends AbstractType
 {
@@ -47,7 +52,7 @@ class UtilisateurType extends AbstractType
             'disabled'=> false, 
             'empty_data' => 'Sans Reference',
         ])
-        ->add('email', EmailType::class, [
+        ->add('email', TextType::class, [
             'label' => 'Courriel',
             'required'   => true,
             'disabled'=> false, 
@@ -60,7 +65,7 @@ class UtilisateurType extends AbstractType
             'disabled'=> false, 
             'empty_data' => 'Ref Anonyme',
         ])
-        ->add('login', PasswordType::class, [
+        ->add('password', TextType::class, [
             'label' => 'Mot de passe',
             'required'   => true,
             'disabled'=> false, 

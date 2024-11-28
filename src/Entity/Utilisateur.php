@@ -6,8 +6,14 @@ use App\Repository\UtilisateurRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-use Symfony\Component\Validator\Constraints as Assert;
 
+use Symfony\Component\Validator\Constraints as Assert;
+//use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
+
+//#[ORM\Entity]
+#[UniqueEntity('email')]
 #[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
 class Utilisateur
 {
@@ -46,7 +52,10 @@ class Utilisateur
     private ?string $adresse = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\Unique]
+    #[Assert\Email]
+    #[Assert\NotBlank]
+
+   // 
     private ?string $Email = null;
 
     #[ORM\Column(length: 255, nullable: true)]
