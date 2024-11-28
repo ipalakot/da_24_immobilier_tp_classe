@@ -5,6 +5,9 @@ namespace App\Entity;
 use App\Repository\UtilisateurRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\MappingException as ORMMappingException;
+use Doctrine\Persistence\Mapping\ClassMetadata;
+use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException;
 
 
 use Symfony\Component\Validator\Constraints as Assert;
@@ -13,7 +16,12 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 
 //#[ORM\Entity]
-#[UniqueEntity('email')]
+#[UniqueEntity(
+    fields: ['Email'],
+    message: 'Ce mail esrt dejà en utilisation sur notre server. veuillez choisir un autre ',
+
+)]
+    
 #[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
 class Utilisateur
 {
@@ -54,8 +62,6 @@ class Utilisateur
     #[ORM\Column(length: 255)]
     #[Assert\Email]
     #[Assert\NotBlank]
-
-   // 
     private ?string $Email = null;
 
     #[ORM\Column(length: 255, nullable: true)]
