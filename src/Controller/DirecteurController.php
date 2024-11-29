@@ -64,7 +64,7 @@ final class DirecteurController extends AbstractController
 
         return $this->render('directeur/edit.html.twig', [
             'directeur' => $directeur,
-            'form' => $form,
+            'directeurForm' => $form,
         ]);
     }
 

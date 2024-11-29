@@ -2,8 +2,23 @@
 
 {% block title %}Directeur{% endblock %}
 
+
+
+{% block navigation%}
+<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
+{% endblock %}
+
+
 {% block body %}
-    <h1>Directeur</h1>
+<div class="container">
+    <hr/>
+        <h1>Directeur / {{ directeur.nom }} {{ directeur.prenom }}</h1>
+    <hr/>
 
     <table class="table">
         <tbody>
@@ -26,9 +41,10 @@
         </tbody>
     </table>
 
-    <a href="{{ path('directeur_index') }}">Liste de</a>
+    <a href="{{ path('directeur_index') }}"class="btn btn-primary">Liste de Directeurs </a> <br><br>
 
-    <a href="{{ path('directeur_edition', {'id': directeur.id}) }}">editer</a>
+    <a href="{{ path('directeur_edition', {'id': directeur.id}) }}" class="btn btn-secondary">editer</a><br><br>
 
     {{ include('directeur/_delete_form.html.twig') }}
+</div>
 {% endblock %}
