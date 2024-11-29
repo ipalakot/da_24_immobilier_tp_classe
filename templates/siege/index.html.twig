@@ -24,7 +24,7 @@
                 <th>Capital</th>
                 <th>Nom</th>
                 <th>Adresse</th>
-                <th>actions</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -35,8 +35,8 @@
                 <td>{{ siege.nom }}</td>
                 <td>{{ siege.adresse }}</td>
                 <td>
-                    <a href="{{ path('siege_affichage', {'id': siege.id}) }}">show</a>
-                    <a href="{{ path('siege_edition', {'id': siege.id}) }}">edit</a>
+                    <a href="{{ path('siege_affichage', {'id': siege.id}) }}" class="btn btn-primary">details</a>
+                    <a href="{{ path('siege_edition', {'id': siege.id}) }}" class="btn btn-primary">editer</a>
                 </td>
             </tr>
         {% else %}
@@ -47,6 +47,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('siege_nouveau') }}"class="btn btn-primary">Crer un nouveau siège ?</a>
+    <a href="{{ path('siege_nouveau') }}"class="btn btn-primary">Créer un nouveau siège ?</a>
 </div">
 {% endblock %}

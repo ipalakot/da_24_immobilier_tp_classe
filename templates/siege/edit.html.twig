@@ -1,13 +1,25 @@
 {% extends 'base.html.twig' %}
-
+{% form_theme siegeForm 'bootstrap_4_layout.html.twig'  %}
 {% block title %}Edit Siege{% endblock %}
 
+{% block navigation%}
+<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
+{% endblock %}
+
+
 {% block body %}
+<div class="container">
     <h1>Edit Siege</h1>
 
     {{ include('siege/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_siege_index') }}">Liste de</a>
+    <a href="{{ path('siege_index') }}">Liste de</a>
 
     {{ include('siege/_delete_form.html.twig') }}
+</div>
 {% endblock %}

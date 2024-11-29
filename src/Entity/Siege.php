@@ -7,6 +7,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\ORM\Mapping\MappingException as ORMMappingException;
+use Doctrine\Persistence\Mapping\ClassMetadata;
+use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException;
+use Symfony\Component\Validator\Constraints as Assert;
+
+
+
 #[ORM\Entity(repositoryClass: SiegeRepository::class)]
 class Siege
 {
@@ -16,13 +23,35 @@ class Siege
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\Length(
+        min: 2,
+        max: 25,
+        minMessage: 'taille minimale est  {{ limit }} characters',
+        maxMessage: 'la taille maximale est de  {{ limit }} characters',
+    )]
     private ?float $capital = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\Length(
+        min: 3,
+        max: 25,
+        minMessage: 'taille minimale est  {{ limit }} characters',
+        maxMessage: 'la taille maximale est de  {{ limit }} characters',
+    )]
     private ?string $nom = null;
 
+
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\Length(
+        min: 3,
+        max: 50,
+        minMessage: 'taille minimale est  {{ limit }} characters',
+        maxMessage: 'la taille maximale est de  {{ limit }} characters',)]
     private ?string $adresse = null;
+
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Directeur $directeur = null;
