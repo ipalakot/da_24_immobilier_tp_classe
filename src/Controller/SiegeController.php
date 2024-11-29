@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/siege')]
 final class SiegeController extends AbstractController
 {
-    #[Route(name: 'app_siege_index', methods: ['GET'])]
+    #[Route(name: 'siege_index', methods: ['GET'])]
     public function index(SiegeRepository $siegeRepository): Response
     {
         return $this->render('siege/index.html.twig', [
@@ -22,7 +22,7 @@ final class SiegeController extends AbstractController
         ]);
     }
 
-    #[Route('/nouveau', name: 'app_siege_new', methods: ['GET', 'POST'])]
+    #[Route('/nouveau', name: 'siege_nouveau', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $siege = new Siege();
@@ -33,16 +33,16 @@ final class SiegeController extends AbstractController
             $entityManager->persist($siege);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_siege_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('siege_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('siege/new.html.twig', [
             'siege' => $siege,
-            'form' => $form,
+            'siegeForm' => $form,
         ]);
     }
 
-    #[Route('/{id}', name: 'app_siege_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'siege_affichage', methods: ['GET'])]
     public function show(Siege $siege): Response
     {
         return $this->render('siege/show.html.twig', [
@@ -50,7 +50,7 @@ final class SiegeController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_siege_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'siege_edition', methods: ['GET', 'POST'])]
     public function edit(Request $request, Siege $siege, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(SiegeType::class, $siege);
@@ -59,16 +59,16 @@ final class SiegeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_siege_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('siege_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('siege/edit.html.twig', [
             'siege' => $siege,
-            'form' => $form,
+            'siegeForm' => $form,
         ]);
     }
 
-    #[Route('/{id}', name: 'app_siege_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'siege_suppression', methods: ['POST'])]
     public function delete(Request $request, Siege $siege, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$siege->getId(), $request->getPayload()->getString('_token'))) {
@@ -76,6 +76,6 @@ final class SiegeController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_siege_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('siege_index', [], Response::HTTP_SEE_OTHER);
     }
 }

@@ -1,11 +1,28 @@
 {% extends 'base.html.twig' %}
 
+
+{% form_theme siegeForm 'bootstrap_4_layout.html.twig'  %}
+
 {% block title %}New Siege{% endblock %}
 
+{% block navigation%}
+<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
+{% endblock %}
+
 {% block body %}
-    <h1>Create new Siege</h1>
+
+<div class="container">
+    <hr/>
+        <h1>Creation d'un nouveau Siege</h1>
+        <hr/>
 
     {{ include('siege/_form.html.twig') }}
 
-    <a href="{{ path('app_siege_index') }}">back to list</a>
+    <a href="{{ path('siege_index') }}" class="btn btn-dark">Liste de sieges</a>
+</div>
 {% endblock %}

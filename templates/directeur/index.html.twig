@@ -1,44 +1,55 @@
 {% extends 'base.html.twig' %}
-{% block title %}
-    Directeur
+
+{% block title %}Directeur index{% endblock %}
+
+
+{% block navigation%}
+<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
 {% endblock %}
+
 {% block body %}
-<a href="{{ path('directeur_nouveau') }}">Créer un nouveau</a>
-    <table>
+<div class="container">
+
+     <hr/>
+        <h1> Les Directeurs </h1>
+     <hr/>
+
+    <table class="table">
         <thead>
             <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Nom
-                </th>
-                <th>
-                    Prénom
-                </th>
+                <th>Id</th>
+                <th>Noms </th>
+                <th>Prenoms </th>
+               {# <th>Revenus</th> #}
+               {# <th>actions </th> #}
             </tr>
         </thead>
         <tbody>
-            {% for directeur in directeurs %}
-                <tr>
-                    <td>
-                        {{ directeur.id }}
-                    </td>
-                    <td>
-                        {{ directeur.nom }}
-                    </td>
-                    <td>
-                        {{ directeur.prenom }}
-                    </td>
-                    
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="5">
-                        Aucune categorie pour lemoment
-                    </td>
-                </tr>
-            {% endfor %}
+        {% for directeur in directeurs %}
+            <tr>
+                <td>{{ directeur.id }}</td>
+                <td>{{ directeur.nom }}</td>
+                <td>{{ directeur.prenom }}</td>
+                {# <td>{{ directeur.revenus }}</td> #}
+                <td>
+                    <a href="{{ path('directeur_affichage', {'id': directeur.id}) }}" class="btn btn-primary" >Lire</a>
+                    <a href="{{ path('directeur_edition', {'id': directeur.id}) }}" class="btn btn-primary" >Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas de Directeur dans cette liste</td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
+
+    <a href="{{ path('directeur_nouveau') }}" class="btn btn-primary" >Creer un Directeur ?</a>
+</div>
+
 {% endblock %}

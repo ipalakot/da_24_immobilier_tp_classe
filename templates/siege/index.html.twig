@@ -2,8 +2,20 @@
 
 {% block title %}Siege index{% endblock %}
 
+{% block navigation%}
+<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
+{% endblock %}
+
 {% block body %}
-    <h1>Siege index</h1>
+   <hr/>
+<div class="container">
+ <h1>Liste des sieges </h1><hr/>
+    
 
     <table class="table">
         <thead>
@@ -23,17 +35,18 @@
                 <td>{{ siege.nom }}</td>
                 <td>{{ siege.adresse }}</td>
                 <td>
-                    <a href="{{ path('app_siege_show', {'id': siege.id}) }}">show</a>
-                    <a href="{{ path('app_siege_edit', {'id': siege.id}) }}">edit</a>
+                    <a href="{{ path('siege_affichage', {'id': siege.id}) }}">show</a>
+                    <a href="{{ path('siege_edition', {'id': siege.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Pas de siège dans la Base de données</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_siege_new') }}">Create new</a>
+    <a href="{{ path('siege_nouveau') }}"class="btn btn-primary">Crer un nouveau siège ?</a>
+</div">
 {% endblock %}
