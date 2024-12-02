@@ -20,6 +20,7 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
+    
     public function findAZ()
     {
         return $this->createQueryBuilder('a')
@@ -39,6 +40,32 @@ class ArticleRepository extends ServiceEntityRepository
             ->getQuery();
         return $query->getResult();
     }
+
+    public function findAscPrice()
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.prix', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findAscCreatedAt()
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.createdAt', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    //trier par auteur 
+    public function findAscAuteur()
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.auteur', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
 
 //    /**
 //     * @return Article[] Returns an array of Article objects
