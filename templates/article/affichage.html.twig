@@ -11,65 +11,68 @@
 	<!-- Section-->
 	<div class="container">
 		<hr/>
+		{% for article in articles %}
 
 
-		<h1>Article N°
-			{{ article.id }}</h1>
+			<h1>Article N°
+				{{ article.id }}</h1>
+{% endfor %}
 
 
-		<table class="table">
-			<tbody>
-				<tr>
-					<th>Id</th>
-					
-				</tr>
-				<tr>
-					<th>Title</th>
-					<td>{{ article.titre }}</td>
-				</tr>
+			<table class="table">
+				<tbody>
+					<tr>
+						<th>Id</th>
 
-				<tr>
-					<th>Adresse</th>
-					<td>{{ article.adresse }}</td>
-				</tr>
+					</tr>
+					<tr>
+						<th>Title</th>
+						<td>{{ article.titre }}</td>
+					</tr>
 
-				<tr>
-					<th>Images</th>
-					<td>{{ article.images }}</td>
-				</tr>
+					<tr>
+						<th>Adresse</th>
+						<td>{{ article.adresse }}</td>
+					</tr>
 
-				<tr>
-					<th>Type</th>
-					<td>{{ article.type }}</td>
-				</tr>
+					<tr>
+						<th>Images</th>
+						<td>{{ article.images }}</td>
+					</tr>
 
-				<tr>
-					<th>Surface</th>
-					<td>{{ article.surface }}</td>
-				</tr>
-				<tr>
-					<th>Prix</th>
-					<td>{{ article.prix }}</td>
-				</tr>
-				<tr>
-					<th>Proprietaire</th>
-					<td>{{ article.owner }}</td>
-				</tr>
+					<tr>
+						<th>Type</th>
+						<td>{{ article.type }}</td>
+					</tr>
+
+					<tr>
+						<th>Surface</th>
+						<td>{{ article.surface }}</td>
+					</tr>
+					<tr>
+						<th>Prix</th>
+						<td>{{ article.prix }}</td>
+					</tr>
+					<tr>
+						<th>Proprietaire</th>
+						<td>{{ article.owner }}</td>
+					</tr>
 
 
-			</tbody>
-		</tr<tr>
-		<th>Gestionnaire</th>
-		<td>{{ article.employe.nom }}</td>
-	</tr>
-	>
-	<tr>
-		<th>Agence</th>
-		<td>{{ article.agence.numeroAgence }}</td>
-	</tr>
+				</tbody>
+			</tr<tr>
+			<th>Gestionnaire</th>
+			<td>{{ article.employe.nom }}</td>
+		</tr>
+		>
+		<tr>
+			<th>Agence</th>
+			<td>{{ article.agence.numeroAgence }}</td>
+		</tr>
 
-	<tr>
-		<th>Description</th>
-		<td>{{ article.description }}</td>
-	</tr>
-</tbody></table></div>{% endblock %}
+		<tr>
+			<th>Description</th>
+			<td>{{ article.description }}</td>
+		</tr>
+	</tbody>
+</table></div>{% endblock %}
