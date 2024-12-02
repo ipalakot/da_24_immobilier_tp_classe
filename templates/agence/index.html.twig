@@ -1,37 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Agence index{% endblock %}
+{% block title %}Agences
+{% endblock %}
+
+{% block navigation%}
+	<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
+{% endblock %}
+
 
 {% block body %}
-    <h1>Agence index</h1>
+	<div class="container">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>NumeroAgence</th>
-                <th>Adresse</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for agence in agences %}
-            <tr>
-                <td>{{ agence.id }}</td>
-                <td>{{ agence.numeroAgence }}</td>
-                <td>{{ agence.adresse }}</td>
-                <td>
-                    <a href="{{ path('app_agence_show', {'id': agence.id}) }}">show</a>
-                    <a href="{{ path('app_agence_edit', {'id': agence.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">Il n'y a pas d'agence pour le Moment</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+		<h2>Agence index</h2>
+		<hr/>
 
-    <a href="{{ path('app_agence_new') }}">Nouvelle Agence</a>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>NumeroAgence</th>
+					<th>Adresse</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for agence in agences %}
+					<tr>
+						<td>{{ agence.id }}</td>
+						<td>{{ agence.numeroAgence }}</td>
+						<td>{{ agence.adresse }}</td>
+						<td>
+							<a href="{{ path('agence_affichage', {'id': agence.id}) }}" class="btn btn-secondary">lire</a>
+
+							<a href="{{ path('agence_edition', {'id': agence.id}) }}" class="btn btn-secondary">editer</a>
+
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="4">Il n'y a pas d'agence pour le Moment</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<a href="{{ path('agence_nouveau') }}" class="btn btn-primary">Nouvelle Agence</a>
+
+	</div>
 {% endblock %}

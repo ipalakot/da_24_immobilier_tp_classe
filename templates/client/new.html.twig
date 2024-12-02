@@ -1,11 +1,29 @@
 {% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig'  %}
 
-{% block title %}New Client{% endblock %}
+
+{% block title %}New Client
+{% endblock %}
+
+{% block navigation%}
+	<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
+{% endblock %}
+
 
 {% block body %}
-    <h1>Create new Client</h1>
+	<div class="container">
 
-    {{ include('client/_form.html.twig') }}
+		<h2>Nouveau Client</h2>
 
-    <a href="{{ path('app_client_index') }}">Liste de</a>
+		{{ include('client/_form.html.twig') }}
+
+		<a href="{{ path('client_index') }}">Liste de</a>
+
+	</div>
+
 {% endblock %}

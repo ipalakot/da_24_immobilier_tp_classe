@@ -7,6 +7,16 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\ORM\Mapping\MappingException as ORMMappingException;
+use Doctrine\Persistence\Mapping\ClassMetadata;
+use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException;
+
+
+use Symfony\Component\Validator\Constraints as Assert;
+//use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
+
 #[ORM\Entity(repositoryClass: EmployeRepository::class)]
 class Employe
 {
@@ -16,9 +26,23 @@ class Employe
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+        #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\Length(
+        min: 3,
+        max: 25,
+        minMessage: 'taille minimale est  {{ limit }} characters',
+        maxMessage: 'la taille maximale est de  {{ limit }} characters',
+    )]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
+        #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\Length(
+        min: 3,
+        max: 50,
+        minMessage: 'taille minimale est  {{ limit }} characters',
+        maxMessage: 'la taille maximale est de  {{ limit }} characters',
+    )]
     private ?string $prenom = null;
 
     #[ORM\Column]

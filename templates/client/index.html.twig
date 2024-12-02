@@ -1,51 +1,70 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Client index{% endblock %}
+{% block title %}Client
+{% endblock %}
+
+
+{% block navigation%}
+	<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
+{% endblock %}
+
 
 {% block body %}
-    <h1>Client index</h1>
+	<div class="container">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Adresse</th>
-                <th>Type</th>
-                <th>Photo</th>
-                <th>DateNaissance</th>
-                <th>Login</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for client in clients %}
-            <tr>
-                <td>{{ client.id }}</td>
-                <td>{{ client.nom }}</td>
-                <td>{{ client.prenom }}</td>
-                <td>{{ client.adresse }}</td>
-                <td>{{ client.type }}</td>
-                <td>{{ client.photo }}</td>
-                <td>{{ client.dateNaissance ? client.dateNaissance|date('Y-m-d H:i:s') : '' }}</td>
-               
-                <td>{{ client.email }}</td>
-                
-                <td>
-                    <a href="{{ path('app_client_show', {'id': client.id}) }}">show</a>
-                    <a href="{{ path('app_client_edit', {'id': client.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="11">Pas de Client pour le moment</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <a href="{{ path('app_client_new') }}">Creer un Nouveau Client</a>
+		<h2>Clients</h2>
+		<hr/>
+
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nom</th>
+					<th>Prenom</th>
+					<th>Adresse</th>
+					<th>Type</th>
+					<th>Photo</th>
+					<th>DateNaissance</th>
+					<th>Login</th>
+					<th>Email</th>
+					<th>Password</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for client in clients %}
+					<tr>
+						<td>{{ client.id }}</td>
+						<td>{{ client.nom }}</td>
+						<td>{{ client.prenom }}</td>
+						<td>{{ client.adresse }}</td>
+						<td>{{ client.type }}</td>
+						<td>{{ client.photo }}</td>
+						<td>{{ client.dateNaissance ? client.dateNaissance|date('Y-m-d H:i:s') : '' }}</td>
+
+						<td>{{ client.email }}</td>
+
+						<td>
+							<a href="{{ path('client_affichage', {'id': client.id}) }}">affichage</a>
+							<a href="{{ path('client_edition', {'id': client.id}) }}">editer</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="11">Pas de Client pour le moment</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<a href="{{ path('client_nouveau') }}">Creer un Nouveau Client</a>
+
+	</div>
 {% endblock %}

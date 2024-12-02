@@ -1,11 +1,28 @@
 {% extends 'base.html.twig' %}
+{% form_theme formCategorie 'bootstrap_4_layout.html.twig'  %}
 
-{% block title %}New Categorie{% endblock %}
+
+{% block title %}Categorie
+{% endblock %}
+
+{% block navigation%}
+	<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
+{% endblock %}
+
 
 {% block body %}
-    <h1>Create new Categorie</h1>
+	<div class="container">
 
-    {{ include('categorie/_form.html.twig') }}
+		<h2>Creation/Categorie</h2>
+		<hr>
 
-    <a href="{{ path('app_categorie_index') }}">Liste de</a>
+		{{ include('categorie/_form.html.twig') }}
+
+		<a href="{{ path('categorie_index') }}">Liste de</a>
+	</div>
 {% endblock %}

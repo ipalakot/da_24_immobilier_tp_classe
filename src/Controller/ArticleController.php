@@ -31,21 +31,6 @@ class ArticleController extends AbstractController
         //$form = $this->createFormBuilder($article)
         $form = $this->createForm(ArticleType::class, $article);
 
-        /* // Formulaire à l'interieur du controleur
-        ->add('titre')
-        ->add('adresse')
-        ->add('images')
-        ->add('type')
-        ->add('surface')
-        ->add('prix')
-        ->add('owner')
-        ->add('owner')
-        ->add('gestionnaire')
-        ->add('agence')
-        ->add('description')
-
-        ->getForm(); */
-
         $form->handleRequest($request); // Le Request
 
         //var_dump($article);
@@ -105,8 +90,6 @@ class ArticleController extends AbstractController
         );
 
     }
-
-    
 
     #[Route('/articles/listetitre', name: 'article_affichage_liste', methods: ['GET'])]
     public function findByTitre(ArticleRepository $artrepo)
@@ -232,6 +215,20 @@ class ArticleController extends AbstractController
         return $this->render('article/index.html.twig', [
             'controller_name' => 'ArticleController',
         ]);
+    }
+
+    //trier les articles par titre
+    #[Route('/article-trier_titre', name: 'article.trier.titre')]
+    public function indexArticlesTrierTitre(ArticleRepository $articleRepository, Request $request)
+    {
+        $article = $articleRepository->findAZ();
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+                // passage du contenu de $location
+                'articles' => $article,
+            ]
+        );
     }
 
 }

@@ -2,13 +2,12 @@
 
 namespace App\Entity;
 
-use Assert\NotBlank;
+use App\Repository\ArticleRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\ArticleRepository;
 
+//use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
 use Symfony\Component\Validator\Constraints as Assert;
-//use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
@@ -19,7 +18,7 @@ class Article
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
     #[Assert\Length(
         min: 5,
         max: 50,
@@ -29,30 +28,41 @@ class Article
     private ?string $titre = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
+    #[Assert\Length(
+        min: 3,
+        max: 50,
+        minMessage: 'taille minimale est  {{ limit }} characters',
+        maxMessage: 'la taille maximale est de  {{ limit }} characters', )]
     private ?string $adresse = null;
 
     #[ORM\Column(length: 255)]
-  //  #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    //  #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
     private ?string $images = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
     private ?string $type = null;
 
     #[ORM\Column]
-    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
     private ?float $surface = null;
 
     #[ORM\Column]
-    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
     private ?int $prix = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
     private ?string $owner = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\Length(
+        min: 10,
+        max: 25,
+        minMessage: 'taille minimale est  {{ limit }} characters',
+        maxMessage: 'la taille maximale est de  {{ limit }} characters',
+    )]
     private ?string $description = null;
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
@@ -171,8 +181,6 @@ class Article
 
         return $this;
     }
-
-     
 
     public function getCategorie(): ?Categorie
     {

@@ -6,6 +6,10 @@ use App\Repository\CategorieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+//use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
+//use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
 class Categorie
@@ -16,9 +20,19 @@ class Categorie
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[UniqueEntity(
+        fields: ['titre'],
+        message: 'Ce titre est dejà en utilisation sur notre server. veuillez choisir un autre ',
+
+    )]
     private ?string $titre = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Length(
+        min: 3,
+        max: 50,
+        minMessage: 'taille minimale est  {{ limit }} characters',
+        maxMessage: 'la taille maximale est de  {{ limit }} characters', )]
     private ?string $description = null;
 
     /**

@@ -1,38 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Employe{% endblock %}
+{% block title %}Employe
+{% endblock %}
 
 {% block body %}
-    <h1>Employe</h1>
+	<h1>Employe</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ employe.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ employe.nom }}</td>
-            </tr>
-            <tr>
-                <th>Prenom</th>
-                <td>{{ employe.prenom }}</td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ employe.createdAt ? employe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>UpdatedAt</th>
-                <td>{{ employe.updatedAt ? employe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ employe.id }}</td>
+			</tr>
+			<tr>
+				<th>Nom</th>
+				<td>{{ employe.nom }}</td>
+			</tr>
+			<tr>
+				<th>Prenom</th>
+				<td>{{ employe.prenom }}</td>
+			</tr>
+			<tr>
+				<th>CreatedAt</th>
+				<td>{{ employe.createdAt ? employe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+			<tr>
+				<th>UpdatedAt</th>
+				<td>{{ employe.updatedAt ? employe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+		</tbody>
+	</table>
 
-    <a href="{{ path('app_employe_index') }}">Liste de</a>
+	<a href="{{ path('employe_index') }}">Liste de</a>
 
-    <a href="{{ path('app_employe_edit', {'id': employe.id}) }}">edit</a>
+	<a href="{{ path('employe_edition', {'id': employe.id}) }}">edit</a>
 
-    {{ include('employe/_delete_form.html.twig') }}
+	{{ include('employe/_delete_form.html.twig') }}
 {% endblock %}

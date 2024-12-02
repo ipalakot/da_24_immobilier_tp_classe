@@ -1,41 +1,60 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Employe index{% endblock %}
+{% block title %}Employe
+{% endblock %}
+
+{% block navigation%}
+	<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
+{% endblock %}
+
 
 {% block body %}
-    <h1>Employe index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for employe in employes %}
-            <tr>
-                <td>{{ employe.id }}</td>
-                <td>{{ employe.nom }}</td>
-                <td>{{ employe.prenom }}</td>
-                <td>{{ employe.createdAt ? employe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ employe.updatedAt ? employe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_employe_show', {'id': employe.id}) }}">show</a>
-                    <a href="{{ path('app_employe_edit', {'id': employe.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">Pas d'emplye pour le moment</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<div class="container">
+		<hr/>
 
-    <a href="{{ path('app_employe_new') }}">Create new</a>
+		<h1>Employes</h1>
+		<hr/>
+
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Noms</th>
+					<th>Prenoms</th>
+					<th>Creer le</th>
+					<th>Modifier le</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for employe in employes %}
+					<tr>
+						<td>{{ employe.id }}</td>
+						<td>{{ employe.nom }}</td>
+						<td>{{ employe.prenom }}</td>
+						<td>{{ employe.createdAt ? employe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+						<td>{{ employe.updatedAt ? employe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+						<td>
+							<a href="{{ path('employe_affichage', {'id': employe.id}) }}">lire</a>
+							<a href="{{ path('employe_edition', {'id': employe.id}) }}">editer</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="6">Pas d'emplye pour le moment</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<a href="{{ path('employe_nouveau') }}" class=" btn btn-secondary">Creer un nouvel Employe</a>
+
+	</div>
 {% endblock %}

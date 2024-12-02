@@ -1,11 +1,30 @@
 {% extends 'base.html.twig' %}
+{% form_theme formEmploy'bootstrap_4_layout.html.twig'  %}
 
-{% block title %}New Employe{% endblock %}
+
+{% block title %}Nouvel Employe
+{% endblock %}
+
+{% block navigation%}
+	<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
+{% endblock %}
+
 
 {% block body %}
-    <h1>Create new Employe</h1>
+	<div class="container">
 
-    {{ include('employe/_form.html.twig') }}
+		<h1>Employe / Gestionnaire</h1>
+		<hr/>
 
-    <a href="{{ path('app_employe_index') }}">Liste de</a>
+
+		{{ include('employe/_form.html.twig') }}
+
+		<br><a href="{{ path('employe_index') }}" class="btn btn-secondary">Liste de</a>
+
+	</div>
 {% endblock %}

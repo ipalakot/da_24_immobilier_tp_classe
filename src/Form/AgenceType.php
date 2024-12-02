@@ -18,8 +18,17 @@ class AgenceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('numeroAgence', IntegerType::class, [])
-            ->add('adresse', TextareaType::class)
+            ->add('numeroAgence', IntegerType::class, [
+                'label' => 'NumAgence',
+                'required'   => true,
+                'disabled'=> false, 
+                'empty_data' => 'Ref vide',
+        ])
+            ->add('adresse', TextareaType::class,[
+                'label' => 'Adresse',
+                'required'   => true,
+                'disabled'=> false, 
+            ])
             ->add('directeur', EntityType::class, [
                 'class' => Directeur::class,
                 'choice_label' => 'id',

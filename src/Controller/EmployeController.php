@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/employe')]
 final class EmployeController extends AbstractController
 {
-    #[Route(name: 'app_employe_index', methods: ['GET'])]
+    #[Route(name: 'employe_index', methods: ['GET'])]
     public function index(EmployeRepository $employeRepository): Response
     {
         return $this->render('employe/index.html.twig', [
@@ -22,8 +22,8 @@ final class EmployeController extends AbstractController
         ]);
     }
 
-    #[Route('/nouveau', name: 'app_employe_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    #[Route('/nouveau', name: 'employe_nouveau', methods: ['GET', 'POST'])]
+    public function new (Request $request, EntityManagerInterface $entityManager): Response
     {
         $employe = new Employe();
         $form = $this->createForm(Employe1Type::class, $employe);
@@ -33,16 +33,16 @@ final class EmployeController extends AbstractController
             $entityManager->persist($employe);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_employe_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('employe_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('employe/new.html.twig', [
             'employe' => $employe,
-            'form' => $form,
+            'formEmploy' => $form,
         ]);
     }
 
-    #[Route('/{id}', name: 'app_employe_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'employe_affichage', methods: ['GET'])]
     public function show(Employe $employe): Response
     {
         return $this->render('employe/show.html.twig', [
@@ -50,7 +50,7 @@ final class EmployeController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_employe_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/modif', name: 'employe_edition', methods: ['GET', 'POST'])]
     public function edit(Request $request, Employe $employe, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(Employe1Type::class, $employe);
@@ -59,7 +59,7 @@ final class EmployeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_employe_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('employe_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('employe/edit.html.twig', [
@@ -68,14 +68,14 @@ final class EmployeController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_employe_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'employe_suppression', methods: ['POST'])]
     public function delete(Request $request, Employe $employe, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$employe->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $employe->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($employe);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_employe_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('employe_index', [], Response::HTTP_SEE_OTHER);
     }
 }

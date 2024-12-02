@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/categorie')]
 final class CategorieController extends AbstractController
 {
-    #[Route(name: 'app_categorie_index', methods: ['GET'])]
+    #[Route(name: 'categorie_index', methods: ['GET'])]
     public function index(CategorieRepository $categorieRepository): Response
     {
         return $this->render('categorie/index.html.twig', [
@@ -33,16 +33,16 @@ final class CategorieController extends AbstractController
             $entityManager->persist($categorie);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_categorie_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('categorie_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('categorie/new.html.twig', [
             'categorie' => $categorie,
-            'form' => $form,
+            'formCategorie' => $form,
         ]);
     }
 
-    #[Route('/{id}', name: 'app_categorie_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'categorie_affiche', methods: ['GET'])]
     public function show(Categorie $categorie): Response
     {
         return $this->render('categorie/show.html.twig', [
@@ -50,7 +50,7 @@ final class CategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_categorie_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'categorie_edition', methods: ['GET', 'POST'])]
     public function edit(Request $request, Categorie $categorie, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(CategorieType::class, $categorie);
@@ -59,7 +59,7 @@ final class CategorieController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_categorie_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('categorie_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('categorie/edit.html.twig', [
@@ -68,14 +68,14 @@ final class CategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_categorie_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'categorie_suppression', methods: ['POST'])]
     public function delete(Request $request, Categorie $categorie, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$categorie->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $categorie->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($categorie);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_categorie_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('categorie_index', [], Response::HTTP_SEE_OTHER);
     }
 }

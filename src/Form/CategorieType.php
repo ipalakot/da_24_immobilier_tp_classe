@@ -3,20 +3,26 @@
 namespace App\Form;
 
 use App\Entity\Categorie;
+//use MailPoetVendor\Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
-use MailPoetVendor\Doctrine\DBAL\Types\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-
 
 class CategorieType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titre', TextType::class, [])
-            ->add('description', TextareaType::class)
+            ->add('titre', TextType::class, [
+                'label' => 'Intitulé',
+                'required' => true,
+                'disabled' => false,
+                'empty_data' => 'Sans Reference',
+            ])
+            ->add('description', TextareaType::class, [
+                'label' => 'Description'])
         ;
     }
 

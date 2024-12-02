@@ -1,11 +1,28 @@
 {% extends 'base.html.twig' %}
+{% form_theme formAgency'bootstrap_4_layout.html.twig'  %}
 
-{% block title %}New Agence{% endblock %}
+{% block navigation%}
+	<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
+{% endblock %}
+
+{% block title %}New Agence
+
+
+{% endblock %}
 
 {% block body %}
-    <h1>Nouvelle Agence</h1>
+	<div class="container">
 
-    {{ include('agence/_form.html.twig') }}
+		<h2>Nouvelle Agence</h2>
 
-    <a href="{{ path('app_agence_index') }}">Index des Agences</a>
+		{{ include('agence/_form.html.twig') }}
+
+		<a href="{{ path('agence_index') }}" class="btn btn-primary">Index des Agences</a>
+
+	</div>
 {% endblock %}
