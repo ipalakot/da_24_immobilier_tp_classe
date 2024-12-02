@@ -217,18 +217,6 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    //trier les articles par titre
-    #[Route('/article-trier_titre', name: 'article.trier.titre')]
-    public function indexArticlesTrierTitre(ArticleRepository $articleRepository, Request $request)
-    {
-        $articles = $articleRepository->findAZ();
-        // Appel de la page pour affichage
-        return $this->render(
-            'article/index.html.twig', [
-                // passage du contenu de $location
-                'articles' => $articles,
-            ]
-        );
-    }
+
 
 }
