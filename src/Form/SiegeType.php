@@ -38,7 +38,7 @@ class SiegeType extends AbstractType
             ])
             ->add('directeur', EntityType::class, [
                 'class' => Directeur::class,
-                'choice_label' => 'id',
+                'choice_label' => 'nom',
                 'label' => 'Directeur',
             ])
         ;
