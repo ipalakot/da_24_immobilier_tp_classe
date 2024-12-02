@@ -46,7 +46,15 @@ class ArticleController extends AbstractController
             'formCreatArticle' => $form->createView(),
         ]);
     }
-
+    /*
+    #[Route('/{id}', name: 'article_affichage', methods: ['GET'])]
+    public function affichage(Article $article): Response
+    {
+    return $this->render('article/affichage.html.twig', [
+    'controller_name' => 'ArticleController',
+    'article'=> $article,
+    ]);
+    } */
 
     #[Route('/{id}', name: 'article_affichage', methods: ['GET'])]
     public function affichage($id, ArticleRepository $articlerepo): Response

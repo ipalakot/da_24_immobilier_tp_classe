@@ -1,13 +1,30 @@
 {% extends 'base.html.twig' %}
 
+{% form_theme formAgency'bootstrap_4_layout.html.twig'  %}
+
+
 {% block title %}Edit Agence{% endblock %}
 
+
+{% block navigation%}
+<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
+{% endblock %}
+
+
 {% block body %}
+
+<div class="container">
     <h1>Edit Agence</h1>
 
-    {{ include('agence/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('agence/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('app_agence_index') }}">Liste de</a>
+    <a href="{{ path('agence_index') }}">Liste de</a>
 
     {{ include('agence/_delete_form.html.twig') }}
+<div>
 {% endblock %}

@@ -42,8 +42,8 @@
 						<td>{{ employe.createdAt ? employe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ employe.updatedAt ? employe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
 						<td>
-							<a href="{{ path('employe_affichage', {'id': employe.id}) }}">lire</a>
-							<a href="{{ path('employe_edition', {'id': employe.id}) }}">editer</a>
+							<a href="{{ path('employe_affichage', {'id': employe.id}) }}"class="btn btn-primary">lire</a>
+							<a href="{{ path('employe_edition', {'id': employe.id}) }}"class="btn btn-secondary">editer</a>
 						</td>
 					</tr>
 				{% else %}

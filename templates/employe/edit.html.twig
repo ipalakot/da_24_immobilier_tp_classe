@@ -1,13 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Employe{% endblock %}
+{% form_theme formEmploy'bootstrap_4_layout.html.twig'  %}
+
+{% block title %}Edition Employe{% endblock %}
+
+{% block navigation%}
+<!-- Navigation-->
+	{% include 'tools/navigation.html.twig'  %}
+	<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
+
+	<!-- Section-->
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Employe</h1>
+<div class="container">
+    <h1>Edition Employe</h1>
+    <hr>
 
-    {{ include('employe/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('employe/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('app_employe_index') }}">Liste de</a>
+    <br><a href="{{ path('employe_index') }}" class="btn btn-primary">Liste des Employés</a>
 
     {{ include('employe/_delete_form.html.twig') }}
+</div>
 {% endblock %}

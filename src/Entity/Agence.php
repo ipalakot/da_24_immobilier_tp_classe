@@ -26,7 +26,7 @@ class Agence
     #[ORM\Column]
     #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
     #[Assert\Type(
-        type: 'integer',
+        type: 'number',
         message: 'The value {{ value }} is not a valid {{ type }}.',
     )]
     private ?float $numeroAgence = null;
