@@ -20,6 +20,14 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
+    public function findOneBy() //findOneBy()
+    {
+        ['titre' => 'John Doe'];
+    }
+
+  
+
+
     public function findAZ()
     {
         return $this->createQueryBuilder('a')
