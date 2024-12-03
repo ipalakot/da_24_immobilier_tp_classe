@@ -224,12 +224,27 @@ public function indexArticlesTrierTitre(ArticleRepository $articleRepository, Re
     $articles = $articleRepository->findTrieArtcles_AZ(); 
     // Appel de la page pour affichage
     return $this->render(
-        'article/affich-Trie.html.twig', [
+        'article/index.html.twig', [
         // passage du contenu de $location
         'articles' => $articles,
         ]
     );
 } 
+
+//trier les articles par type
+#[Route('/trie/article-trie-type', name: 'article.trier.type')]
+public function indexArticlesTrierTypee(ArticleRepository $articleRepository, Request $request)
+{
+    $articles = $articleRepository->findTrietype_AZ(); 
+    // Appel de la page pour affichage
+    return $this->render(
+        'article/index.html.twig', [
+        // passage du contenu de $location
+        'articles' => $articles,
+        ]
+    );
+} 
+
 
 //trier les articles par Surface
 #[Route('/trie/article-trie-surface', name: 'article.trier.surface')]

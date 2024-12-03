@@ -32,7 +32,9 @@
 					<th>Gestionnaire</th>
 
 					<th>Adresse</th>
-					<th>Type</th>
+					<th><a href="{{path('article.trier.type')}}" 
+						title="cliquer pour trier par surface en ordre croissant" >Type
+					</th>
 					<th><a href="{{path('article.trier.surface')}}" 
 						title="cliquer pour trier par surface en ordre croissant" >Surface
 					</th>
@@ -45,12 +47,13 @@
 					<tr>
 						<td>{{ article.id }}</td>
 						<td>{{ article.titre }}</td>
-						<td>{{ article.Agence.id }}</td>
-						<td>{{ article.Categorie.titre }}</td>
+
+						<td>{{ article.Categorie.titre }}</td>						
+						<td>{{ article.Agence.numeroAgence }} | {{ article.Agence.adresse }} </td>
 						<td>{{ article.Client.nom }}</td>
 						<td>{{ article.Employe.nom }}</td>
 						<td>{{ article.adresse }}</td>
-						<td>{{ article.type }}</td>
+						<td>F{{ article.type }}</td>
 						<td>{{ article.surface }}m2</td>
 						<td>{{ article.prix }}€</td>
 						<td><a href="{{ path('article_modif', {'id': article.id}) }}" class="btn btn-primary">Modifier</a></td>

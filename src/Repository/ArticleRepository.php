@@ -35,7 +35,17 @@ class ArticleRepository extends ServiceEntityRepository
     public function findTrieArtcles_AZ()
     {
         return $this->createQueryBuilder('a')
+            ->select('a')
             ->orderBy('a.titre', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findTrietype_AZ()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a')
+            ->orderBy('a.type', 'ASC')
             ->getQuery()
             ->getResult();
     }
