@@ -11,12 +11,12 @@
 	<!-- Section-->
 	<div class="container">
 		<hr/>
-		{% for article in articles %}
+
 
 
 			<h1>Article N°
-				{{ article.id }}</h1>
-{% endfor %}
+				{{ articles.id }}</h1>
+
 
 
 			<table class="table">
@@ -27,52 +27,52 @@
 					</tr>
 					<tr>
 						<th>Title</th>
-						<td>{{ article.titre }}</td>
+						<td>{{ articles.titre }}</td>
 					</tr>
 
 					<tr>
 						<th>Adresse</th>
-						<td>{{ article.adresse }}</td>
+						<td>{{ articles.adresse }}</td>
 					</tr>
 
 					<tr>
 						<th>Images</th>
-						<td>{{ article.images }}</td>
+						<td>{{ articles.images }}</td>
 					</tr>
 
 					<tr>
 						<th>Type</th>
-						<td>{{ article.type }}</td>
+						<td>{{ articles.type }}</td>
 					</tr>
 
 					<tr>
 						<th>Surface</th>
-						<td>{{ article.surface }}</td>
+						<td>{{ articles.surface }}</td>
 					</tr>
 					<tr>
 						<th>Prix</th>
-						<td>{{ article.prix }}</td>
+						<td>{{ articles.prix }}</td>
 					</tr>
 					<tr>
 						<th>Proprietaire</th>
-						<td>{{ article.owner }}</td>
+						<td>{{ articles.client.nom }}</td>
 					</tr>
 
 
 				</tbody>
 			</tr<tr>
 			<th>Gestionnaire</th>
-			<td>{{ article.employe.nom }}</td>
+			<td>{{ articles.employe.nom }}</td>
 		</tr>
 		>
 		<tr>
 			<th>Agence</th>
-			<td>{{ article.agence.numeroAgence }}</td>
+			<td>{{ articles.agence.numeroAgence }}</td>
 		</tr>
 
 		<tr>
 			<th>Description</th>
-			<td>{{ article.description }}</td>
+			<td>{{ articles.description }}</td>
 		</tr>
 	</tbody>
 </table></div>{% endblock %}

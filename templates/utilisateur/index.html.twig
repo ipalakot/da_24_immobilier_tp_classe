@@ -17,10 +17,10 @@
 
 	<div class="container">
 		<hr/>
-		<h1>Liste des utilisateurs </h1>
+		<h2>Les Utilisateurs </h2>
         <hr/>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -30,8 +30,8 @@
                 <th>Age</th>
                 <th>Telephone</th>
                 <th>Email</th>
-                <th>Login</th>
-                <th>Password</th>
+               {# <th>Login</th> #}
+               {# <th>Password</th>}} #}
 
             </tr>
         </thead>
@@ -46,8 +46,8 @@
                 {#...  <td>{{ utilisateur.dateNaissance ? utilisateur.dateNaissance|date('Y-m-d H:i:s') : '' }}</td> #}
                 <td>{{ utilisateur.phone }}</td>
                 <td>{{ utilisateur.Email }}</td>
-                <td>{{ utilisateur.login }}</td>
-                <td>{{ utilisateur.password }}</td>
+               {#...  <td>{{ utilisateur.login }}</td> #}
+                {#... <td>{{ utilisateur.password }}</td> #}
                     
                 </tr>
             {% else %}
