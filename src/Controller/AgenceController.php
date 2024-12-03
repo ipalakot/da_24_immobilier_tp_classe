@@ -78,4 +78,7 @@ final class AgenceController extends AbstractController
 
         return $this->redirectToRoute('agence_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+    #[Route()]
 }
