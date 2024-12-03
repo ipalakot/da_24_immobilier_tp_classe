@@ -47,7 +47,26 @@ class ArticleRepository extends ServiceEntityRepository
 >>>>>>> 145f088f066420cc5d62a3ccc661f383b5f1be58
     {
         return $this->createQueryBuilder('a')
+            ->select('a')
             ->orderBy('a.titre', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findTrietype_AZ()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a')
+            ->orderBy('a.type', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findTrieAdresse_AZ()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a')
+            ->orderBy('a.adresse', 'ASC')
             ->getQuery()
             ->getResult();
     }
@@ -59,6 +78,65 @@ class ArticleRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+
+    public function findCategorieLocAppart(): array
+    {
+        return $this->createQueryBuilder('a')
+        ->join('a.categorie', 'v')
+        ->andWhere('v.titre= :val')
+        ->setParameter('val', 'location-Appart')
+        ->orderBy('a.id', 'ASC')
+        ->getQuery()
+        ->getResult();
+    }
+
+    public function findCategorieLocMaison(): array
+    {
+        return $this->createQueryBuilder('a')
+        ->join('a.categorie', 'v')
+        ->andWhere('v.titre= :val')
+        ->setParameter('val', 'location-Maison')
+        ->orderBy('a.id', 'ASC')
+        ->getQuery()
+        ->getResult();
+    }
+
+
+    public function findCategorieVenteAppart(): array
+    {
+        return $this->createQueryBuilder('a')
+        ->join('a.categorie', 'v')
+        ->andWhere('v.titre= :val')
+        ->setParameter('val', 'Vente-Appart')
+        ->orderBy('a.id', 'ASC')
+        ->getQuery()
+        ->getResult();
+    }
+
+    public function findCategorieVenteMaison(): array
+    {
+        return $this->createQueryBuilder('a')
+        ->join('a.categorie', 'v')
+        ->andWhere('v.titre= :val')
+        ->setParameter('val', 'Vente-Maison')
+        ->orderBy('a.adresse', 'ASC')
+        ->getQuery()
+        ->getResult();findCategorieVenteAppartn();
+    }
+
+    public function findCategorieVenteAppartn(): array
+    {
+        return $this->createQueryBuilder('a')
+        ->join('a.categorie', 'v')
+        ->andWhere('v.titre= :val')
+        ->setParameter('val', 'Vente-Appart.')
+        ->orderBy('a.adresse', 'ASC')
+        ->getQuery()
+        ->getResult();
+    }
+
+
 
     /**
      * @return Article[] Returns an array of Article objects
