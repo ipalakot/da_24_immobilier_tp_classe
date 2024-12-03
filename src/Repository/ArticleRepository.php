@@ -41,6 +41,7 @@ class ArticleRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    
     public function findTrietype_AZ()
     {
         return $this->createQueryBuilder('a')
