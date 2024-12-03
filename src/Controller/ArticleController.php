@@ -217,6 +217,17 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    #[Route('/trie/articletitre', name: 'trie_article_titre')]
+    public function trieArticleTitre(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->trieArticleTitre();
+        return $this->render(
+            'article/index.html.twig', [
+            // passage du contenu de $location
+            'articles' => $articles,
+            ]
+        );
+    } 
 
 
 }

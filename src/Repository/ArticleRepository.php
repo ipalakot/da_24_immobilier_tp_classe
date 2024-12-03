@@ -23,6 +23,20 @@ class ArticleRepository extends ServiceEntityRepository
 
 
 
+/** 
+ * @return Articles [] retour de liste des articles par Titres
+*/
+
+public function trieArticleTitre()
+{
+
+    return $this->createQueryBuilder('a')
+                ->orderBy('a.titre', 'ASC')
+                ->getQuery()
+                ->getResult();
+}
+
+
 
 //    /**
 //     * @return Article[] Returns an array of Article objects
