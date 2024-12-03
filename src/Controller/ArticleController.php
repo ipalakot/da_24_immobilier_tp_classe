@@ -218,10 +218,10 @@ class ArticleController extends AbstractController
     }
 
 //trier les articles par titre
-#[Route('/article-trie-titre', name: 'article.trier.titre')]
+#[Route('/trie/article-trie-titre', name: 'article.trier.titre')]
 public function indexArticlesTrierTitre(ArticleRepository $articleRepository, Request $request)
 {
-    $articles = $articleRepository->findAZ(); 
+    $articles = $articleRepository->findTrieArtcles_AZ(); 
     // Appel de la page pour affichage
     return $this->render(
         'article/affich-Trie.html.twig', [
@@ -231,14 +231,28 @@ public function indexArticlesTrierTitre(ArticleRepository $articleRepository, Re
     );
 } 
 
+//trier les articles par Surface
+#[Route('/trie/article-trie-surface', name: 'article.trier.surface')]
+public function indexArticlesTrierSurface(ArticleRepository $articleRepository, Request $request)
+{
+    $articles = $articleRepository->findTrieSurface_AZ(); 
+    // Appel de la page pour affichage
+    return $this->render(
+        'article/index.html.twig', [
+        // passage du contenu de $location
+        'articles' => $articles,
+        ]
+    );
+} 
+
  // trier par prix croissant 
- #[Route('/article-trier_prix', name: 'article.trier.prix')]
+ #[Route('/trie/article-trier_prix', name: 'article.trier.prix')]
  public function indexArticlesTrierPrix(ArticleRepository $articleRepository, Request $request)
  {
      $articles = $articleRepository->findAscPrice(); 
      // Appel de la page pour affichage
      return $this->render(
-         'article/affich-Trie.html.twig', [
+         'article/index.html.twig', [
          // passage du contenu de $location
          'articles' => $articles,
          ]

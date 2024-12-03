@@ -20,8 +20,19 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
-    
-    public function findAZ()
+    /**
+     * @return Articles[] Returns an array of Users objects
+     */
+    public function getTriAsc(string $champ): array
+    {
+        $query = $this  ->createQueryBuilder('a')
+                        ->select('a')
+                        ->orderBy('a.' . $champ, 'ASC')
+                        ->getQuery();
+        return $query   ->getResult();
+    }
+
+    public function findTrieArtcles_AZ()
     {
         return $this->createQueryBuilder('a')
             ->orderBy('a.titre', 'ASC')
@@ -29,17 +40,25 @@ class ArticleRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findTrieSurface_AZ()
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.surface', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
     /**
      * @return Article[] Returns an array of Article objects
      */
-    public function getTriAsc(string $champ): array
+    /*public function getTriAsc(string $champ): array
     {
         $query = $this->createQueryBuilder('a')
             ->select('a')
             ->orderBy('a.' . $champ, 'ASC')
             ->getQuery();
         return $query->getResult();
-    }
+    } */
 
     public function findAscPrice()
     {
