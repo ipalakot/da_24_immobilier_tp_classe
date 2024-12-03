@@ -32,8 +32,9 @@ class ArticleType extends AbstractType
                 'label' => 'Adresse',
                 'required' => true,
                 'disabled' => false,
-
             ])
+ 
+            
             ->add('images', TextType::class, [
                 'label' => 'Photo',
                 'required' => true,
@@ -41,6 +42,7 @@ class ArticleType extends AbstractType
                 'empty_data' => 'https://img.leboncoin.fr/api/v1/lbcpb1/images/04/de/81/04de81467bcb4f5ec2379f7289bc752a63bcd9e0.jpg?rule=classified-1200x800-webp',
             ])
 
+            
             ->add('type', ChoiceType::class, [
                 'choices' => [
                     'F1' => '1',
@@ -50,7 +52,7 @@ class ArticleType extends AbstractType
                     'F5' => '5',
                 ],
             ])
-
+            
             ->add('surface', IntegerType::class, [])
             ->add('prix', IntegerType::class, [])
             ->add('description', TextareaType::class, [
@@ -59,15 +61,18 @@ class ArticleType extends AbstractType
                 'class' => Categorie::class,
                 'choice_label' => 'titre',
             ])
+                      
             ->add('client', EntityType::class, [
                 'class' => Client::class,
                 'choice_label' => 'nom',
                 'label' => "Proprio",
-            ])
+            ])  
+            
             ->add('agence', EntityType::class, [
                 'class' => Agence::class,
                 'choice_label' => 'numeroAgence',
             ])
+                        
             ->add('employe', EntityType::class, [
                 'class' => Employe::class,
                 'choice_label' => 'id',
@@ -75,8 +80,7 @@ class ArticleType extends AbstractType
             ])
         ;
     }
-
-    public function configureOptions(OptionsResolver $resolver): void
+        public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Article::class,
