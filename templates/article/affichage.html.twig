@@ -13,66 +13,66 @@
 		<hr/>
 
 
-
-			<h1>Article N°
-				{{ articles.id }}</h1>
-
-
-
-			<table class="table">
-				<tbody>
-					<tr>
-						<th>Id</th>
-
-					</tr>
-					<tr>
-						<th>Title</th>
-						<td>{{ articles.titre }}</td>
-					</tr>
-
-					<tr>
-						<th>Adresse</th>
-						<td>{{ articles.adresse }}</td>
-					</tr>
-
-					<tr>
-						<th>Images</th>
-						<td>{{ articles.images }}</td>
-					</tr>
-
-					<tr>
-						<th>Type</th>
-						<td>{{ articles.type }}</td>
-					</tr>
-
-					<tr>
-						<th>Surface</th>
-						<td>{{ articles.surface }}</td>
-					</tr>
-					<tr>
-						<th>Prix</th>
-						<td>{{ articles.prix }}</td>
-					</tr>
-					<tr>
-						<th>Proprietaire</th>
-						<td>{{ articles.client.nom }}</td>
-					</tr>
+		<h3>Article N° |
+			{{ articles.id }}
+		</h3>
 
 
-				</tbody>
-			</tr<tr>
-			<th>Gestionnaire</th>
-			<td>{{ articles.employe.nom }}</td>
-		</tr>
-		>
-		<tr>
-			<th>Agence</th>
-			<td>{{ articles.agence.numeroAgence }}</td>
-		</tr>
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>LIbellé</th>
+					<td>{{ articles.titre }}</td>
+				</tr>
 
-		<tr>
-			<th>Description</th>
-			<td>{{ articles.description }}</td>
-		</tr>
-	</tbody>
-</table></div>{% endblock %}
+				<tr>
+					<th>Adresse</th>
+					<td>{{ articles.adresse }}</td>
+				</tr>
+
+				<tr>
+					<th>Images</th>
+					<td>{{ articles.images }}</td>
+				</tr>
+
+				<tr>
+					<th>Type</th>
+					<td>{{ articles.type }}</td>
+				</tr>
+
+				<tr>
+					<th>Surface</th>
+					<td>{{ articles.surface }}</td>
+				</tr>
+				<tr>
+					<th>Prix</th>
+					<td>{{ articles.prix }}</td>
+				</tr>
+				<tr>
+					<th>Proprietaire</th>
+					<td>{{ articles.client.nom }}
+						{{ articles.client.prenom }}</td>
+
+				</tr>
+
+
+			</tbody>
+		</tr<tr>
+		<th>Gestionnaire</th>
+		<td>{{ articles.employe.nom }}
+			{{ articles.employe.prenom }}</td>
+
+	</tr>
+	>
+	<tr>
+		<th>Agence</th>
+		<td>{{ articles.agence.numeroAgence }}
+			{{ articles.agence.adresse }}</td>
+
+	</tr>
+
+	<tr>
+		<th>Description</th>
+		<td>{{ articles.description }}</td>
+	</tr>
+</tbody></table></div>{% endblock %}
