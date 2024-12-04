@@ -32,6 +32,19 @@ class ArticleRepository extends ServiceEntityRepository
         return $query   ->getResult();
     }
 
+    /**
+     * @return Article[] Returns an array of Article objects
+     */
+    /*public function getTriAsc(string $champ): array
+    {
+        $query = $this->createQueryBuilder('a')
+            ->select('a')
+            ->orderBy('a.' . $champ, 'ASC')
+            ->getQuery();
+        return $query->getResult();
+    } */
+
+
     public function findTrieArtcles_AZ()
     {
         return $this->createQueryBuilder('a')
@@ -67,7 +80,13 @@ class ArticleRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-
+    public function findAscPrice()
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.prix', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
     public function findCategorieLocAppart(): array
     {
         return $this->createQueryBuilder('a')
@@ -124,27 +143,11 @@ class ArticleRepository extends ServiceEntityRepository
         ->getResult();
     }
 
+    
+
+    
 
 
-    /**
-     * @return Article[] Returns an array of Article objects
-     */
-    /*public function getTriAsc(string $champ): array
-    {
-        $query = $this->createQueryBuilder('a')
-            ->select('a')
-            ->orderBy('a.' . $champ, 'ASC')
-            ->getQuery();
-        return $query->getResult();
-    } */
-
-    public function findAscPrice()
-    {
-        return $this->createQueryBuilder('a')
-            ->orderBy('a.prix', 'ASC')
-            ->getQuery()
-            ->getResult();
-    }
 
     public function findAscCreatedAt()
     {

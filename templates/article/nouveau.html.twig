@@ -16,15 +16,11 @@
 		<hr/>
 
 		{{ form_start(formCreatArticle) }}
-		   
-            {{ form_widget(formCreatArticle) }}
 
-            <button type="submit" class="btn btn-success">
-                Register !
-            </button>
-            </br></br></br>
-            
-		{{ form_end(formCreatArticle) }}
+		{{ form_widget(formCreatArticle) }}
 
-
-{% endblock %}
+		<button type="submit" class="btn btn-success">
+			enregistrer !
+		</button>
+	</br>
+</br></br>{{ form_end(formCreatArticle) }}{% endblock %}

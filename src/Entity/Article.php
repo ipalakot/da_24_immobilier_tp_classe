@@ -37,7 +37,7 @@ class Article
     private ?string $adresse = null;
 
     #[ORM\Column(length: 255)]
-    //  #[Assert\NotBlank(message:'ce champ ne peut pas être vide') ]
+    #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
     private ?string $images = null;
 
     #[ORM\Column(length: 255)]
@@ -57,12 +57,13 @@ class Article
     private ?string $owner = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    #[Assert\Length(
-        min: 10,
-        max: 25,
-        minMessage: 'taille minimale est  {{ limit }} characters',
-        maxMessage: 'la taille maximale est de  {{ limit }} characters',
-    )]
+    #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
+    /*#[Assert\Length(
+    min: 10,
+    max: 25,
+    minMessage: 'taille minimale est  {{ limit }} characters',
+    maxMessage: 'la taille maximale est de  {{ limit }} characters',
+    )]*/
     private ?string $description = null;
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
