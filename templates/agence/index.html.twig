@@ -25,6 +25,8 @@
 				<tr>
 					<th>Id</th>
 					<th>NumeroAgence</th>
+					<th>Responsable</th>
+					<th>Employés</th>
 					<th>Adresse</th>
 					<th>actions</th>
 				</tr>
@@ -32,8 +34,10 @@
 			<tbody>
 				{% for agence in agences %}
 					<tr>
-						<td>{{ agence.id }}</td>
-						<td>{{ agence.numeroAgence }}</td>
+						<td>{{ agence.id }} |</td>
+						<td>{{ agence.numeroAgence }} | {{ agence.adresse }}</td>
+						<td>{{ agence.directeur.nom }}</td>
+					<td></td>
 						<td>{{ agence.adresse }}</td>
 						<td>
 							<a href="{{ path('agence_affichage', {'id': agence.id}) }}" class="btn btn-secondary">lire</a>
