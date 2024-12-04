@@ -62,7 +62,7 @@ class ArticleController extends AbstractController
         $articles = $articlerepo->find($id); //find($id)
         return $this->render('article/affichage.html.twig', [
             'controller_name' => 'ArticleController',
-            'article' => $articles,
+            'articles' => $articles,
         ]);
     }
 
@@ -152,72 +152,12 @@ class ArticleController extends AbstractController
         //die();
     }
 
-    //#[Route('/location', name: 'location')]
-    public function location(): Response
-    {
-        return $this->render('article/page.html.twig', [
-            'controller_name' => 'ArticleController',
-            'title' => 'Location de Biens',
-        ]);
-    }
-
-    #[Route('/terrain', name: 'locationterrain')]
-    public function location_terrain(): Response
-    {
-        return $this->render('article/page.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
-    }
-
-    #[Route('/location-maison', name: 'locationmaison')]
-    public function location_maison(): Response
-    {
-        return $this->render('article/page.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
-    }
-
-    #[Route('/location-mappart', name: 'locationapprt')]
-    public function location_appart(): Response
-    {
-        return $this->render('article/page.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
-    }
-
-    //#[Route('/vente', name: 'vente')]
-    public function vente(): Response
-    {
-        return $this->render('article/index.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
-    }
-
-    #[Route('/vente-terrainte', name: 'vente_terrain')]
-    public function vente_terrain(): Response
-    {
-        return $this->render('article/index.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
-    }
-
-    #[Route('/vente-maison', name: 'vente_maison')]
-    public function vente_maison(): Response
-    {
-        return $this->render('article/index.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
-    }
-
-    #[Route('/vente-appart', name: 'vente_appart')]
-    public function vente_appart(): Response
-    {
-        return $this->render('article/index.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
-    }
+     /**
+     * Ici demarre mes Tries
+     */
 
     #[Route('/trie/articletitre', name: 'trie_article_titre')]
+    //Trie des Biens par rapport au titre
     public function trieArticleTitre(ArticleRepository $articleRepository, Request $request)
     {
         $articles = $articleRepository->trieArticleTitre();
@@ -229,5 +169,82 @@ class ArticleController extends AbstractController
         );
     } 
 
+    #[Route('/trie/articleadresse', name: 'trie_article_adresse')]
+    //Trie des Biens par les adresses
+    public function trieArticleAdresse(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->trieArticleAdresse();
+        return $this->render(
+            'article/index.html.twig', [
+            // passage du contenu de $location
+            'articles' => $articles,
+            ]
+        );
+    } 
+
+    //#[Route('/location', name: 'location')]
+     public function location(): Response
+     {
+         return $this->render('article/page.html.twig', [
+             'controller_name' => 'ArticleController',
+             'title' => 'Location de Biens',
+         ]);
+     }
+ 
+     #[Route('/terrain', name: 'locationterrain')]
+     public function location_terrain(): Response
+     {
+         return $this->render('article/page.html.twig', [
+             'controller_name' => 'ArticleController',
+         ]);
+     }
+ 
+     #[Route('/location-maison', name: 'locationmaison')]
+     public function location_maison(): Response
+     {
+         return $this->render('article/page.html.twig', [
+             'controller_name' => 'ArticleController',
+         ]);
+     }
+ 
+     #[Route('/location-mappart', name: 'locationapprt')]
+     public function location_appart(): Response
+     {
+         return $this->render('article/page.html.twig', [
+             'controller_name' => 'ArticleController',
+         ]);
+     }
+ 
+     //#[Route('/vente', name: 'vente')]
+     public function vente(): Response
+     {
+         return $this->render('article/index.html.twig', [
+             'controller_name' => 'ArticleController',
+         ]);
+     }
+ 
+     #[Route('/vente-terrainte', name: 'vente_terrain')]
+     public function vente_terrain(): Response
+     {
+         return $this->render('article/index.html.twig', [
+             'controller_name' => 'ArticleController',
+         ]);
+     }
+ 
+     #[Route('/vente-maison', name: 'vente_maison')]
+     public function vente_maison(): Response
+     {
+         return $this->render('article/index.html.twig', [
+             'controller_name' => 'ArticleController',
+         ]);
+     }
+ 
+     #[Route('/vente-appart', name: 'vente_appart')]
+     public function vente_appart(): Response
+     {
+         return $this->render('article/index.html.twig', [
+             'controller_name' => 'ArticleController',
+         ]);
+     }
 
 }

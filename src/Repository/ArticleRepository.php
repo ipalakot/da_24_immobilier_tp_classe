@@ -36,6 +36,19 @@ public function trieArticleTitre()
                 ->getResult();
 }
 
+/** 
+ * @return Articles [] retour de liste des articles par Titres
+*/
+
+public function trieArticleAdresse()
+{
+
+    return $this->createQueryBuilder('a')
+                ->orderBy('a.adresse', 'ASC')
+                ->getQuery()
+                ->getResult();
+}
+
 
 
 //    /**

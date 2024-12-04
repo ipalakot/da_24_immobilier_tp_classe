@@ -15,40 +15,50 @@
 
 		<h1>Liste des Biens</h1>
 
-		<table class="table">
+		<table class="table table-dark table-striped">
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>Titre</th>
+					<th>
+						<a href="{{path('trie_article_titre')}}"
+						title="Cliquer pour trier en ordre Alphabetique">
+						Titre
+					</th>
 					<th>Categorie</th>
 					<th>Agence</th>
 					<th>Owner</th>
-					<th>Gestionnaire</th>
-
-					<th>Adresse</th>
-					<th>Type</th>
-					<th>Surface</th>
-					<th>Prix</th>
+					<th>
+						Gestionnaire</th>
+									<th>
+						<a href="{{path('trie_article_adresse')}}"
+						title="Cliquer pour trier en ordre Alphabetique">
+						Adresse
+					</th>
+					<th><a href="#">Type</th>
+					<th><a href="#">Surface</th>
+					<th><a href="#">Prix</th>
 				</tr>
 			</thead>
 			<tbody>
 				{% for article in articles %}
 					<tr>
 						<td>{{ article.id }}</td>
-						<td>{{ article.titre }}</td>
-						<td>{{ article.Agence.id }}</td>
+						<td>{{ article.titre }} | {{ article.adresse }} </td>
 						<td>{{ article.Categorie.titre }}</td>
+						<td>{{ article.Agence.numeroAgence}}| {{ article.Agence.adresse}}</td>
+						
 						<td>{{ article.Client.nom }}</td>
-						<td>{{ article.Employe.nom }}</td>
+						<td>{{ article.Employe.id }}| {{ article.Employe.nom }} {{ article.Employe.prenom }}</td>
 						<td>{{ article.adresse }}</td>
-						<td>{{ article.type }}</td>
-						<td>{{ article.surface }}m2</td>
+						<td>F{{ article.type }}</td>
+						<td>{{ article.surface }} M2</td>
 						<td>{{ article.prix }}€</td>
-						<td><a href="{{ path('article_modif', {'id': article.id}) }}" class="btn btn-primary">Modifier</a></td>
+						<td><a href="{{ path('article_affichage', {'id': article.id}) }}" class="btn btn-primary">details</a></td>
+						{#<td><a href="{{ path('article_modif', {'id': article.id}) }}" class="btn btn-primary">Modifier</a></td>#}
 					</tr>
 				{% else %}
 					<tr>
-						<td colspan="8">Aucun Artcile
+						<td colspan="8">Aucun bien Disponible pour le moement
 						</td>
 					</tr>
 				{% endfor %}

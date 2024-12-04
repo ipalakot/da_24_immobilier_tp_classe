@@ -51,6 +51,7 @@ class ArticleType extends AbstractType
                 ],
             ])
 
+            
             ->add('surface', IntegerType::class, [])
             ->add('prix', IntegerType::class, [])
             ->add('description', TextareaType::class, [
