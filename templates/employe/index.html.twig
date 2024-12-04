@@ -28,9 +28,12 @@
 					<th>Id</th>
 					<th>Noms</th>
 					<th>Prenoms</th>
-					<th>Creer le</th>
-					<th>Modifier le</th>
-					<th>actions</th>
+					<th>Agence</th>
+					<th>Responsable</th>
+					<th>Date Embauche</th>
+					<th>Portefeuille</th>
+					{#<th>Modifier le</th>#}
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -39,8 +42,11 @@
 						<td>{{ employe.id }}</td>
 						<td>{{ employe.nom }}</td>
 						<td>{{ employe.prenom }}</td>
+						<td>{{ employe.agence.numeroAgence }} | {{ employe.agence.adresse }}</td>
+						<td>{{ employe.directeur.nom }} {{ employe.directeur.prenom }}</td>
 						<td>{{ employe.createdAt ? employe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-						<td>{{ employe.updatedAt ? employe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+						<td></td>
+						{#<td>{{ employe.updatedAt ? employe.updatedAt|date('Y-m-d H:i:s') : '' }}</td> #}
 						<td>
 							<a href="{{ path('employe_affichage', {'id': employe.id}) }}"class="btn btn-primary">lire</a>
 							<a href="{{ path('employe_edition', {'id': employe.id}) }}"class="btn btn-secondary">editer</a>

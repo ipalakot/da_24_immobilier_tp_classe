@@ -87,6 +87,8 @@ class ArticleRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    //Lister les Articles de Categorie Location-Appartement
     public function findCategorieLocAppart(): array
     {
         return $this->createQueryBuilder('a')
@@ -98,7 +100,8 @@ class ArticleRepository extends ServiceEntityRepository
         ->getResult();
     }
 
-    public function findCategorieLocMaison(): array
+    //Lister les Articles de Categorie Location-Maison
+        public function findCategorieLocMaison(): array
     {
         return $this->createQueryBuilder('a')
         ->join('a.categorie', 'v')
@@ -110,6 +113,7 @@ class ArticleRepository extends ServiceEntityRepository
     }
 
 
+    //Lister les Articles de Categorie vente-Appartement
     public function findCategorieVenteAppart(): array
     {
         return $this->createQueryBuilder('a')
@@ -121,6 +125,7 @@ class ArticleRepository extends ServiceEntityRepository
         ->getResult();
     }
 
+    //Lister les Articles de Categorie Vente-Maison
     public function findCategorieVenteMaison(): array
     {
         return $this->createQueryBuilder('a')
@@ -160,7 +165,8 @@ class ArticleRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function findAllWithCategorie()
+    //Lister les Articles par ordre ASC de Categorie
+        public function findAllWithCategorie()
     {
         return $this->createQueryBuilder('a')
             ->select('a')
@@ -171,6 +177,7 @@ class ArticleRepository extends ServiceEntityRepository
     }
 
 
+    //Lister les Articles par ordre ASC d'Agences
     public function findAllWithAgencyASC()
     {
         return $this->createQueryBuilder('a')
@@ -181,6 +188,16 @@ class ArticleRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    //Lister les Articles par ordre ASC de gestionnaires
+    public function findAllWithGestionnaireASC()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a')
+            ->join('a.employe', 'e')
+            ->orderBy('e.prenom', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 
 
 

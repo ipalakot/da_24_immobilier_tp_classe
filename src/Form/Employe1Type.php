@@ -18,6 +18,16 @@ class Employe1Type extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+           
+            ->add('agence', EntityType::class, [
+                'class' => Agence::class,
+                'choice_label' =>'numeroAgence' ,
+            ])
+            ->add('directeur', EntityType::class, [
+                'class' => Directeur::class,
+                'choice_label' => 'nom',
+            ])
+
             ->add('nom', TextType::class, [])
             ->add('prenom', TextType::class, [])
             ->add('createdAt', null, [
@@ -25,14 +35,6 @@ class Employe1Type extends AbstractType
             ])
             ->add('updatedAt', null, [
                 'widget' => 'single_text',
-            ])
-            ->add('agence', EntityType::class, [
-                'class' => Agence::class,
-                'choice_label' => 'id',
-            ])
-            ->add('directeur', EntityType::class, [
-                'class' => Directeur::class,
-                'choice_label' => 'id',
             ])
         ;
     }

@@ -41,7 +41,10 @@
 
 
 					<th>Owner</th>
-					<th>Gestionnaire</th>
+									<th>
+						<a href="{{path('article.categorie.gestionnaire.ASC')}}" title="cliquer pour trier par ordre croissant">
+							Gestionnaire</th>
+					</th>
 
 					<th>
 						<a href="{{path('article.trier.adresse')}}" title="cliquer pour trier par surface en ordre croissant">Adresse</th>
@@ -81,7 +84,7 @@
 						<td>
 
 
-							<a href="{{ path('article_affichage', {'id': article.id}) }}" class="btn btn-secondary">lire</a>
+							<a href="{{ path('article_affichage', {'id': article.id}) }}" class="btn btn-secondary">details</a>
 
 
 							<a href="{{ path('article_modif', {'id': article.id}) }}" class="btn btn-secondary">editer</a>

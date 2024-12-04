@@ -325,6 +325,21 @@ public function indexArticlesTrierSurface(ArticleRepository $articleRepository, 
   } 
 
 
+    //Lister les Articles par ordre ASC de gestionnaires
+    #[Route('/trie/gestionnaire', name: 'article.categorie.gestionnaire.ASC')]
+    public function indexEmploye(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->findAllWithGestionnaireASC(); 
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+            // passage du contenu de $location
+            'articles' => $articles,
+            ]
+        );
+    } 
+  
+
 
  //trier les articles par auteurs
  #[Route('/auteur', name: 'article.trier.auteur')]

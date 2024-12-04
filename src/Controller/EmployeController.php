@@ -78,4 +78,20 @@ final class EmployeController extends AbstractController
 
         return $this->redirectToRoute('employe_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+    
+    //Lister les gestionnaire par ordre ASC en fonction des agences
+    #[Route('/trie/Agence', name: 'gestionnaire.agence.ASC')]
+    public function indexEmploye(EmployeRepository $employeRepository, Request $request)
+    {
+        $employes = $employeRepository->findTrieArtcles_AZ(); 
+        // Appel de la page pour affichage
+        return $this->render(
+            'employe/index.html.twig', [
+            // passage du contenu de $location
+            'employes' => $employes,
+            ]
+        );
+    }
 }

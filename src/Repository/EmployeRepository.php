@@ -16,6 +16,19 @@ class EmployeRepository extends ServiceEntityRepository
         parent::__construct($registry, Employe::class);
     }
 
+    /**
+     * @return Employe [] par Agence et Direction
+     */
+        public function findTrieArtcles_AZ()
+    {
+        return $this->createQueryBuilder('e')
+            ->select('e')
+            ->join('e.agence', 'a')
+            ->orderBy('a.adresse', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+    
     //    /**
     //     * @return Employe[] Returns an array of Employe objects
     //     */
