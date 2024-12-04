@@ -51,9 +51,6 @@ class Employe
     #[ORM\Column]
     private ?\DateTimeImmutable $updatedAt = null;
 
-    #[ORM\ManyToOne(inversedBy : 'employe')]
-    private ?Agence $agence = null;
-
     /**
      * @var Collection<int, Article>
      */
@@ -69,6 +66,9 @@ class Employe
     #[ORM\ManyToOne(inversedBy: 'employes')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Directeur $directeur = null;
+
+    #[ORM\ManyToOne(inversedBy: 'employe')]
+    private ?Agence $agence = null;
 
     public function __construct()
     {
@@ -125,18 +125,6 @@ class Employe
     public function setUpdatedAt(\DateTimeImmutable $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    public function getAgence(): ?Agence
-    {
-        return $this->agence;
-    }
-
-    public function setAgence(?Agence $agence): static
-    {
-        $this->agence = $agence;
 
         return $this;
     }
@@ -216,5 +204,17 @@ class Employe
     public function __toString()
     {
         return $this->getNom();
+    }
+
+    public function getAgence(): ?Agence
+    {
+        return $this->agence;
+    }
+
+    public function setAgence(?Agence $agence): static
+    {
+        $this->agence = $agence;
+
+        return $this;
     }
 }

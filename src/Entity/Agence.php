@@ -60,10 +60,17 @@ class Agence
     #[ORM\JoinColumn(nullable: false)]
     private ?Siege $siege = null;
 
+    /**
+     * @var Collection<int, Employe>
+     */
+    #[ORM\OneToMany(targetEntity: Employe::class, mappedBy: 'agence')]
+    private Collection $employe;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
         $this->client = new ArrayCollection();
+        $this->employe = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -182,6 +189,36 @@ class Agence
     public function __toString()
     {
         return $this->getNumeroAgence();
+    }
+
+    /**
+     * @return Collection<int, Employe>
+     */
+    public function getEmploye(): Collection
+    {
+        return $this->employe;
+    }
+
+    public function addEmploye(Employe $employe): static
+    {
+        if (!$this->employe->contains($employe)) {
+            $this->employe->add($employe);
+            $employe->setAgence($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEmploye(Employe $employe): static
+    {
+        if ($this->employe->removeElement($employe)) {
+            // set the owning side to null (unless already changed)
+            if ($employe->getAgence() === $this) {
+                $employe->setAgence(null);
+            }
+        }
+
+        return $this;
     }
 
 }
