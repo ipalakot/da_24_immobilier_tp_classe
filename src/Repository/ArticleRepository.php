@@ -143,12 +143,6 @@ class ArticleRepository extends ServiceEntityRepository
         ->getResult();
     }
 
-    
-
-    
-
-
-
     public function findAscCreatedAt()
     {
         return $this->createQueryBuilder('a')
@@ -165,6 +159,29 @@ class ArticleRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findAllWithCategorie()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a')
+            ->join('a.categorie', 'c')
+            ->orderBy('c.titre', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+
+    public function findAllWithAgencyASC()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a')
+            ->join('a.agence', 'c')
+            ->orderBy('c.adresse', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+
 
 
 //    /**

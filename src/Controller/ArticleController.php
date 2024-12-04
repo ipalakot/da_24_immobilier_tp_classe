@@ -152,71 +152,7 @@ class ArticleController extends AbstractController
         //die();
     }
 
-    //#[Route('/location', name: 'location')]
-    public function location(): Response
-    {
-        return $this->render('article/page.html.twig', [
-            'controller_name' => 'ArticleController',
-            'title' => 'Location de Biens',
-        ]);
-    }
-
-    #[Route('/terrain', name: 'locationterrain')]
-    public function location_terrain(): Response
-    {
-        return $this->render('article/page.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
-    }
-
-    #[Route('/location-maison', name: 'locationmaison')]
-    public function location_maison(): Response
-    {
-        return $this->render('article/page.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
-    }
-
-    #[Route('/location-mappart', name: 'locationapprt')]
-    public function location_appart(): Response
-    {
-        return $this->render('article/page.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
-    }
-
-    //#[Route('/vente', name: 'vente')]
-    public function vente(): Response
-    {
-        return $this->render('article/index.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
-    }
-
-    #[Route('/vente-terrainte', name: 'vente_terrain')]
-    public function vente_terrain(): Response
-    {
-        return $this->render('article/index.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
-    }
-
-    #[Route('/vente-maison', name: 'vente_maison')]
-    public function vente_maison(): Response
-    {
-        return $this->render('article/index.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
-    }
-
-    #[Route('/vente-appart', name: 'vente_appart')]
-    public function vente_appart(): Response
-    {
-        return $this->render('article/index.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
-    }
-
+    
 //trier les articles par titre
 #[Route('/trie/titre', name: 'article.trier.titre')]
 public function indexArticlesTrierTitre(ArticleRepository $articleRepository, Request $request)
@@ -358,7 +294,39 @@ public function indexArticlesTrierSurface(ArticleRepository $articleRepository, 
          ]
      );
  } 
-//trier les articles par auteurs
+
+ //trier les articles par ordre croissant par catgorie
+ #[Route('/trie/categorie', name: 'article.categorie.nom.ASC')]
+ public function indexCategorie(ArticleRepository $articleRepository, Request $request)
+ {
+     $articles = $articleRepository->findAllWithCategorie(); 
+     // Appel de la page pour affichage
+     return $this->render(
+         'article/index.html.twig', [
+         // passage du contenu de $location
+         'articles' => $articles,
+         ]
+     );
+ } 
+
+
+  //trier les articles par ordre croissant par Agence
+  #[Route('/trie/agence', name: 'article.categorie.agence.ASC')]
+  public function indexAgence(ArticleRepository $articleRepository, Request $request)
+  {
+      $articles = $articleRepository->findAllWithAgencyASC(); 
+      // Appel de la page pour affichage
+      return $this->render(
+          'article/index.html.twig', [
+          // passage du contenu de $location
+          'articles' => $articles,
+          ]
+      );
+  } 
+
+
+
+ //trier les articles par auteurs
  #[Route('/auteur', name: 'article.trier.auteur')]
  public function indexArticlesTrierAuteur(ArticleRepository $articleRepository, Request $request)
  {
@@ -371,6 +339,8 @@ public function indexArticlesTrierSurface(ArticleRepository $articleRepository, 
          ]
      );
  } 
+
+ 
 
 
 

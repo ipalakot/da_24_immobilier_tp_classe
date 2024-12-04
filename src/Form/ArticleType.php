@@ -56,6 +56,8 @@ class ArticleType extends AbstractType
                     'F3' => 'F3',
                     'F4' => 'F4',
                     'F5' => 'F5',
+                    'F6' => 'F6',
+                    'F0' => 'Autre',
                 ],
             ])
 
