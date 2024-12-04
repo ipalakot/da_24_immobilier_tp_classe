@@ -29,8 +29,7 @@ final class EmployeController extends AbstractController
         $form = $this->createForm(Employe1Type::class, $employe);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form-
-        >isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($employe);
             $entityManager->flush();
 
