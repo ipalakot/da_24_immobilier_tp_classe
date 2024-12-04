@@ -3,10 +3,11 @@
 
 {% form_theme siegeForm 'bootstrap_4_layout.html.twig'  %}
 
-{% block title %}New Siege{% endblock %}
+{% block title %}New Siege
+{% endblock %}
 
 {% block navigation%}
-<!-- Navigation-->
+	<!-- Navigation-->
 	{% include 'tools/navigation.html.twig'  %}
 	<!-- Header-->
 	{% include 'tools/header.html.twig'  %}
@@ -16,13 +17,14 @@
 
 {% block body %}
 
-<div class="container">
-    <hr/>
-        <h1>Creation d'un nouveau Siege</h1>
-        <hr/>
+	<div class="container">
 
-    {{ include('siege/_form.html.twig') }}
+		<h5>Creation d'un nouveau Siege</h5>
 
-    <a href="{{ path('siege_index') }}" class="btn btn-dark">Liste de sieges</a>
-</div>
+		<hr style="width:100%; height:5px; background-color:#1B4F72 ">
+
+		{{ include('siege/_form.html.twig') }}
+
+		<a href="{{ path('siege_index') }}" class="btn btn-dark">Liste de sieges</a>
+	</div>
 {% endblock %}

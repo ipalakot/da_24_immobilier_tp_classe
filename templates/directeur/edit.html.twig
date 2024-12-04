@@ -2,10 +2,11 @@
 
 {% form_theme directeurForm 'bootstrap_4_layout.html.twig'  %}
 
-{% block title %}Edit Directeur{% endblock %}
+{% block title %}Edit Directeur
+{% endblock %}
 
 {% block navigation%}
-<!-- Navigation-->
+	<!-- Navigation-->
 	{% include 'tools/navigation.html.twig'  %}
 	<!-- Header-->
 	{% include 'tools/header.html.twig'  %}
@@ -14,15 +15,12 @@
 {% endblock %}
 
 {% block body %}
-<div class="container">
-    <hr/>
-        <h1>Mise à jour Directeur</h1>
-    <hr/>
+	<div class="container">
 
-    {{ include('directeur/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
-
-    <a href="{{ path('directeur_index') }}" class="btn btn-dark">Liste de Directeurs</a>
-
-    {{ include('directeur/_delete_form.html.twig') }}
-</div>
+		<h5>Mise à jour Directeur</h5>
+		<hr style="width:100%; height:5px; background-color:#1B4F72 ">
+		{{ include('directeur/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+		<a href="{{ path('directeur_index') }}" class="btn btn-secondary">Liste de Directeurs</a>
+		{{ include('directeur/_delete_form.html.twig') }}<br><br><br><br><br>
+	</div>
 {% endblock %}

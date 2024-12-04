@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% form_theme directeurForm 'bootstrap_4_layout.html.twig'  %}
-{% block title %}Directeur{% endblock %}
+{% block title %}Directeur
+{% endblock %}
 
 
 {% block navigation%}
-<!-- Navigation-->
+	<!-- Navigation-->
 	{% include 'tools/navigation.html.twig'  %}
 	<!-- Header-->
 	{% include 'tools/header.html.twig'  %}
@@ -15,13 +16,20 @@
 
 
 {% block body %}
-    <div class="container">
-        <hr/>
-        <h1> Creation d'un nouveau Directeur</h1>
-        <hr/>
+	<div class="container">
 
-        {{ include('directeur/_form.html.twig') }}
+		<h5>
+			Creation d'un nouveau Directeur</h5>
+		<hr style="width:100%; height:5px; background-color:#1B4F72 ">
 
-       <br> <a href="{{ path('directeur_index') }}" class="btn btn-dark">Liste des Directeurs</a>
-    </div>
+
+		{{ include('directeur/_form.html.twig') }}
+
+		<br>
+		<a href="{{ path('directeur_index') }}" class="btn btn-secondary">Liste des Directeurs</a>
+	</div>
+	<br><br><br><br>
+
+	<br>
+
 {% endblock %}

@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Siege index{% endblock %}
+{% block title %}Siege index
+{% endblock %}
 
 {% block navigation%}
-<!-- Navigation-->
+	<!-- Navigation-->
 	{% include 'tools/navigation.html.twig'  %}
 	<!-- Header-->
 	{% include 'tools/header.html.twig'  %}
@@ -12,41 +13,42 @@
 {% endblock %}
 
 {% block body %}
-   <hr/>
+
 <div class="container">
- <h1>Liste des sieges </h1><hr/>
-    
+	<h4>Liste des sieges
+	</h4>
+	<hr style="width:100%; height:5px; background-color:#1B4F72 ">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Capital</th>
+				<th>Nom</th>
+				<th>Adresse</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for siege in sieges %}
+				<tr>
+					<td>{{ siege.id }}</td>
+					<td>{{ siege.capital }}</td>
+					<td>{{ siege.nom }}</td>
+					<td>{{ siege.adresse }}</td>
+					<td>
+						<a href="{{ path('siege_affichage', {'id': siege.id}) }}" class="btn btn-secondary">details</a>
+						<a href="{{ path('siege_edition', {'id': siege.id}) }}" class="btn btn-secondary" text-align:right>éditer</a>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Capital</th>
-                <th>Nom</th>
-                <th>Adresse</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for siege in sieges %}
-            <tr>
-                <td>{{ siege.id }}</td>
-                <td>{{ siege.capital }}</td>
-                <td>{{ siege.nom }}</td>
-                <td>{{ siege.adresse }}</td>
-                <td>
-                    <a href="{{ path('siege_affichage', {'id': siege.id}) }}" class="btn btn-primary">details</a>
-                    <a href="{{ path('siege_edition', {'id': siege.id}) }}" class="btn btn-primary">editer</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">Pas de siège dans la Base de données</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">Pas de siège dans la Base de données</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<br>
 
-    <a href="{{ path('siege_nouveau') }}"class="btn btn-primary">Créer un nouveau siège ?</a>
-</div">
-{% endblock %}
+	<a href="{{ path('siege_nouveau') }}" class="btn btn-secondary">Créer un nouveau siège ?</a>
+</div></br></br><div></div>{%endblock%}

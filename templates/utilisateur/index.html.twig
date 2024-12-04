@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    utilisateur
+	utilisateur
 {% endblock %}
 
 
 {% block navigation%}
-<!-- Navigation-->
+	<!-- Navigation-->
 	{% include 'tools/navigation.html.twig'  %}
 	<!-- Header-->
 	{% include 'tools/header.html.twig'  %}
@@ -15,55 +15,55 @@
 {% block body %}
 
 
-	<div class="container">
-		<hr/>
-		<h2>Les Utilisateurs </h2>
-        <hr/>
+<div class="container">
+	<hr/>
+	<h2>Les Utilisateurs
+	</h2>
+	<hr/>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenoms</th>
-                <th>Adresse</th>
-                <th>Age</th>
-                <th>Telephone</th>
-                <th>Email</th>
-               {# <th>Login</th> #}
-               {# <th>Password</th>}} #}
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nom</th>
+				<th>Prenoms</th>
+				<th>Adresse</th>
+				<th>Age</th>
+				<th>Telephone</th>
+				<th>Email</th>
+				{# <th>Login</th> #}
+				{# <th>Password</th>}} #}
 
-            </tr>
-        </thead>
-        <tbody>
-            {% for utilisateur in utilisateurs %}
-                <tr>
-                <td>{{ utilisateur.id }}</td>
-                <td>{{ utilisateur.nom }}</td>
-                <td>{{ utilisateur.prenoms }}</td>
-                <td>{{ utilisateur.adresse }}</td>
-                <td>{{ utilisateur.age }}</td>
-                {#...  <td>{{ utilisateur.dateNaissance ? utilisateur.dateNaissance|date('Y-m-d H:i:s') : '' }}</td> #}
-                <td>{{ utilisateur.phone }}</td>
-                <td>{{ utilisateur.Email }}</td>
-               {#...  <td>{{ utilisateur.login }}</td> #}
-                {#... <td>{{ utilisateur.password }}</td> #}
-                    
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="5">
-                        <br>
-                        <br>
-                        Malheureusement, Il n'y a aucun Utilisetur pour le moment !
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table></div>
-    <br><br>
+			</tr>
+		</thead>
+		<tbody>
+			{% for utilisateur in utilisateurs %}
+				<tr>
+					<td>{{ utilisateur.id }}</td>
+					<td>{{ utilisateur.nom }}</td>
+					<td>{{ utilisateur.prenoms }}</td>
+					<td>{{ utilisateur.adresse }}</td>
+					<td>{{ utilisateur.age }}</td>
+					{#...  <td>{{ utilisateur.dateNaissance ? utilisateur.dateNaissance|date('Y-m-d H:i:s') : '' }}</td> #}
+					<td>{{ utilisateur.phone }}</td>
+					<td>{{ utilisateur.Email }}</td>
+					{#...  <td>{{ utilisateur.login }}</td> #}
+					{#... <td>{{ utilisateur.password }}</td> #}
 
-{% endblock %}
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">
+						<br>
+						<br>
+						Malheureusement, Il n'y a aucun Utilisetur pour le moment !
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+<br><br>
 
-{% block footer%}
+
 {% endblock%}

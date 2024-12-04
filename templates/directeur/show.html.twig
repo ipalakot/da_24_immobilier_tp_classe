@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Directeur{% endblock %}
-
+{% block title %}Directeur
+{% endblock %}
 
 
 {% block navigation%}
-<!-- Navigation-->
+	<!-- Navigation-->
 	{% include 'tools/navigation.html.twig'  %}
 	<!-- Header-->
 	{% include 'tools/header.html.twig'  %}
@@ -15,36 +15,42 @@
 
 
 {% block body %}
-<div class="container">
-    <hr/>
-        <h1>Directeur / {{ directeur.nom }} {{ directeur.prenom }}</h1>
-    <hr/>
+	<div class="container">
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ directeur.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ directeur.nom }}</td>
-            </tr>
-            <tr>
-                <th>Prenom</th>
-                <td>{{ directeur.prenom }}</td>
-            </tr>
-            <tr>
-                <th>Revenus</th>
-                <td>{{ directeur.revenus }}</td>
-            </tr>
-        </tbody>
-    </table>
+		<h5>Directeur /
+			{{ directeur.nom }}
+			{{ directeur.prenom }}
+		</h5>
+		<hr style="width:100%; height:5px; background-color:#1B4F72 ">
 
-    <a href="{{ path('directeur_index') }}"class="btn btn-primary">Liste de Directeurs </a> <br><br>
 
-    <a href="{{ path('directeur_edition', {'id': directeur.id}) }}" class="btn btn-secondary">editer</a><br><br>
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>Id</th>
+					<td>{{ directeur.id }}</td>
+				</tr>
+				<tr>
+					<th>Nom</th>
+					<td>{{ directeur.nom }}</td>
+				</tr>
+				<tr>
+					<th>Prenom</th>
+					<td>{{ directeur.prenom }}</td>
+				</tr>
+				<tr>
+					<th>Revenus</th>
+					<td>{{ directeur.revenus }}</td>
+				</tr>
+			</tbody>
+		</table>
 
-    {{ include('directeur/_delete_form.html.twig') }}
-</div>
+		<a href="{{ path('directeur_index') }}" class="btn btn-secondary">Liste de Directeurs
+		</a>
+		<br><br>
+
+		<a href="{{ path('directeur_edition', {'id': directeur.id}) }}" class="btn btn-secondary">editer</a><br><br>
+
+		{{ include('directeur/_delete_form.html.twig') }}
+	</div>
 {% endblock %}
