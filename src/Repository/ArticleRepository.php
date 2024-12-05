@@ -36,10 +36,10 @@ public function trieArticleTitre()
                 ->getResult();
 }
 
+
 /** 
  * @return Articles [] retour de liste des articles par Titres
 */
-
 public function trieArticleAdresse()
 {
 
@@ -49,6 +49,73 @@ public function trieArticleAdresse()
                 ->getResult();
 }
 
+/**
+ * Summary of trieArticleTitre
+ * @return Articles [] Liste par Type
+ */
+public function trieArticleType()
+{
+    return $this->createQueryBuilder('a')
+                            ->select('a')
+                            ->orderBy('a.type', 'ASC')
+                            ->getQuery()
+                            ->getResult();
+}
+
+
+/**@return Articles[] by Surface
+ * 
+*/
+public function findTrieSurface_AZ()
+{
+    return $this->createQueryBuilder('a')
+        ->orderBy('a.surface', 'ASC')
+        ->getQuery()
+        ->getResult();
+}
+
+/**
+ * Summary of findAscPrice
+ * @return mixed / PRice
+ */
+public function findAscPrice()
+{
+    return $this->createQueryBuilder('a')
+        ->orderBy('a.prix', 'ASC')
+        ->getQuery()
+        ->getResult();
+}
+
+/**
+ * Summary of findAllWithVilleParis
+ * @return array
+ */
+public function findAllWithVilleParis(): array
+{
+    return $this->createQueryBuilder('a')
+        ->join('a.ville', 'v')
+        ->andWhere('v.nom = :val')
+        ->setParameter('val', 'Paris')
+        ->orderBy('a.id', 'ASC')
+        ->getQuery()
+        ->getResult()
+    ;
+}
+
+/**
+ * Summary of findCategorieLocApprt
+ * @return array [] by Actegorie Loc Apprt
+ */
+public function findCategorieLocApprt(): array
+{   return $this-> createQueryBuilder('a')
+                ->join('a.categorie', 'c')
+                ->andWhere('c.titre = :val ')
+                ->setparameter('val', 'location-Maison')
+                ->orderBy('a.id', 'ASC')
+                ->getQuery()
+                ->getResult()
+                ;
+}
 
 
 //    /**

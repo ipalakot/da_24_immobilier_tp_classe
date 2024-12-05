@@ -46,15 +46,6 @@ class ArticleController extends AbstractController
             'formCreatArticle' => $form->createView(),
         ]);
     }
-    /*
-    #[Route('/{id}', name: 'article_affichage', methods: ['GET'])]
-    public function affichage(Article $article): Response
-    {
-    return $this->render('article/affichage.html.twig', [
-    'controller_name' => 'ArticleController',
-    'article'=> $article,
-    ]);
-    } */
 
     #[Route('/{id}', name: 'article_affichage', methods: ['GET'])]
     public function affichage($id, ArticleRepository $articlerepo): Response
@@ -181,6 +172,79 @@ class ArticleController extends AbstractController
             ]
         );
     } 
+
+
+    /** 
+     *  @return Articles [] Liste par Type
+     */
+    #[Route('/trie/articletype', name: 'trie_article_type')]
+    //Trie des Biens par les adresses
+    public function trieArticleType(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->trieArticleType();
+        return $this->render(
+            'article/index.html.twig', [
+            // passage du contenu de $location
+            'articles' => $articles,
+            ]
+        );
+    } 
+
+
+//trier les articles par Surface
+#[Route('/trie/surface', name: 'article.trier.surface')]
+public function indexArticlesTrierSurface(ArticleRepository $articleRepository, Request $request)
+{
+    $articles = $articleRepository->findTrieSurface_AZ(); 
+    // Appel de la page pour affichage
+    return $this->render(
+        'article/index.html.twig', [
+        // passage du contenu de $location
+        'articles' => $articles,
+        ]
+    );
+} 
+
+
+/**
+ * trier par prix croissant 
+ */
+ #[Route('/trie/prix', name: 'article.trier.prix')]
+ public function indexArticlesTrierPrix(ArticleRepository $articleRepository, Request $request)
+ {
+     $articles = $articleRepository->findAscPrice(); 
+     // Appel de la page pour affichage
+     return $this->render(
+         'article/index.html.twig', [
+         // passage du contenu de $location
+         'articles' => $articles,
+         ]
+     );
+ } 
+
+/**
+ * 
+*/
+ //trier les articles par categories Location Maiosn
+ #[Route('/trie/categorie-maison-loc', name: 'article.trier.location.maison')]
+ public function indexArticlesCategorieLocMaisont(ArticleRepository $articleRepository, Request $request)
+ {
+     $articles = $articleRepository->findCategorieLocApprt(); 
+     // Appel de la page pour affichage
+     return $this->render(
+         'article/index.html.twig', [
+         // passage du contenu de $location
+         'articles' => $articles,
+         ]
+     );
+ }
+
+
+
+
+
+
+
 
     //#[Route('/location', name: 'location')]
      public function location(): Response
