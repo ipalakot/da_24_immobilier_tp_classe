@@ -34,7 +34,7 @@
 
 
 		{% block javascripts %}
-			<!--[if lt IE 9]>                                    <script src="assets/js/html5shiv.js"></script> <![endif]-->
+			<!--[if lt IE 9]>                                                       <script src="assets/js/html5shiv.js"></script> <![endif]-->
 
 			<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 			 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -47,26 +47,29 @@
 		{% endblock %}
 	{% endblock %}
 
+	</head>
 
-	</head>{% block navigation%}
-	{% endblock %}
-		<body>
-			{% block body %}
-				<div class="container bg-secondary"> <hr/>
+		<nav>
+			{% block navigation%}
 
-			</div>
-		{% endblock %}
+			<!-- Navigation-->
+			{% include 'tools/navigation.html.twig'  %}
+			<!-- Header-->
+		{% include 'tools/header.html.twig'  %}
 
-
-	</body>
-	<div></div>
-	<footer>
-
-		{% block footer %}
-			<!-- Footer-->
-			{% include 'tools/footer.html.twig'  %}
+			<!-- Section-->
 
 		{% endblock %}
-	</footer>
+	</nav>
+	<body>
+		{% block body %}
+			<div class="container"></div>
 
-</html></body></html>
+		</body>
+
+
+	</html>
+
+</div>{% endblock %}</body><footer>{% block footer %}
+<!-- Footer-->
+{% include 'tools/footer.html.twig'  %}{% endblock %}</footer><div></div></html>

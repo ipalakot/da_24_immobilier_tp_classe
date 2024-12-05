@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Employe;
+use App\Entity\Article;
 use App\Form\Employe1Type;
 use App\Repository\EmployeRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -43,10 +44,11 @@ final class EmployeController extends AbstractController
     }
 
     #[Route('/{id}', name: 'employe_affichage', methods: ['GET'])]
-    public function show(Employe $employe): Response
+    public function show(Employe $employe, Article $articles): Response
     {
         return $this->render('employe/show.html.twig', [
             'employe' => $employe,
+            'articles' => $articles,
         ]);
     }
 
@@ -79,18 +81,16 @@ final class EmployeController extends AbstractController
         return $this->redirectToRoute('employe_index', [], Response::HTTP_SEE_OTHER);
     }
 
-
-    
     //Lister les gestionnaire par ordre ASC en fonction des agences
     #[Route('/trie/Agence', name: 'gestionnaire.agence.ASC')]
     public function indexEmploye(EmployeRepository $employeRepository, Request $request)
     {
-        $employes = $employeRepository->findTrieArtcles_AZ(); 
+        $employes = $employeRepository->findTrieArtcles_AZ();
         // Appel de la page pour affichage
         return $this->render(
             'employe/index.html.twig', [
-            // passage du contenu de $location
-            'employes' => $employes,
+                // passage du contenu de $location
+                'employes' => $employes,
             ]
         );
     }

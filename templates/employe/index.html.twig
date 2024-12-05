@@ -3,23 +3,14 @@
 {% block title %}Employe
 {% endblock %}
 
-{% block navigation%}
-	<!-- Navigation-->
-	{% include 'tools/navigation.html.twig'  %}
-	<!-- Header-->
-	{% include 'tools/header.html.twig'  %}
-
-	<!-- Section-->
-{% endblock %}
-
-
 {% block body %}
 
 	<div class="container">
-		<hr/>
 
-		<h1>Employes</h1>
-		<hr/>
+
+		<h4>Employes /
+		</h4>
+		<hr style="width:100%; height:5px; background-color:#1B4F72 ">
 
 
 		<table class="table">
@@ -42,14 +33,17 @@
 						<td>{{ employe.id }}</td>
 						<td>{{ employe.nom }}</td>
 						<td>{{ employe.prenom }}</td>
-						<td>{{ employe.agence.numeroAgence }} | {{ employe.agence.adresse }}</td>
-						<td>{{ employe.directeur.nom }} {{ employe.directeur.prenom }}</td>
+						<td>{{ employe.agence.numeroAgence }}
+							|
+							{{ employe.agence.adresse }}</td>
+						<td>{{ employe.directeur.nom }}
+							{{ employe.directeur.prenom }}</td>
 						<td>{{ employe.createdAt ? employe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
 						<td></td>
 						{#<td>{{ employe.updatedAt ? employe.updatedAt|date('Y-m-d H:i:s') : '' }}</td> #}
 						<td>
-							<a href="{{ path('employe_affichage', {'id': employe.id}) }}"class="btn btn-primary">lire</a>
-							<a href="{{ path('employe_edition', {'id': employe.id}) }}"class="btn btn-secondary">editer</a>
+							<a href="{{ path('employe_affichage', {'id': employe.id}) }}" class="btn btn-secondary">lire</a>
+							<a href="{{ path('employe_edition', {'id': employe.id}) }}" class="btn btn-secondary">editer</a>
 						</td>
 					</tr>
 				{% else %}
@@ -62,5 +56,5 @@
 
 		<a href="{{ path('employe_nouveau') }}" class=" btn btn-secondary">Creer un nouvel Employe</a>
 
-	</div>
+	</div><br><br>
 {% endblock %}

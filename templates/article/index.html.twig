@@ -2,12 +2,6 @@
 
 
 {% block body %}
-
-	<!-- Navigation-->
-	{% include 'tools/navigation.html.twig'  %}
-	<!-- Header-->
-	{% include 'tools/header.html.twig'  %}
-
 	<!-- Section-->
 	<div class="container-fluid">
 
@@ -28,20 +22,19 @@
 						<a href="{{path('article.trier.titre')}}" title="cliquer pour trier par ordre croissant">
 							Titre</th>
 					</th>
-				<th>
+					<th>
 						<a href="{{path('article.categorie.nom.ASC')}}" title="cliquer pour trier par ordre croissant">
 							Categorie</th>
 					</th>
 
-									<th>
+					<th>
 						<a href="{{path('article.categorie.agence.ASC')}}" title="cliquer pour trier par ordre croissant">
 							Agence</th>
 					</th>
 
 
-
 					<th>Owner</th>
-									<th>
+					<th>
 						<a href="{{path('article.categorie.gestionnaire.ASC')}}" title="cliquer pour trier par ordre croissant">
 							Gestionnaire</th>
 					</th>
