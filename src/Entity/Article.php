@@ -29,11 +29,11 @@ class Article
 
     #[ORM\Column(type: Types::TEXT)]
     #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
-    #[Assert\Length(
+   /* #[Assert\Length(
         min: 3,
         max: 50,
         minMessage: 'taille minimale est  {{ limit }} characters',
-        maxMessage: 'la taille maximale est de  {{ limit }} characters', )]
+        maxMessage: 'la taille maximale est de  {{ limit }} characters', )]*/
     private ?string $adresse = null;
 
     #[ORM\Column(length: 255)]
