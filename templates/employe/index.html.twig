@@ -16,14 +16,47 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Id</th>
-					<th>Noms</th>
-					<th>Prenoms</th>
-					<th>Agence</th>
-					<th>Responsable</th>
-					<th>Date Embauche</th>
-					<th>Portefeuille</th>
-					{#<th>Modifier le</th>#}
+					<th>
+						<a href="{{path('employe_index')}}" title="cliquer pour trier par ordre croissant">
+							Id</th>
+					</th>
+
+					<th>
+						<a href="{{path('employe.trier.titre.AZ')}}" title="cliquer pour trier par ordre croissant">
+
+
+							Noms</th>
+					</th>
+					<th>
+						<a href="{{path('employe.trier.prenoms.AZ')}}" title="cliquer pour trier par ordre croissant">
+
+
+							Prenoms</th>
+					</th>
+					<th>
+						<a href="{{path('employe.categorie.agence.ASC')}}" title="cliquer pour trier par ordre croissant">
+
+							Agence</th>
+					</th>
+
+					<th>
+						<a href="#" title="cliquer pour trier par ordre croissant">
+							Responsable</th>
+					</th>
+
+					<th>
+						<a href="#" title="cliquer pour trier par ordre croissant">
+							Date Embauche</th>
+					</th>
+
+					<th>
+						<a href="#" title="cliquer pour trier par ordre croissant">
+							Portefeuille</th>
+					</th>
+
+					{#<th><a href="#" title="cliquer pour trier par ordre croissant">
+																																				Modifier le</th>#}
+
 					<th></th>
 				</tr>
 			</thead>

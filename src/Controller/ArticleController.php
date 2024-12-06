@@ -46,15 +46,6 @@ class ArticleController extends AbstractController
             'formCreatArticle' => $form->createView(),
         ]);
     }
-    /*
-    #[Route('/{id}', name: 'article_affichage', methods: ['GET'])]
-    public function affichage(Article $article): Response
-    {
-    return $this->render('article/affichage.html.twig', [
-    'controller_name' => 'ArticleController',
-    'article'=> $article,
-    ]);
-    } */
 
     #[Route('/{id}', name: 'article_affichage', methods: ['GET'])]
     public function affichage($id, ArticleRepository $articlerepo): Response
@@ -116,19 +107,20 @@ class ArticleController extends AbstractController
     #[Route('/modif/{id}', name: 'article_modif')]
     public function modifArticle(Request $request, Article $article, EntityManagerInterface $manager)
     {
-        $form = $this->createFormBuilder($article)
-            ->add('titre')
-            ->add('adresse')
-            ->add('images')
-            ->add('type')
-            ->add('surface')
-            ->add('prix')
-            ->add('owner')
-            ->add('owner')
-            ->add('employe')
-            ->add('agence')
-            ->add('description')
-            ->getForm();
+        //$form = $this->createFormBuilder($article)
+        $form = $this->createForm(ArticleType::class, $article);
+        /* ->add('titre')
+        ->add('adresse')
+        ->add('images')
+        ->add('type')
+        ->add('surface')
+        ->add('prix')
+        ->add('owner')
+        ->add('owner')
+        ->add('employe')
+        ->add('agence')
+        ->add('description')
+        ->getForm();*/
 
         $form->handleRequest($request);
 
@@ -152,211 +144,199 @@ class ArticleController extends AbstractController
         //die();
     }
 
-    
 //trier les articles par titre
-#[Route('/trie/titre', name: 'article.trier.titre')]
-public function indexArticlesTrierTitre(ArticleRepository $articleRepository, Request $request)
-{
-    $articles = $articleRepository->findTrieArtcles_AZ(); 
-    // Appel de la page pour affichage
-    return $this->render(
-        'article/index.html.twig', [
-        // passage du contenu de $location
-        'articles' => $articles,
-        ]
-    );
-} 
+    #[Route('/trie/titre', name: 'article.trier.titre')]
+    public function indexArticlesTrierTitre(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->findTrieArtcles_AZ();
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+                // passage du contenu de $location
+                'articles' => $articles,
+            ]
+        );
+    }
 
 //trier les articles par type
-#[Route('/trie/type', name: 'article.trier.type')]
-public function indexArticlesTrierTypee(ArticleRepository $articleRepository, Request $request)
-{
-    $articles = $articleRepository->findTrietype_AZ(); 
-    // Appel de la page pour affichage
-    return $this->render(
-        'article/index.html.twig', [
-        // passage du contenu de $location
-        'articles' => $articles,
-        ]
-    );
-} 
-
+    #[Route('/trie/type', name: 'article.trier.type')]
+    public function indexArticlesTrierTypee(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->findTrietype_AZ();
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+                // passage du contenu de $location
+                'articles' => $articles,
+            ]
+        );
+    }
 
 //trier les articles par Adresse
-#[Route('/trie/address', name: 'article.trier.adresse')]
-public function indexArticlesTrierAdresse(ArticleRepository $articleRepository, Request $request)
-{
-    $articles = $articleRepository->findTrieAdresse_AZ(); 
-    // Appel de la page pour affichage
-    return $this->render(
-        'article/index.html.twig', [
-        // passage du contenu de $location
-        'articles' => $articles,
-        ]
-    );
-} 
+    #[Route('/trie/address', name: 'article.trier.adresse')]
+    public function indexArticlesTrierAdresse(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->findTrieAdresse_AZ();
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+                // passage du contenu de $location
+                'articles' => $articles,
+            ]
+        );
+    }
 
 //trier les articles par Surface
-#[Route('/trie/surface', name: 'article.trier.surface')]
-public function indexArticlesTrierSurface(ArticleRepository $articleRepository, Request $request)
-{
-    $articles = $articleRepository->findTrieSurface_AZ(); 
-    // Appel de la page pour affichage
-    return $this->render(
-        'article/index.html.twig', [
-        // passage du contenu de $location
-        'articles' => $articles,
-        ]
-    );
-} 
+    #[Route('/trie/surface', name: 'article.trier.surface')]
+    public function indexArticlesTrierSurface(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->findTrieSurface_AZ();
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+                // passage du contenu de $location
+                'articles' => $articles,
+            ]
+        );
+    }
 
- // trier par prix croissant 
- #[Route('/trie/prix', name: 'article.trier.prix')]
- public function indexArticlesTrierPrix(ArticleRepository $articleRepository, Request $request)
- {
-     $articles = $articleRepository->findAscPrice(); 
-     // Appel de la page pour affichage
-     return $this->render(
-         'article/index.html.twig', [
-         // passage du contenu de $location
-         'articles' => $articles,
-         ]
-     );
- } 
+    // trier par prix croissant
+    #[Route('/trie/prix', name: 'article.trier.prix')]
+    public function indexArticlesTrierPrix(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->findAscPrice();
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+                // passage du contenu de $location
+                'articles' => $articles,
+            ]
+        );
+    }
 
+    //trier les articles par categories / Location Appartement
+    #[Route('/trie/categorie-apt-loc', name: 'article.trier.location.appart')]
+    public function indexArticlesCategorieLocAppt(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->findCategorieLocAppart();
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+                // passage du contenu de $location
+                'articles' => $articles,
+            ]
+        );
+    }
 
- //trier les articles par categories / Location Appartement
- #[Route('/trie/categorie-apt-loc', name: 'article.trier.location.appart')]
- public function indexArticlesCategorieLocAppt(ArticleRepository $articleRepository, Request $request)
- {
-     $articles = $articleRepository->findCategorieLocAppart(); 
-     // Appel de la page pour affichage
-     return $this->render(
-         'article/index.html.twig', [
-         // passage du contenu de $location
-         'articles' => $articles,
-         ]
-     );
- } 
+    //trier les articles par categories Location Maiosn
+    #[Route('/trie/categorie-maiosn-loc', name: 'article.trier.location.maison')]
+    public function indexArticlesCategorieLocMaisont(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->findCategorieLocMaison();
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+                // passage du contenu de $location
+                'articles' => $articles,
+            ]
+        );
+    }
 
- //trier les articles par categories Location Maiosn
- #[Route('/trie/categorie-maiosn-loc', name: 'article.trier.location.maison')]
- public function indexArticlesCategorieLocMaisont(ArticleRepository $articleRepository, Request $request)
- {
-     $articles = $articleRepository->findCategorieLocMaison(); 
-     // Appel de la page pour affichage
-     return $this->render(
-         'article/index.html.twig', [
-         // passage du contenu de $location
-         'articles' => $articles,
-         ]
-     );
- }
+    //trier les articles par categories Vente Maison
+    #[Route('/trie/categorie-vente-maiosn', name: 'article.trier.vente.maison')]
+    public function indexArticlesCategorieVenteMaison(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->findCategorieVenteMaison();
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+                // passage du contenu de $location
+                'articles' => $articles,
+            ]
+        );
+    }
 
- //trier les articles par categories Vente Maison
- #[Route('/trie/categorie-vente-maiosn', name: 'article.trier.vente.maison')]
- public function indexArticlesCategorieVenteMaison(ArticleRepository $articleRepository, Request $request)
- {
-     $articles = $articleRepository->findCategorieVenteMaison(); 
-     // Appel de la page pour affichage
-     return $this->render(
-         'article/index.html.twig', [
-         // passage du contenu de $location
-         'articles' => $articles,
-         ]
-     );
- }
+    //trier les articles par categories Vente Appartement
+    #[Route('/trie/categorie-vente-appart', name: 'article.trier.vente.appart')]
+    public function indexArticlesCategorieVenteAppart(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->findCategorieVenteAppartn();
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+                // passage du contenu de $location
+                'articles' => $articles,
+            ]
+        );
+    }
 
-  //trier les articles par categories Vente Appartement
-  #[Route('/trie/categorie-vente-appart', name: 'article.trier.vente.appart')]
-  public function indexArticlesCategorieVenteAppart(ArticleRepository $articleRepository, Request $request)
-  {
-      $articles = $articleRepository->findCategorieVenteAppartn(); 
-      // Appel de la page pour affichage
-      return $this->render(
-          'article/index.html.twig', [
-          // passage du contenu de $location
-          'articles' => $articles,
-          ]
-      );
-  }
+    #[Route('trie/date', name: 'article.trier.date')]
+    public function indexArticlesTrierDate(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->findAscCreatedAt();
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+                // passage du contenu de $location
+                'articles' => $articles,
+            ]
+        );
+    }
 
+    //trier les articles par ordre croissant par catgorie
+    #[Route('/trie/categorie', name: 'article.categorie.nom.ASC')]
+    public function indexCategorie(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->findAllWithCategorie();
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+                // passage du contenu de $location
+                'articles' => $articles,
+            ]
+        );
+    }
 
- #[Route('trie/date', name: 'article.trier.date')]
- public function indexArticlesTrierDate(ArticleRepository $articleRepository, Request $request)
- {
-     $articles = $articleRepository->findAscCreatedAt(); 
-     // Appel de la page pour affichage
-     return $this->render(
-         'article/index.html.twig', [
-         // passage du contenu de $location
-         'articles' => $articles,
-         ]
-     );
- } 
-
- //trier les articles par ordre croissant par catgorie
- #[Route('/trie/categorie', name: 'article.categorie.nom.ASC')]
- public function indexCategorie(ArticleRepository $articleRepository, Request $request)
- {
-     $articles = $articleRepository->findAllWithCategorie(); 
-     // Appel de la page pour affichage
-     return $this->render(
-         'article/index.html.twig', [
-         // passage du contenu de $location
-         'articles' => $articles,
-         ]
-     );
- } 
-
-
-  //trier les articles par ordre croissant par Agence
-  #[Route('/trie/agence', name: 'article.categorie.agence.ASC')]
-  public function indexAgence(ArticleRepository $articleRepository, Request $request)
-  {
-      $articles = $articleRepository->findAllWithAgencyASC(); 
-      // Appel de la page pour affichage
-      return $this->render(
-          'article/index.html.twig', [
-          // passage du contenu de $location
-          'articles' => $articles,
-          ]
-      );
-  } 
-
+    //trier les articles par ordre croissant par Agence
+    #[Route('/trie/agence', name: 'article.categorie.agence.ASC')]
+    public function indexAgence(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->findAllWithAgencyASC();
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+                // passage du contenu de $location
+                'articles' => $articles,
+            ]
+        );
+    }
 
     //Lister les Articles par ordre ASC de gestionnaires
     #[Route('/trie/gestionnaire', name: 'article.categorie.gestionnaire.ASC')]
     public function indexEmploye(ArticleRepository $articleRepository, Request $request)
     {
-        $articles = $articleRepository->findAllWithGestionnaireASC(); 
+        $articles = $articleRepository->findAllWithGestionnaireASC();
         // Appel de la page pour affichage
         return $this->render(
             'article/index.html.twig', [
-            // passage du contenu de $location
-            'articles' => $articles,
+                // passage du contenu de $location
+                'articles' => $articles,
             ]
         );
-    } 
-  
+    }
 
-
- //trier les articles par auteurs
- #[Route('/auteur', name: 'article.trier.auteur')]
- public function indexArticlesTrierAuteur(ArticleRepository $articleRepository, Request $request)
- {
-     $articles = $articleRepository->findAscAuteur(); 
-     // Appel de la page pour affichage
-     return $this->render(
-         'article/index.html.twig', [
-         // passage du contenu de $location
-         'articles' => $articles,
-         ]
-     );
- } 
-
- 
-
-
+    //trier les articles par auteurs
+    #[Route('/trie/client', name: 'article.trier.client.ASC')]
+    public function indexArticlesTrierAuteur(ArticleRepository $articleRepository, Request $request)
+    {
+        $articles = $articleRepository->findAllWithGestionnaireASC();
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+                // passage du contenu de $location
+                'articles' => $articles,
+            ]
+        );
+    }
 
 }

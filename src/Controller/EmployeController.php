@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Employe;
 use App\Entity\Article;
+use App\Entity\Employe;
 use App\Form\Employe1Type;
 use App\Repository\EmployeRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -91,6 +91,48 @@ final class EmployeController extends AbstractController
             'employe/index.html.twig', [
                 // passage du contenu de $location
                 'employes' => $employes,
+            ]
+        );
+    }
+
+    //trier les Employés par titre
+    #[Route('/trie/noms', name: 'employe.trier.titre.AZ')]
+    public function indexEmployesTrieNom(EmployeRepository $employeRepository, Request $request)
+    {
+        $employes = $employeRepository->findTrieEmployeNoms_AZ();
+        // Appel de la page pour affichage
+        return $this->render(
+            'employe/index.html.twig', [
+                // passage du contenu de $location
+                'employes' => $employes,
+            ]
+        );
+    }
+
+    //trier les Employés par titre
+    #[Route('/trie/prenoms', name: 'employe.trier.prenoms.AZ')]
+    public function indexEmployesTriePrenom(EmployeRepository $employeRepository, Request $request)
+    {
+        $employes = $employeRepository->findTrieEmployePrenoms_AZ();
+        // Appel de la page pour affichage
+        return $this->render(
+            'employe/index.html.twig', [
+                // passage du contenu de $location
+                'employes' => $employes,
+            ]
+        );
+    }
+
+    //trier les Employes par ordre croissant par Agence
+    #[Route('/trie/agence', name: 'employe.categorie.agence.ASC')]
+    public function indexAgence(EmployeRepository $employeRepository, Request $request)
+    {
+        $articles = $employeRepository->findEmplAgenceASC();
+        // Appel de la page pour affichage
+        return $this->render(
+            'article/index.html.twig', [
+                // passage du contenu de $location
+                'articles' => $articles,
             ]
         );
     }

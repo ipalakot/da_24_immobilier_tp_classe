@@ -5,9 +5,10 @@
 	<!-- Section-->
 	<div class="container-fluid">
 
+
 		<hr/>
 
-
+		
 		<h2>Liste des Biens |
 		</h2><hr/>
 
@@ -32,8 +33,11 @@
 							Agence</th>
 					</th>
 
+					<th>
+						<a href="{{path('article.trier.client.ASC')}}" title="cliquer pour trier par ordre croissant">
+							Owner</th>
+					</th>
 
-					<th>Owner</th>
 					<th>
 						<a href="{{path('article.categorie.gestionnaire.ASC')}}" title="cliquer pour trier par ordre croissant">
 							Gestionnaire</th>
@@ -66,7 +70,8 @@
 							|
 							{{ article.Agence.adresse }}
 						</td>
-						<td>{{ article.Client.nom }}</td>
+<td>{{ article.Client.prenom }} {{ article.Client.nom }}</td>
+
 						<td>{{ article.Employe.nom }}
 							{{ article.Employe.prenom }}</td>
 

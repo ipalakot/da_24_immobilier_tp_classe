@@ -17,9 +17,44 @@ class EmployeRepository extends ServiceEntityRepository
     }
 
     /**
+     *  @return Employe [] par Noms
+     */
+    public function findTrieEmployeNoms_AZ()
+    {
+        return $this->createQueryBuilder('e')
+            ->select('e')
+            ->orderBy('e.nom', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     *  @return Employe [] par Prenoms
+     */
+    public function findTrieEmployePrenoms_AZ()
+    {
+        return $this->createQueryBuilder('e')
+            ->select('e')
+            ->orderBy('e.prenom', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    //Lister les Employes par ordre ASC d'Agences
+    public function findEmplAgenceASC()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a')
+            ->join('a.agence', 'c')
+            ->orderBy('c.adresse', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
      * @return Employe [] par Agence et Direction
      */
-        public function findTrieArtcles_AZ()
+    public function findTrieArtcles_AZ()
     {
         return $this->createQueryBuilder('e')
             ->select('e')
@@ -28,7 +63,7 @@ class EmployeRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-    
+
     //    /**
     //     * @return Employe[] Returns an array of Employe objects
     //     */
