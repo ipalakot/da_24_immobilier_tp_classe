@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CategorieClt index{% endblock %}
+
+{% block body %}
+    <h1>CategorieClt index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie_clt in categorie_clts %}
+            <tr>
+                <td>{{ categorie_clt.id }}</td>
+                <td>{{ categorie_clt.titre }}</td>
+                <td>{{ categorie_clt.description }}</td>
+                <td>
+                    <a href="{{ path('app_categorie_clt_show', {'id': categorie_clt.id}) }}">show</a>
+                    <a href="{{ path('app_categorie_clt_edit', {'id': categorie_clt.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_categorie_clt_new') }}">Create new</a>
+{% endblock %}

@@ -85,6 +85,9 @@ class Client
     #[ORM\JoinColumn(nullable: false)]
     private ?Agence $agence = null;
 
+    #[ORM\ManyToOne(inversedBy: 'client')]
+    private ?CategorieClt $categorieClt = null;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -231,6 +234,18 @@ class Client
     public function setAgence(?Agence $agence): static
     {
         $this->agence = $agence;
+
+        return $this;
+    }
+
+    public function getCategorieClt(): ?CategorieClt
+    {
+        return $this->categorieClt;
+    }
+
+    public function setCategorieClt(?CategorieClt $categorieClt): static
+    {
+        $this->categorieClt = $categorieClt;
 
         return $this;
     }
