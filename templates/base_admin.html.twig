@@ -51,8 +51,21 @@
 
 	</head>
 
-	{% block navigation%}
-	{% endblock %}
+	</head>
+
+
+		<nav>
+			{% block navigation%}
+
+			<!-- Navigation-->
+			{% include 'tools/nav_admin.html.twig'  %}
+			<!-- Header-->
+		{% include 'tools/header.html.twig'  %}
+
+			<!-- Section-->
+
+		{% endblock %}
+	</nav>
 		<body>
 			{% block body %}
 				<div class="container bg-secondary"> <hr/>

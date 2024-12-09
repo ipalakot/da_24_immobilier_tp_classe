@@ -24,8 +24,8 @@
 			<link
 			rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
 			<!-- Custom styles -->
-			<link rel="stylesheet" href="{{ asset('styles.css') }}" type="text/css"/>
-			<link rel="stylesheet" href="{{ asset('css/styles.css') }}" type="text/css"/>
+			<link rel="stylesheet" href="{{ asset('styles.css') }}" 	 type="text/css" />
+			<link rel="stylesheet" href="{{ asset('css/styles.css') }}"  type="text/css" />
 			<link rel="stylesheet" href="{{ asset('css/styles2.css') }}" type="text/css">
 		{% endblock %}
 
@@ -33,8 +33,9 @@
 		<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 
 
+		
 		{% block javascripts %}
-			<!--[if lt IE 9]>                                                       <script src="assets/js/html5shiv.js"></script> <![endif]-->
+			<!--[if lt IE 9]>                        <script src="assets/js/html5shiv.js"></script> <![endif]-->
 
 			<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 			 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -47,13 +48,14 @@
 		{% endblock %}
 	{% endblock %}
 
+
 	</head>
 
 		<nav>
 			{% block navigation%}
 
 			<!-- Navigation-->
-			{% include 'tools/navigation.html.twig'  %}
+			{% include 'tools/nav_user.html.twig'  %}
 			<!-- Header-->
 		{% include 'tools/header.html.twig'  %}
 
@@ -61,15 +63,13 @@
 
 		{% endblock %}
 	</nav>
-	<body>
-		{% block body %}
-			<div class="container"></div>
 
-		</body>
+		<body>
+			{% block body %}
+				<div class="container bg-secondary"> <hr/>
+				
 
-
-	</html>
-
-</div>{% endblock %}</body><footer>{% block footer %}
-<!-- Footer-->
-{% include 'tools/footer.html.twig'  %}{% endblock %}</footer><div></div></html>
+			</div>
+		{% endblock %}
+	</body>
+</html></body></html>
