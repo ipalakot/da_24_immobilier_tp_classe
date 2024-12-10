@@ -18,6 +18,8 @@
 
 <div class="container">
     <h1>Agence</h1>
+    	<hr style="width:100%; height:5px; background-color:#1B4F72 ">
+
 
     <table class="table">
         <tbody>
@@ -33,8 +35,101 @@
                 <th>Adresse</th>
                 <td>{{ agence.adresse }}</td>
             </tr>
+
         </tbody>
     </table>
+
+    <br>
+    <br>
+    {# Liste des Biens par Agnece#}
+		<div class="list-group">
+			<a href="#" class="list-group-item active">
+				<h4 class="list-group-item-heading">Liste de Biens / agneces</h4>
+
+			</a>
+		</div>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>
+						<a href="#" title="cliquer pour trier par ordre croissant">
+							Id</th>
+					</th>
+					<th>
+						<a href="#" title="cliquer pour trier par ordre croissant">
+							Titre</th>
+					</th>
+					<th>
+						<a href="#" title="cliquer pour trier par ordre croissant">
+							Categorie</th>
+					</th>
+
+					<th>
+						<a href="#" title="cliquer pour trier par ordre croissant">
+							Agence</th>
+					</th>
+
+
+					<th>Owner</th>
+					<th>
+						<a href="#" title="cliquer pour trier par ordre croissant">
+							Gestionnaire</th>
+					</th>
+
+					<th>
+						<a href="#" title="cliquer pour trier par surface en ordre croissant">Adresse</th>
+					</th>
+					<th>
+						<a href="#" title="cliquer pour trier par surface en ordre croissant">Type</th>
+					</th>
+					<th>
+						<a href="#" title="cliquer pour trier par surface en ordre croissant">Surface</th>
+					</th>
+					<th>
+						<a href="#" title="cliquer pour trier par prix en ordre croissant">Prix</th>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for article in agence.articles %}
+					<tr>
+						<td>{{ article.id }}</td>
+						<td>{{ article.titre }}
+							|
+							{{ article.adresse }}</td>
+
+						<td>{{ article.Categorie.titre }}</td>
+						<td>{{ article.Agence.numeroAgence }}
+							|
+							{{ article.Agence.adresse }}
+						</td>
+						<td>{{ article.Client.nom }}</td>
+						<td>{{ article.Employe.nom }}
+							{{ article.Employe.prenom }}</td>
+
+						<td>{{ article.adresse }}</td>
+						<td>F{{ article.type }}</td>
+						<td>{{ article.surface }}m2</td>
+						<td>{{ article.prix }}€</td>
+						<td>
+
+
+							<a href="{{ path('article_affichage', {'id': article.id}) }}" class="btn btn-secondary">details</a>
+
+
+							<a href="{{ path('article_modif', {'id': article.id}) }}" class="btn btn-secondary">editer</a>
+
+
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="8">Aucun Artcile
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 
     <a href="{{ path('agence_index') }}">Liste de</a>
 

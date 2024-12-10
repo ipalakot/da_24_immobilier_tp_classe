@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Agence;
+use App\Entity\Article;
 use App\Form\AgenceType;
+use app\Form\ArticleType;
 use App\Repository\AgenceRepository;
+use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,10 +46,12 @@ final class AgenceController extends AbstractController
     }
 
     #[Route('/{id}', name: 'agence_affichage', methods: ['GET'])]
-    public function show(Agence $agence): Response
+    public function show(Agence $agence, Article $articles): Response
     {
         return $this->render('agence/show.html.twig', [
             'agence' => $agence,
+            'articles' => $articles,
+
         ]);
     }
 
