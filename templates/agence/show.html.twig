@@ -17,7 +17,7 @@
 {% block body %}
 
 <div class="container">
-    <h1>Agence</h1>
+    <h5>Agence | {{ agence.id }} </h5>
     	<hr style="width:100%; height:5px; background-color:#1B4F72 ">
 
 
@@ -41,6 +41,58 @@
 
     <br>
     <br>
+
+<h2>Clients</h2>
+		<hr/>
+
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nom</th>
+					<th>Prenom</th>
+					<th>Adresse</th>
+					<th>Type</th>
+					<th>Photo</th>
+					<th>DateNaissance</th>
+					<th>Login</th>
+					<th>Email</th>
+					<th>Password</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for employe in agence.employes %}
+					<tr>
+						<td>{{ mploye.id }}</td>
+						<td>{{ mploye.nom }}</td>
+						<td>{{ mploye.prenom }}</td>
+						<td>{{ client.adresse }}</td>
+						<td>{{ client.type }}</td>
+						<td>{{ client.photo }}</td>
+						<td>{{ client.dateNaissance ? client.dateNaissance|date('Y-m-d H:i:s') : '' }}</td>
+
+						<td>{{ client.email }}</td>
+
+						<td>
+							<a href="{{ path('client_affichage', {'id': client.id}) }}">affichage</a>
+							<a href="{{ path('client_edition', {'id': client.id}) }}">editer</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="11">Pas de Client pour le moment</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+
+
+
+
+	
     {# Liste des Biens par Agnece#}
 		<div class="list-group">
 			<a href="#" class="list-group-item active">

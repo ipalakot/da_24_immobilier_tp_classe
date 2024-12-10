@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Agence;
 use App\Entity\Article;
+use App\Entity\Employe;
+
 use App\Form\AgenceType;
 use app\Form\ArticleType;
 use App\Repository\AgenceRepository;
@@ -46,12 +48,12 @@ final class AgenceController extends AbstractController
     }
 
     #[Route('/{id}', name: 'agence_affichage', methods: ['GET'])]
-    public function show(Agence $agence, Article $articles): Response
+    public function show(Agence $agence, Article $articles, Employe $employes): Response
     {
         return $this->render('agence/show.html.twig', [
             'agence' => $agence,
             'articles' => $articles,
-
+            'employes' => $employes,
         ]);
     }
 
