@@ -1,11 +1,11 @@
 {% extends 'base_user.html.twig' %}
 
-{% block title %}Agence{% endblock %}
-
+{% block title %}Agence
+{% endblock %}
 
 
 {% block navigation%}
-<!-- Navigation-->
+	<!-- Navigation-->
 	{% include 'tools/navigation.html.twig'  %}
 	<!-- Header-->
 	{% include 'tools/header.html.twig'  %}
@@ -16,87 +16,124 @@
 
 {% block body %}
 
-<div class="container">
-    <h5>Agence | {{ agence.id }} </h5>
-    	<hr style="width:100%; height:5px; background-color:#1B4F72 ">
+	<div class="container">
+		<h5>Agence |
+			{{ agence.id }}
+		</h5>
+		<hr style="width:100%; height:5px; background-color:#1B4F72 ">
 
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ agence.id }}</td>
-            </tr>
-            <tr>
-                <th>NumeroAgence</th>
-                <td>{{ agence.numeroAgence }}</td>
-            </tr>
-            <tr>
-                <th>Adresse</th>
-                <td>{{ agence.adresse }}</td>
-            </tr>
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>Id</th>
+					<td>{{ agence.id }}</td>
+				</tr>
+				<tr>
+					<th>NumeroAgence</th>
+					<td>{{ agence.numeroAgence }}</td>
+				</tr>
+				<tr>
+					<th>Adresse</th>
+					<td>{{ agence.adresse }}</td>
+				</tr>
 
-        </tbody>
-    </table>
+			</tbody>
+		</table>
 
-    <br>
-    <br>
+		<br>
+		<br>
 
-<h2>Clients</h2>
-		<hr/>
+		{# Employes par Agence#}
+		<div class="list-group">
+			<a href="#" class="list-group-item active">
+				<h4 class="list-group-item-heading">Employes / agences</h4>
+
+			</a>
+		</div>
 
 
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Id</th>
-					<th>Nom</th>
-					<th>Prenom</th>
-					<th>Adresse</th>
-					<th>Type</th>
-					<th>Photo</th>
-					<th>DateNaissance</th>
-					<th>Login</th>
-					<th>Email</th>
-					<th>Password</th>
-					<th>actions</th>
+					<th>
+						<a href="{{path('employe_index')}}" title="cliquer pour trier par ordre croissant">
+							Id</th>
+					</th>
+
+					<th>
+						<a href="{{path('employe.trier.titre.AZ')}}" title="cliquer pour trier par ordre croissant">
+
+
+							Noms</th>
+					</th>
+					<th>
+						<a href="{{path('employe.trier.prenoms.AZ')}}" title="cliquer pour trier par ordre croissant">
+
+
+							Prenoms</th>
+					</th>
+					<th>
+						<a href="{{path('employe.categorie.agence.ASC')}}" title="cliquer pour trier par ordre croissant">
+
+							Agence</th>
+					</th>
+
+					<th>
+						<a href="#" title="cliquer pour trier par ordre croissant">
+							Responsable</th>
+					</th>
+
+					<th>
+						<a href="#" title="cliquer pour trier par ordre croissant">
+							Date Embauche</th>
+					</th>
+
+					<th>
+						<a href="#" title="cliquer pour trier par ordre croissant">
+							Portefeuille</th>
+					</th>
+
+					{#<th><a href="#" title="cliquer pour trier par ordre croissant">
+																																																																																								Modifier le</th>#}
+
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-				{% for employe in agence.employes %}
+				{% for employe in agence.employe %}
 					<tr>
-						<td>{{ mploye.id }}</td>
-						<td>{{ mploye.nom }}</td>
-						<td>{{ mploye.prenom }}</td>
-						<td>{{ client.adresse }}</td>
-						<td>{{ client.type }}</td>
-						<td>{{ client.photo }}</td>
-						<td>{{ client.dateNaissance ? client.dateNaissance|date('Y-m-d H:i:s') : '' }}</td>
-
-						<td>{{ client.email }}</td>
-
+						<td>{{ employe.id }}</td>
+						<td>{{ employe.nom }}</td>
+						<td>{{ employe.prenom }}</td>
+						<td>{{ employe.agence.numeroAgence }}
+							|
+							{{ employe.agence.adresse }}</td>
+						<td>{{ employe.directeur.nom }}
+							{{ employe.directeur.prenom }}</td>
+						<td>{{ employe.createdAt ? employe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+						<td></td>
+						{#<td>{{ employe.updatedAt ? employe.updatedAt|date('Y-m-d H:i:s') : '' }}</td> #}
 						<td>
-							<a href="{{ path('client_affichage', {'id': client.id}) }}">affichage</a>
-							<a href="{{ path('client_edition', {'id': client.id}) }}">editer</a>
+							<a href="{{ path('employe_affichage', {'id': employe.id}) }}" class="btn btn-secondary">lire</a>
+							<a href="{{ path('employe_edition', {'id': employe.id}) }}" class="btn btn-secondary">editer</a>
 						</td>
 					</tr>
 				{% else %}
 					<tr>
-						<td colspan="11">Pas de Client pour le moment</td>
+						<td colspan="6">Pas d'emplye pour le moment</td>
 					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
+		<br>
+		<br>
 
 
-
-
-
-	
-    {# Liste des Biens par Agnece#}
+		{# Biens par Agence#}
 		<div class="list-group">
 			<a href="#" class="list-group-item active">
-				<h4 class="list-group-item-heading">Liste de Biens / agneces</h4>
+				<h4 class="list-group-item-heading">Biens / agences</h4>
 
 			</a>
 		</div>
@@ -182,12 +219,7 @@
 				{% endfor %}
 			</tbody>
 		</table>
-
-    <a href="{{ path('agence_index') }}">Liste de</a>
-
-    <a href="{{ path('agence_edition', {'id': agence.id}) }}">edit</a>
-
-    {{ include('agence/_delete_form.html.twig') }}
-
-</div>
+		<a href="{{ path('agence_index') }}" class="btn btn-secondary">Retour à la liste</a>
+		<a href="{{ path('agence_edition', {'id': agence.id}) }}" class="btn btn-secondary">editer</a>
+		{{ include('agence/_delete_form.html.twig') }}</div>
 {% endblock %}
