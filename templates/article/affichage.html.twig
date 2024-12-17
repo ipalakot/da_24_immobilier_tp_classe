@@ -25,7 +25,10 @@
 
 				<tr>
 					<th>Images</th>
-					<td>{{ articles.images }}</td>
+					<td>				{% for image in articles.images %}
+						<img src="{{ asset('/images/articles/'~image.name) }}" alt="" width="450" class="text-start">
+
+					{% endfor %}</td>
 				</tr>
 
 				<tr>
