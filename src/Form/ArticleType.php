@@ -15,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ArticleType extends AbstractType
 {
@@ -67,6 +68,10 @@ class ArticleType extends AbstractType
                 'disabled' => false,
             ])
 
+            ->add('imageFile', VichImageType::class,[
+                'label' => 'Image / Photo'] 
+            )
+            
             ->add('images', TextType::class, [
                 'label' => 'Photo',
                 'required' => true,
