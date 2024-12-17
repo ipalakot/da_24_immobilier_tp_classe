@@ -68,26 +68,23 @@ class ArticleType extends AbstractType
                 'disabled' => false,
             ])
 
-            ->add('imageFile', VichImageType::class,[
-                'label' => 'Image / Photo',
-                'allow_delete' => true,
-                'delete_label' => '...',
-                'download_uri' => '...',
-                'download_label' => '...',
-                'asset_helper' => true,
-                
-                
-                ] 
-            )
-            
-           
-
             ->add('surface', IntegerType::class, [])
             ->add('prix', IntegerType::class, [])
             ->add('owner')
 
             ->add('description', TextareaType::class, [
                 'label' => 'Description'])
+
+            ->add('imageFile', VichImageType::class, [
+                'label' => 'Image / Photo',
+                'allow_delete' => true,
+                'delete_label' => '...',
+                'download_uri' => '...',
+                'download_label' => '...',
+                'asset_helper' => true,
+
+            ]
+            )
         ;
     }
     public function configureOptions(OptionsResolver $resolver): void

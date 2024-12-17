@@ -4,19 +4,32 @@
 
 
 {% block body %}
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="{{path('index')}}">Accueil</a>
+
+			</li>
+			<li class="breadcrumb-item">
+				<a href="{{path('article_index')}}">Articles</a>
+
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">Edition | Article N°
+				{{ article.id }}
+
+			</li>
+		</ol>
+	</nav>
+
 	<div class="container">
 		<hr/>
 
 		{{ form_start(formCreatArticle) }}
-		   
-            {{ form_widget(formCreatArticle) }}
 
-            <button type="submit" class="btn btn-success">
-                Editer !
-            </button>
-            </br></br></br>
-            
-		{{ form_end(formCreatArticle) }}
+		{{ form_widget(formCreatArticle) }}
 
-
-{% endblock %}
+		<button type="submit" class="btn btn-success">
+			Editer !
+		</button>
+	</br>
+</br></br>{{ form_end(formCreatArticle) }}{% endblock %}
