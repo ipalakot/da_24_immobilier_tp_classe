@@ -35,7 +35,7 @@
 						<td>{{ client.prenom }}</td>
 						<td>{{ client.adresse }}</td>
 						<td>{{ client.type }}</td>
-						<td>{{ client.photo }}</td>
+						<td>	<img src="{{vich_uploader_asset(client, 'imageFile')  }}" alt="Immeuble"  class="mx-auto p-2" style="width: 100px;"></td>
 						<td>{{ client.dateNaissance ? client.dateNaissance|date('Y-m-d H:i:s') : '' }}</td>
 
 						<td>{{ client.email }}</td>

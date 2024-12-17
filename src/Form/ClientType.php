@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 
 class ClientType extends AbstractType
@@ -25,7 +26,19 @@ class ClientType extends AbstractType
             ->add('prenom', TextType::class, [])
             ->add('adresse', TextareaType::class)
             ->add('type', TextType::class, [])
-            ->add('photo')
+
+            ->add('imageFile', VichImageType::class,[
+                'label' => 'Image / Photo',
+                'allow_delete' => true,
+                'delete_label' => '...',
+                'download_uri' => '...',
+                'download_label' => '...',
+                'asset_helper' => true,
+                
+                
+                ] 
+            )
+            
             ->add('dateNaissance', null, [
                 'widget' => 'single_text',
             ])

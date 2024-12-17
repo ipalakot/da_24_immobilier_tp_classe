@@ -13,6 +13,18 @@
 
 		<table class="table">
 			<tbody>
+				
+								<tr>
+					<th> </th>
+					<td>				
+						<img src="{{vich_uploader_asset(articles, 'imageFile')  }}" alt="Immeuble"  class="mx-auto p-2" style="width: 600px;">
+					
+					</td>
+				</tr>
+
+
+
+				
 				<tr>
 					<th>LIbellé</th>
 					<td>{{ articles.titre }}</td>
@@ -23,16 +35,7 @@
 					<td>{{ articles.adresse }}</td>
 				</tr>
 
-				<tr>
-					<th>Images</th>
-					<td>				
-					
-						<img src="{{vich_uploader_asset(articles, 'imageFile')  }}" alt="" width="200" class="text-start">
 
-				
-					
-					</td>
-				</tr>
 
 				<tr>
 					<th>Type</th>
