@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container">
+	<div class="container text-">
 
 
 		<h2>Clients</h2>
@@ -21,9 +21,9 @@
 					<th>Type</th>
 					<th>Photo</th>
 					<th>DateNaissance</th>
-					<th>Login</th>
+
 					<th>Email</th>
-					<th>Password</th>
+
 					<th>actions</th>
 				</tr>
 			</thead>
@@ -41,8 +41,8 @@
 						<td>{{ client.email }}</td>
 
 						<td>
-							<a href="{{ path('client_affichage', {'id': client.id}) }}">affichage</a>
-							<a href="{{ path('client_edition', {'id': client.id}) }}">editer</a>
+							<a href="{{ path('client_affichage', {'id': client.id}) }}" class="btn btn-secondary">affichage</a>
+							<a href="{{ path('client_edition', {'id': client.id}) }}" class="btn btn-secondary">editer</a>
 						</td>
 					</tr>
 				{% else %}
@@ -53,7 +53,7 @@
 			</tbody>
 		</table>
 
-		<a href="{{ path('client_nouveau') }}">Creer un Nouveau Client</a>
+		<a href="{{ path('client_nouveau') }}" class="btn btn-secondary">Creer un Nouveau Client</a>
 
 	</div>
 {% endblock %}
