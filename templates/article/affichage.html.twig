@@ -25,10 +25,13 @@
 
 				<tr>
 					<th>Images</th>
-					<td>				{% for image in articles.images %}
-						<img src="{{ asset('/images/articles/'~image.name) }}" alt="" width="450" class="text-start">
+					<td>				
+					
+						<img src="{{vich_uploader_asset(articles, 'imageFile')  }}" alt="" width="200" class="text-start">
 
-					{% endfor %}</td>
+				
+					
+					</td>
 				</tr>
 
 				<tr>

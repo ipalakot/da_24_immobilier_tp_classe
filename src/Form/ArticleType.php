@@ -69,15 +69,18 @@ class ArticleType extends AbstractType
             ])
 
             ->add('imageFile', VichImageType::class,[
-                'label' => 'Image / Photo'] 
+                'label' => 'Image / Photo',
+                'allow_delete' => true,
+                'delete_label' => '...',
+                'download_uri' => '...',
+                'download_label' => '...',
+                'asset_helper' => true,
+                
+                
+                ] 
             )
             
-            ->add('images', TextType::class, [
-                'label' => 'Photo',
-                'required' => true,
-                'disabled' => false,
-                'empty_data' => 'https://img.leboncoin.fr/api/v1/lbcpb1/images/04/de/81/04de81467bcb4f5ec2379f7289bc752a63bcd9e0.jpg?rule=classified-1200x800-webp',
-            ])
+           
 
             ->add('surface', IntegerType::class, [])
             ->add('prix', IntegerType::class, [])
