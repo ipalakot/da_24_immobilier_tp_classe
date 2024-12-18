@@ -1,0 +1,61 @@
+<section class="py-5">
+
+
+	<div class="container px-4 px-lg-5 mt-5">
+
+		<div class="row">
+						<div class="container">
+					<div class="row">
+
+						{%for article in articles  %}
+
+							<div class="col-sm-4">
+
+								<div class="card">
+
+									<h6>
+										{{article.titre}}
+									</h6>
+									<em
+										class="text-muted text-primary text-ilatic">{#{article.categorie.titre}#}
+									</em>
+
+									{% for image in article.images %}
+										<img src="{{ asset('/uploads/'~image.name) }}" alt="" width="350
+																																																																																		">
+									{% endfor %}
+									Publié le:
+									{# {article.createdAt | date('d/m/Y') } #}
+
+									<ul>
+										<br>categoriee:																																																																																																																																																																																																																																																																																																																																																																																																											|
+										{{article.categorie.titre}}
+
+									</ul>
+									<ul>
+										Prix:																																																																																																																																																																																																																																																																																																																																																																																																											|
+										{{article.prix}}
+										€
+
+										<a href="{{ path('article_affichage', {'id': article.id}) }}">
+
+											<button type="button" class="btn btn-dark">lire
+											</a>
+										</ul>
+									</div>
+								</div>
+
+								{% endfor%}
+
+
+							</div>
+
+
+						</div>
+		
+					</div>
+
+
+					
+	
+			</section>
