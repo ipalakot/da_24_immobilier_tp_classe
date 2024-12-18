@@ -75,6 +75,15 @@ class ArticleType extends AbstractType
             ->add('description', TextareaType::class, [
                 'label' => 'Description'])
 
+            ->add('une', ChoiceType::class, [
+                'choices' => [
+                    'true' => true,
+                    'false' => false,
+
+                ],
+                'label' => "Mettre à la Une",
+            ])
+
             ->add('imageFile', VichImageType::class, [
                 'label' => 'Image / Photo',
                 'allow_delete' => true,
@@ -84,8 +93,8 @@ class ArticleType extends AbstractType
                 'asset_helper' => true,
 
             ]
-            )
-        ;
+            );
+
     }
     public function configureOptions(OptionsResolver $resolver): void
     {

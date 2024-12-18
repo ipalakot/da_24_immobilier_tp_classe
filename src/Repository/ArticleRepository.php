@@ -71,6 +71,18 @@ class ArticleRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    #Affichage des artciles a la UNE
+    public function findUne()
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.une = : false')
+
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     public function findTrieSurface_AZ()
     {
         return $this->createQueryBuilder('a')

@@ -94,6 +94,9 @@ class Article
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $une = null;
+
 
 
 
@@ -272,6 +275,18 @@ class Article
     public function getImageName(): ?string
     {
         return $this->imageName;
+    }
+
+    public function isUne(): ?bool
+    {
+        return $this->une;
+    }
+
+    public function setUne(?bool $une): static
+    {
+        $this->une = $une;
+
+        return $this;
     }
 
 }

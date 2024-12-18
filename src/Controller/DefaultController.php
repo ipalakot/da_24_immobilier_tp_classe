@@ -2,22 +2,34 @@
 
 namespace App\Controller;
 
+use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-
 class DefaultController extends AbstractController
 {
-  
+
     #[Route('/index', name: 'app_index')]
     #[Route('/accueil')]
     #[Route('/home')]
-    public function index(): Response
+    public function index(ArticleRepository $articleRepository): Response
     {
-        return $this->render('default/default.html.twig', [
-            'controller_name' => 'DefaultController',
-        ]);
+        //$articles = $articleRepository->findUne();
+
+        // Recherche de tous les articles en fonction de multiples conditions
+        $articles = $articleRepository->findBy(
+            ['une' => 1],
+            ['titre' => 'ASC'], // le deuxième paramètre permet de définir l'ordre
+
+        );
+
+        return $this->render(
+            'default/default.html.twig', [
+                'articles' => $articles,
+            ]
+        );
+
     }
 
     public function apropos(): Response
@@ -26,7 +38,6 @@ class DefaultController extends AbstractController
             'controller_name' => 'DefaultController',
         ]);
     }
-
 
     public function contact(): Response
     {
@@ -42,4 +53,3 @@ class DefaultController extends AbstractController
         ]);
     }
 }
-
