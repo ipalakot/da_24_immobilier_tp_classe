@@ -4,58 +4,64 @@
 	<div class="container px-4 px-lg-5 mt-5">
 
 		<div class="row">
-						<div class="container">
-					<div class="row">
+			<div class="container">
+				<div class="row">
 
-						{%for article in articles  %}
+					{%for article in articles  %}
 
-							<div class="col-sm-4">
+						<div class="col-sm-4">
 
-								<div class="card">
+							<div class="card">
 
-									<h6>
-										{{article.titre}}
-									</h6>
-									<em
-										class="text-muted text-primary text-ilatic">{#{article.categorie.titre}#}
-									</em>
+								<h6>
+									{{article.titre}}
+									/
 
-									{% for image in article.images %}
-										<img src="{{ asset('/uploads/'~image.name) }}" alt="" width="350
-																																																																																		">
-									{% endfor %}
-									Publié le:
+								</h6>
+								<ul>ville:
+									{{article.adresse}}
+								</ul>
+
+								<ul>Publié le :
 									{# {article.createdAt | date('d/m/Y') } #}
+								</ul>
 
-									<ul>
-										<br>categoriee:																																																																																																																																																																																																																																																																																																																																																																																																											|
-										{{article.categorie.titre}}
+								<ul>
+									categoriee:																																																																																																																																																																																																																																																																																																																																																																																																											|
+									{{article.categorie.titre}}
 
+								</ul>
+								<ul>
+									Prix:																																																																																																																																																																																																																																																																																																																																																																																																											|
+									{{article.prix}}
+									€
+								</ul>
+
+								<ul>
+
+
+									<img src="{{vich_uploader_asset(article, 'imageFile') }}" alt="Immeuble" class="rounded float-left" style="width: 300px;">
+
+
+								</ul>
+								<ul>
+									<a href="{{ path('article_affichage', {'id': article.id}) }}">
+
+										<button type="button" class="btn btn-dark">lire
+										</a>
 									</ul>
-									<ul>
-										Prix:																																																																																																																																																																																																																																																																																																																																																																																																											|
-										{{article.prix}}
-										€
-
-										<a href="{{ path('article_affichage', {'id': article.id}) }}">
-
-											<button type="button" class="btn btn-dark">lire
-											</a>
-										</ul>
-									</div>
 								</div>
-
-								{% endfor%}
-
-
 							</div>
+
+							{% endfor%}
 
 
 						</div>
-		
+
+
 					</div>
 
+				</div>
 
-					
-	
+
 			</section>
