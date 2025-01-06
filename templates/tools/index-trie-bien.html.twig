@@ -9,45 +9,35 @@
 
 					{%for article in articles  %}
 
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 
 							<div class="card">
 
-								<h6>
+								<h2>
 									{{article.titre}}
-									/
-
-								</h6>
-								<ul>ville:
-									{{article.adresse}}
-								</ul>
-
-								<ul>Publié le :
-									{# {article.createdAt | date('d/m/Y') } #}
-								</ul>
-
-								<ul>
-									categoriee:																																																																																																																																																																																																																																																																																																																																																																																																											|
-									{{article.categorie.titre}}
-
-								</ul>
-								<ul>
-									Prix:																																																																																																																																																																																																																																																																																																																																																																																																											|
+								</h2>
+									<h4>
+									 - ville: {{article.adresse}} <br> 
+									 - Publié le : {# {article.createdAt | date('d/m/Y') } #} <br> 
+									- categorie: {{article.categorie.titre}} <br> 
+									- Prix:																																																																																																																																																																																																																																																																																																																																																																																																											|
 									{{article.prix}}
-									€
-								</ul>
-
+									€ <br> 
+</h4>
 								<ul>
 
 
-									<img src="{{vich_uploader_asset(article, 'imageFile') }}" alt="Immeuble" class="rounded float-left" style="width: 300px;">
+									<img src="{{vich_uploader_asset(article, 'imageFile') }}" alt="Immeuble" class="rounded float-left" style="width: 270px;">
 
 
 								</ul>
 								<ul>
 									<a href="{{ path('article_affichage', {'id': article.id}) }}">
 
-										<button type="button" class="btn btn-dark">lire
+											<p class="lead">
+		<a class="btn btn-primary btn-lg" href="#" role="button">decouvrir</a> 
+		<i class="bi bi-cart"></i>
+	</p>
 										</a>
 									</ul>
 								</div>
