@@ -13,45 +13,53 @@
 
 							<div class="card">
 
-								<h2>
+								<h5>
 									{{article.titre}}
-								</h2>
-									<h4>
-									 - ville: {{article.adresse}} <br> 
-									 - Publié le : {# {article.createdAt | date('d/m/Y') } #} <br> 
-									- categorie: {{article.categorie.titre}} <br> 
+								</h5>
+								<h7>
+									- ville:
+									{{article.adresse}}
+									<br>
+									- Publié le :
+									{# {article.createdAt | date('d/m/Y') } #}
+									<br>
+									- categorie:
+									{{article.categorie.titre}}
+									<br>
 									- Prix:																																																																																																																																																																																																																																																																																																																																																																																																											|
 									{{article.prix}}
-									€ <br> 
-</h4>
+									€
+									<br>
+								</h7>
 								<ul>
 
 
-									<img src="{{vich_uploader_asset(article, 'imageFile') }}" alt="Immeuble" class="rounded float-left" style="width: 270px;">
+									<img src="{{vich_uploader_asset(article, 'imageFile') }}" alt="Immeuble" class="rounded float-left" style="width: 230px;">
 
 
 								</ul>
 								<ul>
 									<a href="{{ path('article_affichage', {'id': article.id}) }}">
 
-											<p class="lead">
-		<a class="btn btn-primary btn-lg" href="#" role="button">decouvrir</a> 
-		
-	</p>
-										</a>
-									</ul>
-								</div>
+										<p class="lead">
+											<a class="btn btn-primary btn-sm" href="{{ path('article_affichage', {'id': article.id}) }}" role="button">decouvrir</a>
+
+
+										</p>
+									</a>
+								</ul>
 							</div>
-
-							{% endfor%}
-
-
 						</div>
+
+						{% endfor%}
 
 
 					</div>
 
+
 				</div>
 
-
-			</section>
+			</div>
+		</div>
+	</div>
+</section>
