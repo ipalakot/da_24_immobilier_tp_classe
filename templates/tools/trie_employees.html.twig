@@ -1,0 +1,86 @@
+<section class="py-5">
+
+	<h7 class="display-6">Des Conseillers à votre service !</h7>
+	<p class="lead">
+		Trouver votre maison / Appartements / Terrains dans la ville la plus proche grâce à un Chargé de Clientel
+ 	</p>
+	<hr class="my-1">
+
+	<div class="container text-center">
+
+		<div
+			class="row">
+			<!-- col-4 -->
+			<div class="col-4">col-4</div>
+
+
+			<!-- col-8 -->
+			<div class="col-8">
+
+				<div class="row">
+					<div class="container">
+						<div class="row">
+
+							{% for employe in employes %}
+
+
+								<div class="col-sm-4">
+
+									<div class="card">
+
+										<h5>
+											{{ employe.id }} | {{ employe.nom }} | {{ employe.prenom }}
+
+										</h5>
+										<h7>
+											- ville:
+											
+											{{ employe.agence.adresse }}
+
+											<br>
+											- Publié le :
+											{# {article.createdAt | date('d/m/Y') } #}
+											<br>
+											- Agence de ref.:
+											{{ employe.agence.numeroAgence }}
+
+											<br>
+										
+							<img src="{{vich_uploader_asset(employe, 'imageFile') }}" alt="Immeuble" class="rounded float-left" style="width: 150px;">
+										</h7>
+										<ul>
+
+
+											{# <img src="{{vich_uploader_asset(article, 'imageFile') }}" alt="Immeuble" class="rounded float-left" style="width: 230px;"> #}
+
+
+										</ul>
+										<ul>
+
+
+											<p class="lead">
+												<a class="btn btn-primary btn-sm" href="{{ path('employe_affichage', {'id': employe.id}) }}" role="button">decouvrir</a>
+
+
+											</p>
+										</a>
+									</ul>
+								</div>
+							</div>
+
+							{% endfor%}
+
+
+						</div>
+
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+
+	</div>
+</div></section>
