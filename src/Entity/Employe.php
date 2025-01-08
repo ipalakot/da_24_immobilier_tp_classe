@@ -15,9 +15,12 @@ use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException
 use Symfony\Component\Validator\Constraints as Assert;
 //use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
 #[ORM\Entity(repositoryClass: EmployeRepository::class)]
+#[Vich\Uploadable]
 class Employe
 {
     #[ORM\Id]

@@ -39,7 +39,6 @@ class EmployeType extends AbstractType
                 'download_uri' => '...',
                 'download_label' => '...',
                 'asset_helper' => true,
-
             ]
             );
     }
