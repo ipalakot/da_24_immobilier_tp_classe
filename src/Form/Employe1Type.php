@@ -13,6 +13,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
+use Vich\UploaderBundle\Form\Type\VichImageType;
+
+
 class Employe1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -36,7 +39,15 @@ class Employe1Type extends AbstractType
             ->add('updatedAt', null, [
                 'widget' => 'single_text',
             ])
-        ;
+            ->add('imageFile', VichImageType::class, [
+                'label' => 'Image / Photo',
+                'allow_delete' => true,
+                'delete_label' => '...',
+                'download_uri' => '...',
+                'download_label' => '...',
+                'asset_helper' => true,
+            ]
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver): void

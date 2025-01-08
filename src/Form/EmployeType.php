@@ -32,7 +32,15 @@ class EmployeType extends AbstractType
                 'class' => Directeur::class,
                 'choice_label' => 'id',
             ])
-        ;
+            ->add('imageFile', VichImageType::class, [
+                'label' => 'Image / Photo',
+                'allow_delete' => true,
+                'delete_label' => '...',
+                'download_uri' => '...',
+                'download_label' => '...',
+                'asset_helper' => true,
+            ]
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver): void
