@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\AgenceRepository;
 use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +14,7 @@ class DefaultController extends AbstractController
     #[Route('/index', name: 'app_index')]
     #[Route('/accueil')]
     #[Route('/home')]
-    public function index(ArticleRepository $articleRepository): Response
+    public function index(ArticleRepository $articleRepository, AgenceRepository $agenceRepository): Response
     {
         //$articles = $articleRepository->findUne();
 
@@ -27,6 +28,7 @@ class DefaultController extends AbstractController
         return $this->render(
             'default/default.html.twig', [
                 'articles' => $articles,
+                'agences' => $agenceRepository->findAll(),
             ]
         );
 
