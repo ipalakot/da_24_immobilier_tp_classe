@@ -1,11 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
-{% block title %}New User{% endblock %}
+{% block title %}Nouvel Utilisateur
+{% endblock %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig'  %}
 
 {% block body %}
-    <h1>Create new User</h1>
+    <div class="container">
+		<hr/>
 
-    {{ include('user/_form.html.twig') }}
+		<h1>
+			Enregistrement Nouveau Utiisateur
+		</h1>
+		<hr/>
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+		{{ include('user/_form.html.twig') }}
+
+		<br>
+		<br>
+		<a href="{{ path('user_index') }}" class="btn btn-secondary">
+			Liste de utilisateurs
+		</a>
+		<br><br>
+	</div>
 {% endblock %}
