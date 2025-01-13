@@ -1,23 +1,25 @@
 security:
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
-        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'plaintext'
+        #Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'plaintext'
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+        App\Entity\User:
+            algorithm: auto
+
+
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
         # used to reload user from session & other features (e.g. switch_user)
-       # app_user_provider:
-        #    entity:
-         #       class: App\Entity\User
-          #      property: email 
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email 
 
-        backend_users:
-            memory:
-                users:
-                    ipalakot@gmail.com: { password: 'IPlkot@Iplkt', roles: ['ROLE_ADMIN'] }
-                    jane_admin: { password: '$2y$13$PFi1I ... rGwXCZ', roles: ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN'] }
-
-
-
+        #backend_users:
+        #    memory:
+        #        users:
+        #            ipalakot@gmail.com: { password: 'IPlkot@Iplkt', roles: ['ROLE_ADMIN'] }
+        #            jane_admin: { password: '$2y$13$PFi1I ... rGwXCZ', roles: ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN'] }
 
     firewalls:
         dev:
@@ -25,8 +27,8 @@ security:
             security: false
         main:
             lazy: true
-            #provider: app_user_provider
-            provider:  backend_users
+            provider: app_user_provider
+            #provider:  backend_users
 
             custom_authenticator: App\Security\LoginFormAuthenticator
             logout:
@@ -43,7 +45,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-         - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/admin, roles: ROLE_USER }
          - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
