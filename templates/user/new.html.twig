@@ -1,0 +1,26 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Nouvel Utilisateur
+{% endblock %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig'  %}
+
+{% block body %}
+    <div class="container">
+		<hr/>
+
+		<h1>
+			Enregistrement Nouveau Utiisateur
+		</h1>
+		<hr/>
+
+		{{ include('user/_form.html.twig') }}
+
+		<br>
+		<br>
+		<a href="{{ path('user_index') }}" class="btn btn-secondary">
+			Liste de utilisateurs
+		</a>
+		<br><br>
+	</div>
+{% endblock %}

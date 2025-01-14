@@ -16,6 +16,8 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
+use Symfony\Component\Form\CallbackTransformer;
+
 
 class ClientType extends AbstractType
 {
@@ -26,7 +28,9 @@ class ClientType extends AbstractType
             ->add('prenom', TextType::class, [])
             ->add('adresse', TextareaType::class)
             ->add('type', TextType::class, [])
-
+            ->add('roles')
+            ->add('password')
+            ->add('username')
             ->add('imageFile', VichImageType::class,[
                 'label' => 'Image / Photo',
                 'allow_delete' => true,
@@ -34,11 +38,9 @@ class ClientType extends AbstractType
                 'download_uri' => '...',
                 'download_label' => '...',
                 'asset_helper' => true,
-                
-                
                 ] 
             )
-            
+
             ->add('dateNaissance', null, [
                 'widget' => 'single_text',
             ])
@@ -52,6 +54,18 @@ class ClientType extends AbstractType
                 'choice_label' => 'id',
             ])
         ;
+              // Data transformer
+                $builder->get('roles')
+                ->addModelTransformer(new CallbackTransformer(
+                    function ($rolesArray) {
+                        // transform the array to a string
+            return count($rolesArray)? $rolesArray[0]: null;
+            },
+            function ($rolesString) {
+            // transform the string back to an array
+            return [$rolesString];
+                     }
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver): void

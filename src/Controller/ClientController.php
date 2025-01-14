@@ -6,14 +6,22 @@ use App\Entity\Client;
 use App\Form\ClientType;
 use App\Repository\ClientRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 #[Route('/admin/client')]
 final class ClientController extends AbstractController
 {
+    private $passwordHasher;
+
+    public function __construct(UserPasswordHasherInterface $passwordHasher)
+    {
+        $this->passwordHasher = $passwordHasher;
+    }
+
     #[Route(name: 'client_index', methods: ['GET'])]
     public function index(ClientRepository $clientRepository): Response
     {
@@ -30,6 +38,15 @@ final class ClientController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $client->setRoles(['ROLE_ADMIN']);
+            $client->setPassword($this->passwordHasher->hashPassword($client, $client->getPassword()));
+           ## $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($client);
+            $entityManager->flush();
+
+
+
             $entityManager->persist($client);
             $entityManager->flush();
 
