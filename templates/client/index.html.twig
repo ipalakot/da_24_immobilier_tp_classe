@@ -17,14 +17,14 @@
 					<th>Id</th>
 					<th>Nom</th>
 					<th>Prenom</th>
+					<th>Username</th>
 					<th>Adresse</th>
 					<th>Type</th>
 					<th>Photo</th>
 					<th>DateNaissance</th>
 					<th>Email</th>
 					<th>Roles</th>
-					<th>Password</th>
-					<th>Username</th>
+					
 
 					<th>actions</th>
 				</tr>
@@ -35,14 +35,14 @@
 						<td>{{ client.id }}</td>
 						<td>{{ client.nom }}</td>
 						<td>{{ client.prenom }}</td>
+						                <td>{{ client.username }}</td>
 						<td>{{ client.adresse }}</td>
 						<td>{{ client.type }}</td>
 						<td>	<img src="{{vich_uploader_asset(client, 'imageFile')  }}" alt="Immeuble"  class="mx-auto p-2" style="width: 100px;"></td>
 						<td>{{ client.dateNaissance ? client.dateNaissance|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ client.email }}</td>
 						<td>{{ client.roles ? client.roles|json_encode : '' }}</td>
-                <td>{{ client.password }}</td>
-                <td>{{ client.username }}</td>
+          
 
 						<td>
 							<a href="{{ path('client_affichage', {'id': client.id}) }}" class="btn btn-secondary">affichage</a>

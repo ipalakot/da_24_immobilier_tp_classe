@@ -68,6 +68,8 @@ public function __construct(UserPasswordHasherInterface $passwordHasher)
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setPassword($this->passwordHasher->hashPassword($user, $user->getPassword()));
+            ## $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
 
             return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
