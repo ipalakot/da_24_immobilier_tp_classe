@@ -6,15 +6,23 @@ use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 #[Route('/admin/user')]
 final class UserController extends AbstractController
 {
-    #[Route(name: 'user_index', methods: ['GET'])]
+    private $passwordHasher;
+
+public function __construct(UserPasswordHasherInterface $passwordHasher)
+{
+    $this->passwordHasher = $passwordHasher;
+}
+
+#[Route(name: 'user_index', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
         return $this->render('user/index.html.twig', [
@@ -30,6 +38,9 @@ final class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setRoles(['ROLE_ADMIN']);
+            $user->setPassword($this->passwordHasher->hashPassword($user, $user->getPassword()));
+           ## $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
 
