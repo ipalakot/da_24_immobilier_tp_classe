@@ -14,9 +14,7 @@ use Doctrine\ORM\Mapping\MappingException as ORMMappingException;
 use Doctrine\Persistence\Mapping\ClassMetadata;
 use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException;
 
-
 use Symfony\Component\Validator\Constraints as Assert;
-
 
 #[ORM\Entity(repositoryClass: ClientRepository::class)]
 #[Vich\Uploadable]
