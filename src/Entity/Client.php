@@ -76,7 +76,7 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
-        /**
+    /**
      * @var list<string> The user roles
      */
     #[ORM\Column]
