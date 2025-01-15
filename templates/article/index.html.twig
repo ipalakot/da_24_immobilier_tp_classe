@@ -111,7 +111,9 @@
 							<a href="{{ path('article_affichage', {'id': article.id}) }}" class="btn btn-secondary">details</a>
 
 
+							{% if app.user %}
 							<a href="{{ path('article_modif', {'id': article.id}) }}" class="btn btn-secondary">editer</a>
+							{% endif %}
 
 
 						</td>
