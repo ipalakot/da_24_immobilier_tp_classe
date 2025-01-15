@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 14 jan. 2025 à 05:59
+-- Généré le : mar. 14 jan. 2025 à 23:34
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.2.16
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `agence` (
   `siege_id` int NOT NULL,
   `numero_agence` double NOT NULL,
   `adresse` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)',
   PRIMARY KEY (`id`),
   KEY `IDX_64C19AA9E82E7EE8` (`directeur_id`),
@@ -48,13 +48,13 @@ CREATE TABLE IF NOT EXISTS `agence` (
 INSERT INTO `agence` (`id`, `directeur_id`, `siege_id`, `numero_agence`, `adresse`, `image_name`, `updated_at`) VALUES
 (1, 1, 1, 75, 'Paris', NULL, NULL),
 (2, 1, 3, 75, 'Paris', NULL, NULL),
-(3, 1, 1, 75, 'Paris -12', NULL, NULL),
-(4, 1, 1, 75, 'Paris Defence', NULL, NULL),
-(5, 3, 4, 69, 'Lyon Perrache', NULL, NULL),
-(6, 3, 4, 69, 'Lyon Gare', NULL, NULL),
-(7, 5, 10, 13, 'Nice', NULL, NULL),
-(8, 2, 3, 31, 'Toulouse', NULL, NULL),
-(9, 4, 9, 59, 'Lille', NULL, NULL);
+(3, 1, 1, 75.12, 'Paris -12', NULL, NULL),
+(4, 1, 1, 75.7, 'Paris Defence', NULL, NULL),
+(5, 3, 4, 69.1, 'Lyon Perrache', NULL, NULL),
+(6, 3, 4, 69.5, 'Lyon Gare', NULL, NULL),
+(7, 5, 10, 13.2, 'Nice', NULL, NULL),
+(8, 2, 3, 31.1, 'Toulouse', NULL, NULL),
+(9, 4, 9, 59.1, 'Lille', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -183,32 +183,37 @@ CREATE TABLE IF NOT EXISTS `client` (
   `categorie_clt_id` int DEFAULT NULL,
   `image_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)',
+  `roles` json NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_IDENTIFIER_EMAIL` (`email`),
   KEY `IDX_C74404551B65292` (`employe_id`),
   KEY `IDX_C7440455D725330D` (`agence_id`),
   KEY `IDX_C7440455981BC7CB` (`categorie_clt_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `client`
 --
 
-INSERT INTO `client` (`id`, `employe_id`, `agence_id`, `nom`, `prenom`, `adresse`, `type`, `date_naissance`, `email`, `categorie_clt_id`, `image_name`, `updated_at`) VALUES
-(1, 1, 1, 'Blanc	', 'Thibault', 'Paris', 'Proprio', '2024-12-01 06:30:00', 'bthibt@gmail.com', NULL, NULL, NULL),
-(2, 3, 2, 'gip-com', 'admin', '3 rue François Girardon, Résidence de L’Yvette', 'Locataire', '2024-12-01 06:39:00', 'admin@gip-com.com', NULL, NULL, NULL),
-(3, 2, 3, 'Petitjean', 'Arthur', 'PAris', 'Proprietaire', '2024-12-01 06:30:00', 'petitjean@gmail.com', NULL, NULL, NULL),
-(4, 3, 4, 'Courtois	', 'François', 'Paris', 'Proprio', '2024-12-01 06:30:00', 'bthibt@gmail.com', NULL, NULL, NULL),
-(5, 3, 4, 'Delahaye	', 'Aurélie', 'Paris', 'Proprio', '2024-12-01 06:30:00', 'bthibt@gmail.com', NULL, NULL, NULL),
-(6, 4, 6, 'Seguin	', 'Gérard', 'Lyon', 'Proprio', '2024-12-01 06:30:00', 'seguin@gmail.com', NULL, NULL, NULL),
-(7, 7, 7, 'Caron', 'Agathe', 'Nice', 'Proprio', '2024-12-01 06:30:00', 'caron@gmail.com', NULL, NULL, NULL),
-(8, 8, 8, 'Delmas	', 'Gérard', 'Toulouse', 'Proprio', '2024-12-01 06:30:00', 'runet@gmail.com', NULL, NULL, NULL),
-(9, 9, 1, 'Garnier	', 'Andrée', 'Paris', 'Proprio', '2024-12-01 06:30:00', 'runet@gmail.com', NULL, NULL, NULL),
-(10, 9, 9, 'Renaud	', 'Gérard', 'Paris', 'Proprio', '2024-12-01 06:30:00', 'enaud@gmail.com', NULL, NULL, NULL),
-(11, 9, 1, 'Garnier	', 'Andrée', 'Lille', 'Proprio', '2024-12-01 06:30:00', 'garnier@gmail.com', NULL, NULL, NULL),
-(12, 9, 1, 'Marin	', 'Franck', 'Lille', 'Proprio', '2024-12-01 06:30:00', 'Marin@gmail.com', NULL, NULL, NULL),
-(13, 4, 6, 'Benoit	', 'Paul', 'Lyon', 'Proprio', '2024-12-01 06:30:00', 'paub@gmail.com', NULL, NULL, NULL),
-(14, 8, 8, 'Peltier	', 'Roland', 'Toulouse', 'Proprio', '2024-12-01 06:30:00', 'roland@gmail.com', NULL, NULL, NULL),
-(15, 8, 8, 'Michel	', 'Robert', 'Toulouse', 'Proprio', '2024-12-01 06:30:00', 'rbert@gmail.com', NULL, NULL, NULL);
+INSERT INTO `client` (`id`, `employe_id`, `agence_id`, `nom`, `prenom`, `adresse`, `type`, `date_naissance`, `email`, `categorie_clt_id`, `image_name`, `updated_at`, `roles`, `password`, `username`) VALUES
+(1, 1, 1, 'Blanc', 'Thibault', 'Paris', 'Proprio', '2024-12-01 06:30:00', 'bthibt@gmail.com', NULL, '1-6786aae5c9d06798658941.jpg', '2025-01-14 18:20:21', '[\"ROLE_ADMIN\"]', '$2y$13$TeJh06Yx5yfG8u4h5HrHn.cWeha5eHxynaYLWn2Ok9Hb/NFdLtDyu', 'bthibt@gmail.com'),
+(2, 3, 2, 'gip-com', 'admin', '3 rue François Girardon, Résidence de L’Yvette', 'Locataire', '2024-12-01 06:39:00', 'admin@gip-com.com', NULL, '5-6786b0487c9da664707868.jpg', '2025-01-14 18:43:20', '[\"ROLE_ADMIN\"]', '$2y$13$vSCFoRE5sFrgQFf58.Ck0.vlo.HpR7he8HnH1fTK5dKbkUF5f2dvq', 'gip-com'),
+(3, 2, 3, 'Petitjean', 'Arthur', 'Paris', 'Proprietaire', '2024-12-01 06:30:00', 'petitjean@gmail.com', NULL, '6-6786b50d57213258784294.jpg', '2025-01-14 19:03:41', '[\"ROLE_ADMIN\"]', '$2y$13$zNPJm8JFF3ZcN1VEQOddLO.Qt39jnXYyzqG0.Fg/5c1HMa00BK.Ya', 'parthur'),
+(4, 3, 4, 'Courtois', 'François', 'Paris', 'Proprio', '2024-12-01 06:30:00', 'courtois@gmail.com', NULL, '7-6786b53d960ab239025149.jpg', '2025-01-14 19:04:29', '[\"ROLE_ADMIN\"]', '$2y$13$RzkkezkV22OaVlHJ5aq6BOBFaiVegGraSdjMcR/gLnl8LcKrgJ7ce', 'fcourtois'),
+(5, 3, 4, 'Delahaye', 'Aurélie', 'Paris', 'Proprio', '2024-12-01 06:30:00', 'daurelie@gmail.com', NULL, 'oip-6786b56343fb6485766214.jpg', '2025-01-14 19:05:07', '[\"ROLE_ADMIN\"]', '$2y$13$rw96gGNekMSGL1r.jVNwDeK.fYD68NCqKVm.oE4Ak0n80T3RIXLKS', 'adelahaye'),
+(6, 4, 6, 'Seguin', 'Gérard', 'Lyon', 'Proprio', '2024-12-01 06:30:00', 'seguin@gmail.com', NULL, '13-6786b5868a2e6605231785.jpg', '2025-01-14 19:05:42', '[\"ROLE_ADMIN\"]', '$2y$13$LRIbyGAFn/jf3wRrlfWEtusUHTzVIpMYqEm/5jdiF/TMX7s6UFwX.', 'gseguin'),
+(7, 7, 7, 'Caron', 'Agathe', 'Nice', 'Proprio', '2024-12-01 06:30:00', 'caron@gmail.com', NULL, '15-6786b5af9d360762433402.jpg', '2025-01-14 19:06:23', '[\"ROLE_ADMIN\"]', '$2y$13$ccBJMffFUiu0GHvvmqMxc.7UHUMcbbxErE5ca37d6QPLXnjTA40Fi', 'aCaron'),
+(8, 8, 8, 'Delmas', 'Gérard', 'Toulouse', 'Proprio', '2024-12-01 06:30:00', 'mdelmasst@gmail.com', NULL, '9-6786b5e712ea2630927374.jpg', '2025-01-14 19:07:19', '[\"ROLE_ADMIN\"]', '$2y$13$PrEG6rwtdn.BUHXg/X4VjO.VhJhj5Vk69DSO7J4iZ8333tJpyf8pu', 'gdelmas'),
+(9, 9, 1, 'Garnier', 'Andrée', 'Paris', 'Proprio', '2024-12-01 06:30:00', 'runet@gmail.com', NULL, '12-6786b6102d118613402542.jpg', '2025-01-14 19:08:00', '[\"ROLE_ADMIN\"]', '$2y$13$k22txHAMeJkXe0c/L9zS3O8oR5KOqZQTAMGo3qhKiVQZiyGenjd.e', 'agarnier'),
+(10, 9, 9, 'Renaud', 'Gérard', 'Paris', 'Proprio', '2024-12-01 06:30:00', 'enaud@gmail.com', NULL, '9-6786f38108530492007316.jpg', '2025-01-14 23:30:09', '[\"ROLE_ADMIN\"]', '$2y$13$HXZc8nHKg9eqwC8tlOxHfeKof3E9Y.5JRr.ecJlImN3N.ZEUn4.dK', 'GRenaud'),
+(11, 9, 1, 'Garnier', 'Andrée', 'Lille', 'Proprio', '2024-12-01 06:30:00', 'garnier@gmail.com', NULL, '7-6786f3ae7dd41856409310.jpg', '2025-01-14 23:30:54', '[\"ROLE_ADMIN\"]', '$2y$13$P4X4a4ei7eU/RXxSbPCbqu5J.FTE4xgU3vyaSTVpgzsTo7H0Xi7.6', 'AGarnier'),
+(12, 9, 1, 'Marin', 'Franck', 'Lille', 'Proprio', '2024-12-01 06:30:00', 'Marin@gmail.com', NULL, 'oip-6786f3f77f0ca728237328.jpg', '2025-01-14 23:32:07', '[\"ROLE_ADMIN\"]', '$2y$13$EqBkWqC7a.uJrJ9kTw6tQeV6Fw9zxAInKieQ0Le7TUcTGmQx1rvC2', 'FMarin'),
+(13, 4, 6, 'Benoit', 'Paul', 'Lyon', 'Proprio', '2024-12-01 06:30:00', 'paub@gmail.com', NULL, '1-6786f4170fd12746375262.jpg', '2025-01-14 23:32:39', '[\"ROLE_ADMIN\"]', '$2y$13$2qvRSr4Haoe/8porETiutexl15G0qTFM57F.Tf3cvIigm3aot28Iu', 'PBenoit'),
+(14, 8, 8, 'Peltier', 'Roland', 'Toulouse', 'Proprio', '2024-12-01 06:30:00', 'roland@gmail.com', NULL, '6-6786f438c7596102823352.jpg', '2025-01-14 23:33:12', '[\"ROLE_ADMIN\"]', '$2y$13$PK3p8.gDzBWyWJOzRbwLBOv0pvMBWJa0zJ.w5wG3PIxHhcw9JGzKW', 'RPeltier'),
+(15, 8, 8, 'Michel', 'Robert', 'Toulouse', 'Proprio', '2024-12-01 06:30:00', 'rbert@gmail.com', NULL, '11-6786a9e91b35a242412399.jpg', '2025-01-14 18:16:09', '[\"ROLE_ADMIN\"]', 'dsfsqfqgf', 'rmichel'),
+(16, 1, 1, 'Tester10', 'Testerr', '12 PAris', 'client', '2025-01-13 16:51:00', 'tester10@mail.com', NULL, '1-678687ff1c63b597794587.jpg', '2025-01-14 16:51:27', '[\"ROLE_ADMIN\"]', '$2y$13$1Jwa42P0SibD2ziBaqhFlu8Ab13bk2Vl01yhjSUesOTiljLxpWVFG', 'Tester10');
 
 -- --------------------------------------------------------
 
@@ -262,15 +267,15 @@ CREATE TABLE IF NOT EXISTS `employe` (
 --
 
 INSERT INTO `employe` (`id`, `agence_id`, `directeur_id`, `nom`, `prenom`, `created_at`, `updated_at`, `image_name`) VALUES
-(1, 1, 1, 'Claire', 'Bertin', '2024-12-01 05:41:00', '2025-01-08 21:24:49', '4-677eed211430e581161899.jpg'),
-(2, 2, 1, 'Tim', 'Alios', '2024-12-01 05:41:00', '2025-01-08 21:25:22', '10-677eed4274e85316384294.jpg'),
-(3, 3, 1, 'Alior', 'Trust', '2024-10-10 11:59:00', '2025-01-08 21:25:49', '8-677eed5da48fb054699152.jpg'),
-(4, 6, 3, 'Segula', 'Benedicte', '2024-11-15 12:09:00', '2025-01-08 21:26:31', '3-677eed87560ca717503370.jpg'),
-(5, 5, 3, 'Marone', 'Sylvie', '2024-10-08 12:12:00', '2025-01-08 21:26:54', '2-677eed9e059e7423609158.jpg'),
-(6, 4, 1, 'Laine', 'Hugues', '2024-10-10 11:59:00', '2025-01-08 21:27:18', '6-677eedb6316f6119198578.jpg'),
-(7, 7, 5, 'Guibert', 'Thomas', '2024-10-10 11:59:00', '2025-01-08 21:28:27', '5-677eedfb6d36e229163077.jpg'),
-(8, 8, 2, 'Lemoine', 'Josette', '2024-10-10 11:59:00', '2025-01-08 21:28:53', '13-677eee15b63d2392890769.jpg'),
-(9, 9, 4, 'Brunel', 'Tristan', '2024-10-10 11:59:00', '2025-01-08 21:29:46', '15-677eee4ae67bb092630038.jpg');
+(1, 1, 1, 'Claire', 'Bertin', '2024-12-01 05:41:00', '2025-01-08 16:51:05', '4-677e9ee937b1c599929041.jpg'),
+(2, 2, 1, 'Tim', 'Alios', '2024-12-01 05:41:00', '2025-01-08 16:39:58', '1-677e9c4e6ff08417518056.jpg'),
+(3, 3, 1, 'Alior', 'trust', '2024-10-10 11:59:00', '2025-01-08 16:56:42', '6-677ea03aceb5f887773196.jpg'),
+(4, 6, 3, 'Palu', 'Donavan', '2024-11-15 12:09:00', '2025-01-08 16:40:28', '2-677e9c6c61bf1077495036.jpg'),
+(5, 5, 3, 'Marone', 'Sylvie', '2024-10-08 12:12:00', '2025-01-08 16:57:22', '3-677ea0623e744552781955.jpg'),
+(6, 4, 1, 'Laine', 'Hugues', '2024-10-10 11:59:00', '2025-01-08 16:57:59', '7-677ea08721469286794913.jpg'),
+(7, 7, 5, 'Guibert', 'Thomas', '2024-10-10 11:59:00', '2025-01-08 16:58:25', '5-677ea0a12911c025280727.jpg'),
+(8, 8, 2, 'Lemoine', 'Josette', '2024-10-10 11:59:00', '2025-01-08 16:58:47', '3-677ea0b70a20b333245260.jpg'),
+(9, 9, 4, 'Brunel', 'Tristan', '2024-10-10 11:59:00', '2025-01-08 16:59:00', 'oip-677ea0c4d7950689269586.jpg');
 
 -- --------------------------------------------------------
 
@@ -332,6 +337,30 @@ INSERT INTO `siege` (`id`, `directeur_id`, `capital`, `nom`, `adresse`) VALUES
 (4, 3, 121211, 'Siege-Fr-Lyon', 'Lyon'),
 (9, 4, 212121, 'Siege-Fr-Lille', 'Lille'),
 (10, 5, 12121, 'Siege-FR-Nice', 'Nice');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(180) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `roles` json NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_IDENTIFIER_EMAIL` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `email`, `roles`, `password`, `username`) VALUES
+(1, 'test1@gmail.com', '[\"ROLE_ADMIN\"]', 'test1@gmail.com', 'test1@gmail.com');
 
 -- --------------------------------------------------------
 

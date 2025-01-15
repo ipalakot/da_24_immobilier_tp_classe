@@ -52,23 +52,23 @@
 <nav>
 	{% block navigation%}
 
-	<!-- Navigation-->
+		<!-- Navigation-->
 	{% include 'tools/nav_admin.html.twig'  %}
-	<!-- Header-->
-{% include 'tools/header.html.twig'  %}
+		<!-- Header-->
+	{% include 'tools/header.html.twig'  %}
 
-	<!-- Section-->
+		<!-- Section-->
 
-{% endblock %}</nav><body>
-{% block body %}
-	<div class="container bg-secondary">
-		<hr/>
+	{% endblock %}
+</nav>
 
-
-	</div>
-{% endblock %}
-
-
+<body >
+	
+	{% block body %}
+		<div class="container bg-secondary">
+			<hr/>
+		</div>
+	{% endblock %}
 </body>
 
 

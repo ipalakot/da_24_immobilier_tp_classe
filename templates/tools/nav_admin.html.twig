@@ -2,53 +2,59 @@
 
 
 	<div class="container">
-		<a class="navbar-brand" href="{{ path('admin_index')}}">Admin / Immo</a>
+		{% if app.user %}
+			<a class="navbar-brand" href="{{ path('admin_index')}}">Admin / Immo</a>
 
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarScroll">
-			<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="{{ path('admin_index')}}">Accueil</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarScroll">
+				<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="{{ path('admin_index')}}">Accueil</a>
 
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('admin_tools')}}">Tools</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('directeur_index')}}">Directions / Siege</a>
-				</li>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('admin_tools')}}">Tools</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('directeur_index')}}">Directions / Siege</a>
+					</li>
 
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('agence_index')}}">Agences</a>
-				</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('agence_index')}}">Agences</a>
+					</li>
 
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('employe_index')}}">Personnels</a>
-				</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('employe_index')}}">Personnels</a>
+					</li>
 
-								<li class="nav-item">
-					<a class="nav-link" href="{{ path('client_index')}}">Clients</a>
-				</li>
-
-
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('utilisateur_index')}}">Utilisateurs</a>
-				</li>
+									<li class="nav-item">
+						<a class="nav-link" href="{{ path('client_index')}}">Clients</a>
+					</li>
 
 
-				<li class="nav-item">
-					<a class="nav-link active" href="#" tabindex="-1" aria-disabled="true">Deconnexion</a>
-				</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('utilisateur_index')}}">Utilisateurs</a>
+					</li>
 
-			</ul>
-			<form class="d-flex">
-				<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success" type="submit">Recherche</button>
-			</form>
+
+					<li class="nav-item">
+						<a class="nav-link active" href="{{ path('app_logout')}}" tabindex="-1" aria-disabled="true">Deconnexion</a>
+					</li>
+
+				</ul>
+				<form class="d-flex">
+					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Recherche</button>
+				</form>
+			</div>
 		</div>
-	</div>
+		{% else %}
+					<div class="container">
+
+
+					{% endif %}
 
 
 </nav>

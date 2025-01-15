@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-
+<div class="container">
 	<div class="formulaire">
 
 		<form method="post">
@@ -14,7 +14,7 @@
 
 			{% if app.user %}
 				<div class="mb-3">
-					Bonjour, vous êtes connecté comme : 
+					Bonjour, <br>vous êtes connecté comme : 
 					{{ app.user.userIdentifier }},
 					<br> <a href="{{ path('app_logout') }}">deconnexion ici </a>
 				</div>
@@ -33,5 +33,5 @@
 				Connexion
 			</button>
 		</form>
-	</div>
+	</div></div>
 {% endblock %}
