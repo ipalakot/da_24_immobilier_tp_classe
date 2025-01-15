@@ -12,9 +12,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 use Vich\UploaderBundle\Form\Type\VichImageType;
-
+use Symfony\Component\Form\CallbackTransformer;
 
 class Employe1Type extends AbstractType
 {
@@ -33,6 +34,14 @@ class Employe1Type extends AbstractType
 
             ->add('nom', TextType::class, [])
             ->add('prenom', TextType::class, [])
+
+            ->add('email', EmailType::class, [])
+        ->add('username')
+        ->add('password')
+        ->add('roles')
+            ->add('createdAt', null, [
+                'widget' => 'single_text',
+            ])
             ->add('createdAt', null, [
                 'widget' => 'single_text',
             ])
@@ -48,7 +57,20 @@ class Employe1Type extends AbstractType
                 'asset_helper' => true,
             ]
             );
-    }
+// Data transformer
+$builder->get('roles')
+->addModelTransformer(new CallbackTransformer(
+    function ($rolesArray) {
+        // transform the array to a string
+return count($rolesArray)? $rolesArray[0]: null;
+},
+function ($rolesString) {
+// transform the string back to an array
+return [$rolesString];
+     }
+));
+}
+
 
     public function configureOptions(OptionsResolver $resolver): void
     {

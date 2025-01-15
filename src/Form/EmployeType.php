@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use MailPoetVendor\Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EmployeType extends AbstractType
@@ -18,6 +19,10 @@ class EmployeType extends AbstractType
         $builder
         ->add('nom', TextType::class, [])
         ->add('prenom', TextType::class, [])
+        ->add('email', EmailType::class, [])
+        ->add('username')
+        ->add('password')
+        ->add('roles')
             ->add('createdAt', null, [
                 'widget' => 'single_text',
             ])

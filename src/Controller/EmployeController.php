@@ -11,10 +11,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 #[Route('/admin/employe')]
 final class EmployeController extends AbstractController
 {
+    private $passwordHasher;
+
+    public function __construct(UserPasswordHasherInterface $passwordHasher)
+    {
+        $this->passwordHasher = $passwordHasher;
+    }
+    
     #[Route(name: 'employe_index', methods: ['GET'])]
     public function index(EmployeRepository $employeRepository): Response
     {
@@ -31,6 +38,11 @@ final class EmployeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $employe->setRoles(['ROLE_ADMIN']);
+            $employe->setPassword($this->passwordHasher->hashPassword($employe, $employe->getPassword()));
+
+
             $entityManager->persist($employe);
             $entityManager->flush();
 
@@ -59,6 +71,9 @@ final class EmployeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $employe->setRoles(['ROLE_ADMIN']);
+            $employe->setPassword($this->passwordHasher->hashPassword($employe, $employe->getPassword()));
             $entityManager->flush();
 
             return $this->redirectToRoute('employe_index', [], Response::HTTP_SEE_OTHER);

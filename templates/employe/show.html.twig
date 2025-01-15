@@ -41,6 +41,20 @@
 							<td>{{ employe.prenom }}</td>
 						</tr>
 						<tr>
+							<th>Login</th>
+							<td>{{ employe.username }}</td>
+						</tr>
+						<tr>
+							<th>Couriel</th>
+							<td>{{ employe.email }}</td>
+						</tr>
+
+						<tr>
+							<th>Password</th>
+							<td>{{ employe.password }}</td>
+						</tr>
+
+						<tr>
 							<th>Date d'embauche</th>
 							<td>{{ employe.createdAt ? employe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
 						</tr>
