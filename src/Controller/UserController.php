@@ -38,7 +38,7 @@ public function __construct(UserPasswordHasherInterface $passwordHasher)
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setRoles(['ROLE_ADMIN']);
+            $user->setRoles(['ROLE_USER']);
             $user->setPassword($this->passwordHasher->hashPassword($user, $user->getPassword()));
            ## $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
