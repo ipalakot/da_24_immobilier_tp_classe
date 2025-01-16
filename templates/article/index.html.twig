@@ -3,7 +3,7 @@
 
 {% block body %}
 	<!-- Section-->
-	<div class="container-fluid">
+	<div class="container">
 
 
 		<hr/>
@@ -30,18 +30,20 @@
 			<thead>
 				<tr>
 					<th>
+						<a href="{{path('article_index')}}" title=""></th>
+					</th>
+					
+					<th>
 						<a href="{{path('article_index')}}" title="cliquer pour trier par ordre croissant">
 							Id</th>
 					</th>
 
 
-					<th>
-						<a href="{{path('article_index')}}" title=""></th>
-					</th>
+
 
 					<th>
 						<a href="{{path('article.trier.titre')}}" title="cliquer pour trier par ordre croissant">
-							Titre</th>
+							Intitulé</th>
 					</th>
 					<th>
 						<a href="{{path('article.categorie.nom.ASC')}}" title="cliquer pour trier par ordre croissant">
@@ -53,14 +55,14 @@
 							Agence</th>
 					</th>
 
-					<th>
+				{#	<th>
 						<a href="{{path('article.trier.client.ASC')}}" title="cliquer pour trier par ordre croissant">
 							Owner</th>
-					</th>
+					</th> 
 
 					<th>
 						<a href="{{path('article.categorie.gestionnaire.ASC')}}" title="cliquer pour trier par ordre croissant">
-							Gestionnaire</th>
+							Gestionnaire</th> #}
 					</th>
 
 					<th>
@@ -80,10 +82,12 @@
 			<tbody>
 				{% for article in articles %}
 					<tr>
-						<td>{{ article.id }}</td>
-
-						<td>
+												<td>
 							<img src="{{vich_uploader_asset(article, 'imageFile') }}" alt="Immeuble" class="rounded float-left" style="width: 100px;"></td>
+							
+							<td>{{ article.id }}</td>
+
+
 
 
 						<td>{{ article.titre }}
@@ -95,11 +99,11 @@
 							|
 							{{ article.Agence.adresse }}
 						</td>
-						<td>{{ article.Client.prenom }}
+						{#<td>{{ article.Client.prenom }}
 							{{ article.Client.nom }}</td>
 
 						<td>{{ article.Employe.nom }}
-							{{ article.Employe.prenom }}</td>
+							{{ article.Employe.prenom }}</td>#}
 
 						<td>{{ article.adresse }}</td>
 						<td>F{{ article.type }}</td>

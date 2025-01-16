@@ -23,7 +23,7 @@ security:
 
         employe_provider:    
             entity:
-                class: App\Entity\employe
+                class: App\Entity\Employe
                 property: email 
 
         backend_users:
