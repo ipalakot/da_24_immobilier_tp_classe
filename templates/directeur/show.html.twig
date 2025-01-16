@@ -4,13 +4,35 @@
 {% endblock %}
 
 {% block body %}
+
+	<!-- breadcrumb-->
+	<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="{{path('admin_index')}}">Administrator </a>
+
+				</li>
+							</li>
+				<li class="breadcrumb-item">
+					<a href="{{path('directeur_index')}}">Direction</a>
+
+				</li>
+
+				<li class="breadcrumb-item active" aria-current="page">{{ app.user.userIdentifier }}  </li>
+
+				
+			</ol>
+				<hr style="width:100%; height:10px; background-color:#1B4F72 ">
+		</nav>	
+	<!-- End breadcrumb-->
+	 
 	<div class="container">
 
 		<h5>Directeur /
 			{{ directeur.nom }}
 			{{ directeur.prenom }}
 		</h5>
-		<hr style="width:100%; height:5px; background-color:#1B4F72 ">
+		<hr style="width:100%; height:2px; background-color:#1B4F72 ">
 
 
 		<table class="table">

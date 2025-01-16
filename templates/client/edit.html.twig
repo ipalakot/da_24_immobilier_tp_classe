@@ -6,8 +6,31 @@
 
 {% block body %}
 
+	<!-- breadcrumb-->
+	<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="{{path('admin_index')}}">Administrator </a>
+
+				</li>
+							</li>
+				<li class="breadcrumb-item">
+					<a href="{{path('client_index')}}">Client(e)s</a>
+
+				</li>
+
+				<li class="breadcrumb-item active" aria-current="page">{{ app.user.userIdentifier }}  </li>
+
+				
+			</ol>
+				<hr style="width:100%; height:5px; background-color:#1B4F72 ">
+		</nav>	
+	<!-- End breadcrumb-->
+
 <div class="container">
-    <h1>Edit Client</h1>
+
+    <h5>Edition : {{ client.nom }} {{ client.prenom }}</h5>
+<hr/>
 
         {{ include('client/_form.html.twig', {'button_label': 'Mettre à jour '}) }}
 

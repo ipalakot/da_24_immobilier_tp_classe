@@ -7,13 +7,35 @@
 
 {% block body %}
 
+	<!-- breadcrumb-->
+	<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="{{path('admin_index')}}">Administrator </a>
+
+				</li>
+							</li>
+				<li class="breadcrumb-item">
+					<a href="{{path('utilisateur_index')}}">Utilisteurs</a>
+
+				</li>
+
+				<li class="breadcrumb-item active" aria-current="page">{{ app.user.userIdentifier }}  </li>
+
+				
+			</ol>
+				<hr style="width:100%; height:5px; background-color:#1B4F72 ">
+		</nav>	
+	<!-- End breadcrumb-->
+   
+
 	<div class="container">
 		<hr/>
     <h1>Edition Utilisateur </h1>
 
     {{ include('utilisateur/_form.html.twig', {'button_label': 'Update'}) }} <br>
 
-    <a href="{{ path('utilisateur_index') }}"  " class="btn btn-dark">Liste de</a>
+    <a href="{{ path('utilisateur_index') }}"  class="btn btn-dark">Liste de</a>
 
     {{ include('utilisateur/_delete_form.html.twig') }}
     </div>

@@ -5,7 +5,32 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container">
+
+	<!-- breadcrumb-->
+	<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="{{path('admin_index')}}">Administrator </a>
+
+				</li>
+							</li>
+				<li class="breadcrumb-item">
+					<a href="{{path('directeur_index')}}">Direction</a>
+
+				</li>
+
+				<li class="breadcrumb-item active" aria-current="page">{{ app.user.userIdentifier }}  </li>
+
+				
+			</ol>
+				<hr style="width:100%; height:10px; background-color:#1B4F72 ">
+		</nav>	
+	<!-- End breadcrumb-->
+
+
+
+	 <!-- Enregistrement-->
+	 <div class="container">
 
 		<h5>
 			Creation d'un nouveau Directeur</h5>
@@ -17,6 +42,8 @@
 		<br>
 		<a href="{{ path('directeur_index') }}" class="btn btn-secondary">Liste des Directeurs</a>
 	</div>
+
+	<!-- End Enregistrement -->
 	<br><br><br><br>
 
 	<br>
