@@ -25,12 +25,27 @@ class DefaultController extends AbstractController
             ['titre' => 'ASC'], // le deuxième paramètre permet de définir l'ordre
 
         );
+        
+        $agencies = $agenceRepo->findBy(
+            ['adresse' => 'Paris'],
+            ['id' => 'ASC'],
+        1);
+
+        $employes1 = $employeRepo->findBy(
+            ['username' => 'BClaire'],
+            ['id' => 'ASC'],
+        1);
+
+        
 
         return $this->render(
             'default/default.html.twig', [
                 'articles' => $articles,
                 'agences' => $agenceRepo->findAll(),
+                'agencies'=> $agencies,
                 'employes' => $employeRepo->findAll(),
+                'employes1' => $employes1
+
             ]
         );
 

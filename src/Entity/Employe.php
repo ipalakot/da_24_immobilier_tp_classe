@@ -368,4 +368,5 @@ class Employe implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+    
 }

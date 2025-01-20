@@ -5,83 +5,95 @@
 		Trouver votre maison / Appartements / Terrains dans la ville la plus proche
 	</p>
 	<hr class="my-1">
-
 	<div class="container text-center">
-
-		<div
-			class="row">
+		<div class="row">
 			<!-- col-4 -->
-			<div class="col-4">col-4</div>
-
-
-			<!-- col-8 -->
-			<div class="col-8">
-
-				<div class="row">
+			<div class="col-4">
+			<div class="row">
 					<div class="container">
 						<div class="row">
-
-							{% for agence in agences %}
-
-
-								<div class="col-sm-4">
-
+							{% for agence in agencies %}
+								<div class="col-sm-12">
 									<div class="card">
-
 										<h5>
 											{{ agence.numeroAgence }}
 											|
 											{{ agence.adresse }}
-
 										</h5>
 										<h7>
 											- ville:
 											{{ agence.adresse }}
-
 											<br>
 											- Publié le :
 											{# {article.createdAt | date('d/m/Y') } #}
 											<br>
 											- Responsable:
 											{{ agence.directeur.nom }}
-
 											<br>
-											<img src="{{vich_uploader_asset(agence, 'imageFile') }}" alt="Immeuble" class="rounded float-left" style="width: 150px;">
-
+											<img src="{{vich_uploader_asset(agence, 'imageFile') }}" alt="Immeuble" class="rounded float-left" style="width: 350px;">
 										</h7>
 										<ul>
-
-
 											{# <img src="{{vich_uploader_asset(article, 'imageFile') }}" alt="Immeuble" class="rounded float-left" style="width: 230px;"> #}
-
-
 										</ul>
 										<ul>
-
-
 											<p class="lead">
 												<a class="btn btn-primary btn-sm" href="{{ path('agence_affichage', {'id': agence.id}) }}" role="button">decouvrir</a>
-
-
 											</p>
 										</a>
 									</ul>
 								</div>
 							</div>
-
 							{% endfor%}
-
-
 						</div>
-
-
 					</div>
+				</div>
+			
+			
+			</div>
+			<!-- End col-6 -->
 
+			<!-- col-8 -->
+			<div class="col-8">
+				<div class="row">
+					<div class="container">
+						<div class="row">
+							{% for agence in agences %}
+								<div class="col-sm-2">
+									<div class="card">
+										<h5>
+											{{ agence.numeroAgence }}
+											|
+											{{ agence.adresse }}
+										</h5>
+										<h7>
+											- ville:
+											{{ agence.adresse }}
+											<br>
+											- Publié le :
+											{# {article.createdAt | date('d/m/Y') } #}
+											<br>
+											- Responsable:
+											{{ agence.directeur.nom }}
+											<br>
+											<img src="{{vich_uploader_asset(agence, 'imageFile') }}" alt="Immeuble" class="rounded float-left" style="width: 100px;">
+										</h7>
+										<ul>
+											{# <img src="{{vich_uploader_asset(article, 'imageFile') }}" alt="Immeuble" class="rounded float-left" style="width: 230px;"> #}
+										</ul>
+										<ul>
+											<p class="lead">
+												<a class="btn btn-primary btn-sm" href="{{ path('agence_affichage', {'id': agence.id}) }}" role="button">decouvrir</a>
+											</p>
+										</a>
+									</ul>
+								</div>
+							</div>
+							{% endfor%}
+						</div>
+					</div>
 				</div>
 			</div>
-
+			<!-- End col-8 -->
 		</div>
-
-
 	</div>
 </div></section>
