@@ -21,52 +21,44 @@
 
 				</li>
 
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						A Louer
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-						<li>
-							<a class="dropdown-item" href="{{ path('article_index')}}">Appartement</a>
+				
+				 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          A louer
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{{ path('article_index')}}">Appartement</a>
+          <a class="dropdown-item" href="{{ path('article.trier.location.maison')}}">Maison</a>
+          <a class="dropdown-item" href="{{ path('article_index')}}">Autres</a>
+        </div>
+      </li>
 
 
-						</li>
-						<li>
-							<a class="dropdown-item" href="{{ path('article.trier.location.maison')}}">Maison</a>
-
-
-						</li>
-						<li><hr class="dropdown-divider"></li>
-						<li>
-							<a class="dropdown-item" href="{{ path('article_index')}}">Autres</a>
-
-						</li>
-					</ul>
-				</li>
+				
+				
+				
 
 
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						A Vendre
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-						<li>
+   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          A Vendre
+        </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+				
 							<a class="dropdown-item" href="{{ path('article.trier.vente.appart')}}">Appartement</a>
 
 
-						</li>
-						<li>
+
 							<a class="dropdown-item" href="{{ path('article.trier.vente.maison')}}">Maison</a>
 
 
-						</li>
-						<li><hr class="dropdown-divider"></li>
-						<li>
+
+		
+
 							<a class="dropdown-item" href="{{ path('article_index')}}">Autres</a>
 
 
-						</li>
-					</ul>
+    </div>
 				</li>
 
 				<li class="nav-item">

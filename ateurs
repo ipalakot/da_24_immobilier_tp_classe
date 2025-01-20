@@ -1,0 +1,1046 @@
+[33mcommit bfc7194a030980a36541f54dc74db69f4816ea61[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Mon Jan 20 09:34:52 2025 +0100
+
+    Security
+
+[33mcommit 1262eb1159268ea08e850a1bebadf64ac1758639[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Thu Jan 16 14:05:36 2025 +0100
+
+    Finalisation Security
+
+[33mcommit e604da403a30d59d079d46349734750fda860dda[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Thu Jan 16 11:29:00 2025 +0100
+
+    Les utilisateurs
+
+[33mcommit 3d464e2004d65028de1b20aa7a5d8bb430b3e01a[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Thu Jan 16 10:19:09 2025 +0100
+
+    Employe Provider
+
+[33mcommit 42c57c8546ab10a8913de327b77b07783549352a[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Thu Jan 16 09:36:04 2025 +0100
+
+    Reprise
+
+[33mcommit 94726d297f222d7deef9f092c141a3001913fe2a[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 15 16:59:51 2025 +0100
+
+    User Controller
+
+[33mcommit 6c6e07ccc686a7bdb9552caa7aacb72f34dbd4aa[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 15 09:17:21 2025 +0100
+
+    articles gestion
+
+[33mcommit 377cef4a881d5cd2f755205b89fbdd045d77ec5e[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 15 03:39:26 2025 +0100
+
+    Employe Employe Auth 2
+
+[33mcommit bd8bc5fc12865d1dc6b96eb41288867e7c0f5a68[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 15 03:37:48 2025 +0100
+
+    Employe Employe Auth
+
+[33mcommit b2b2b2eac876a916f19fc246ccefee51b19efb6c[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 15 02:21:32 2025 +0100
+
+    Double authentification
+
+[33mcommit 035f3aa7255e3ed44958dc33b45385d13bd8bb79[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 15 00:26:36 2025 +0100
+
+    images
+
+[33mcommit 0fb043ce6800281c213275e69e132bb5de208579[m
+Merge: 713bfd1 d171168
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Jan 14 19:12:52 2025 +0100
+
+    MAJ
+
+[33mcommit 713bfd1a2933e07206a30a4cb335516188ca4b03[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Jan 14 19:02:35 2025 +0100
+
+    client
+
+[33mcommit d171168ec51c79faa0220589a2c2a4e9bf19ff2e[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Tue Jan 14 17:22:26 2025 +0100
+
+    Dbases
+
+[33mcommit efd86344adc5f2676ff6d84958fcbc13cdd5106a[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Tue Jan 14 17:20:07 2025 +0100
+
+    Client3
+
+[33mcommit 52a91fddbaa758acb4f8f4095112479a8766bde0[m
+Merge: c0f4f77 2e5fc28
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Tue Jan 14 16:21:21 2025 +0100
+
+    Merge branch 'master' of https://github.com/ipalakot/da_24_immobilier
+
+[33mcommit 2e5fc281f53521324137b02cc5ed1e7c957456b5[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Jan 14 15:44:02 2025 +0100
+
+    Client
+
+[33mcommit b4592e11006328b764aa40439ce1a1a4130a7d9b[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Jan 14 10:57:08 2025 +0100
+
+    Adding Security Client
+
+[33mcommit 46a85e4a193835f93e6edc1ce4a9fa7dbc927cae[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Jan 14 10:47:54 2025 +0100
+
+    setting security
+
+[33mcommit d472d310d07730b0f518b49bd059f47edc25413e[m
+Merge: adb02ba 6b6293d
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Jan 14 10:43:19 2025 +0100
+
+    Merge branch 'dev_1'
+
+[33mcommit 6b6293df05ca72e8b4733720f45dccde692b1d50[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Jan 14 10:22:07 2025 +0100
+
+    User Authentication2
+
+[33mcommit 107ed2f7766280136929c58215222442b1cb6fdb[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Jan 14 10:07:32 2025 +0100
+
+    User Authentication
+
+[33mcommit adb02ba752b1e37700a66993a2039f5d99c07f51[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Jan 14 09:07:09 2025 +0100
+
+    Security3
+
+[33mcommit 67c24c17a74e1cbdc1ffa33855c90a6a48893270[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Jan 14 07:15:38 2025 +0100
+
+    seciurity3
+
+[33mcommit 2485b3cabe9574d0a2e2ca34aa99af687d0397a0[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Jan 14 06:56:31 2025 +0100
+
+    seciurity2
+
+[33mcommit 76c8f8fe54c2d44957254070604e76e595279da3[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Jan 14 06:37:43 2025 +0100
+
+    seciurity
+
+[33mcommit 39a2ce3f84c6f421016c5ed5bad9006783955530[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Mon Jan 13 17:07:28 2025 +0100
+
+    Last
+
+[33mcommit c0f4f7724593e930067c208182d6ba42267ba844[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Mon Jan 13 16:05:13 2025 +0100
+
+    Reprise
+
+[33mcommit 54941641d1edb99c74014e0e5224ec0fbf28357e[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Mon Jan 13 07:02:46 2025 +0100
+
+    User 2
+
+[33mcommit 1213d500ded6f112db4b8c5ade890128f2bc0f31[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Mon Jan 13 06:27:10 2025 +0100
+
+    user
+
+[33mcommit 2461f0286cf1a89fa17d66b13d0ae06db7d2e3fa[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Mon Jan 13 05:36:51 2025 +0100
+
+    adding User/Crud
+
+[33mcommit 98dc8861b784627914a7445046d0c956ea5ff0dd[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Sat Jan 11 03:17:11 2025 +0100
+
+    Final
+
+[33mcommit 804ffeda83714ca2863749dc4537a2dac40892f7[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Sat Jan 11 03:04:37 2025 +0100
+
+    Authenticator
+
+[33mcommit 62e07aa916deb6b172a009a9a96f48ba3ed0aab0[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Thu Jan 9 11:33:35 2025 +0100
+
+    Entity User User
+
+[33mcommit aec6953c699c54e29a3d8a30d542b8c7eabec074[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 8 23:34:40 2025 +0100
+
+    Finalisation Agency
+
+[33mcommit 0f95b869bdf0fe3cc5fa7b8fbe5069dbababb3f3[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 8 23:04:38 2025 +0100
+
+    Agency Image
+
+[33mcommit db7c9172ce2482298d2cacf958f87c6c500bfef6[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 8 22:50:40 2025 +0100
+
+    Final Employes
+
+[33mcommit 74811fa05248e8403e28f2227bcabc20fbe429a1[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 8 22:45:13 2025 +0100
+
+    Photo Employes
+
+[33mcommit 0140a30eb618c81971797c133f0e7a907a8e32bb[m
+Merge: 2960a37 d66d8e6
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 8 21:47:30 2025 +0100
+
+    Merge branch 'front_1'
+
+[33mcommit d66d8e655cf79d37dbc095dc33a74459f686e169[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 8 21:46:22 2025 +0100
+
+    adding images
+
+[33mcommit 2960a375f15dfe1a4849ae18727ceaa98d9e1ce0[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Jan 8 17:11:20 2025 +0100
+
+    photos
+
+[33mcommit 9603960e0b0bc643c2117e9a6bc85dc470552b6a[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Jan 8 16:59:46 2025 +0100
+
+    Photos agent commercial
+
+[33mcommit d7bc9a04a5445fc8b4de2fe9bf375c23510fbcad[m
+Merge: e5cea54 be22e67
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Jan 8 16:50:36 2025 +0100
+
+    Mergin dev1->Front
+
+[33mcommit be22e679d40488e94a3e457b7d574aff16d17ceb[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Jan 8 16:41:56 2025 +0100
+
+    Adding Pictures
+
+[33mcommit 8b37818f2da33e8776d7ccb2c9ece36a893a19ae[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Jan 8 16:25:16 2025 +0100
+
+    Image on Employee
+
+[33mcommit e5cea546d29c912a29e83dfbb6e9bd31e4862d8f[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Jan 8 16:13:23 2025 +0100
+
+    Employee
+
+[33mcommit 6ca45e327813265fda17b55495fa396da8e919ca[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Jan 8 09:30:55 2025 +0100
+
+    Working on Class
+
+[33mcommit 928d97997bed37bb805c8048ef936ca40a68f313[m[33m ([m[1;31morigin/front_1[m[33m)[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 8 09:18:17 2025 +0100
+
+    Adding Employees at the Front
+
+[33mcommit a04b0fb9cc062b2285ecd7c786a17199a37aad16[m
+Merge: d31380a 435311b
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 8 08:59:32 2025 +0100
+
+    Merge branch 'front_1' of https://github.com/ipalakot/da_24_immobilier into front_1
+
+[33mcommit d31380ad720c86646ff75869f8d4825ec2688220[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 8 08:59:22 2025 +0100
+
+    renew
+
+[33mcommit 87079d27b2d838c0f8b129a6dea5c25270cc188c[m
+Merge: 821c5e9 435311b
+Author: Ipalakot <40129472+ipalakot@users.noreply.github.com>
+Date:   Wed Jan 8 02:47:19 2025 +0100
+
+    Merge pull request #3 from ipalakot/front_1
+    
+    Front 1
+
+[33mcommit 98b358ead5d528cc71bbf3136655ccdd3d27d0b7[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 8 02:42:31 2025 +0100
+
+    Testing Dev_1
+
+[33mcommit 435311b4936ac1251f314ae2e1e989206f494772[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Jan 8 02:25:48 2025 +0100
+
+    Agence à la UNE
+
+[33mcommit 818ad763280f6fbde20a797224a5f1689454b319[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Tue Jan 7 11:39:24 2025 +0100
+
+    front changed
+
+[33mcommit 47dfba5c3a411d88529408180aa2e75eb3d4b464[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Mon Jan 6 16:58:21 2025 +0100
+
+    Liste Articles à la UNE
+
+[33mcommit 6ed75aaf04c4c4d42bd525aa54758dce23e0de83[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Sat Jan 4 13:11:36 2025 +0100
+
+    Front changement
+
+[33mcommit fa8c29e0057681ca6676f5acf9194bebfe93a41a[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Sat Jan 4 12:13:50 2025 +0100
+
+    Front2
+
+[33mcommit 73b73b47237c91973b0b4edfd7665daa0e251300[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Sat Jan 4 11:41:46 2025 +0100
+
+    Container2
+
+[33mcommit b6018ed7dc69a1c2ab4a3c877dd4f79078ba18a5[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Sat Jan 4 11:40:20 2025 +0100
+
+    Container2
+
+[33mcommit 23bafef09f7ccaa8c87160e41bb6955ef5f66dac[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Sat Jan 4 11:38:54 2025 +0100
+
+    Container
+
+[33mcommit de450f35be94afa0c8d707b6ba5eabe33ad89294[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Sat Jan 4 11:28:49 2025 +0100
+
+    Main
+
+[33mcommit 821c5e937f9d561ad229169c6343c56447a44c8a[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Dec 18 10:25:44 2024 +0100
+
+    jumbottron
+
+[33mcommit acd3337b86286f51e869ec5cac2a69e2afcf7133[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Dec 18 09:54:24 2024 +0100
+
+    Footer
+
+[33mcommit b2d62d27770389a9b7c7d12be08d40af71af4728[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Dec 18 09:15:02 2024 +0100
+
+    Menus
+
+[33mcommit ecc2970048d81274457c7c5b61a29dbd5dbd1fad[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Dec 18 08:53:10 2024 +0100
+
+    dbs
+
+[33mcommit 1152afebf2110862c64686d75eda57e7b43500be[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Tue Dec 17 21:48:09 2024 +0100
+
+    Affichage avec images
+
+[33mcommit 4dcf0e02b63a9d5eb8d3668582f19fa613b2a489[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Dec 17 17:26:08 2024 +0100
+
+    final
+
+[33mcommit 02818e55d231ecee4afe3de8967e89009ed25994[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Dec 17 15:51:23 2024 +0100
+
+    Bootstrap Clients
+
+[33mcommit 73ea4f9c114b4d43e82cafc2fa0aa8468f83df61[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Dec 17 15:41:02 2024 +0100
+
+    Photo Clients
+
+[33mcommit d10f273eb68bc5c46ce4ae91ae0b2e0d72a60415[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Dec 17 10:34:55 2024 +0100
+
+    Images
+
+[33mcommit baea8767f2191d2421c0455742f2bd63db53fa24[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Dec 17 10:20:41 2024 +0100
+
+    Affichage
+
+[33mcommit 23c27e297f32122efb99f6311e5b8b47c6367a07[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Dec 17 09:58:53 2024 +0100
+
+    Adding Images
+
+[33mcommit 9554a728002297eedb1c8dcf79aba21eb45d3348[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Dec 11 08:51:37 2024 +0100
+
+    Agence
+
+[33mcommit 5297c08aced20f705959907804690d5da470ba54[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Dec 10 17:12:59 2024 +0100
+
+    employés par Agence
+
+[33mcommit abdc116366c1e1200d94509b647550ba421dd45d[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Dec 10 10:51:52 2024 +0100
+
+    Articles par Agence
+
+[33mcommit 07ffad5c9d7db07865dd453d14ac53b283b934a3[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Dec 10 10:33:45 2024 +0100
+
+    Liste de Bien par agences
+
+[33mcommit e734b7d0f886a3b768a351da7a496e29c2009f00[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Tue Dec 10 10:01:01 2024 +0100
+
+    Nav Admin/User
+
+[33mcommit 1cb56d4a3baf3287e7efc6343f00467eaa0cae3e[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Mon Dec 9 16:38:01 2024 +0100
+
+    Admin Tools
+
+[33mcommit 649ecbe7f30c5eac32d82b6594be3d0b6418dfee[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Mon Dec 9 12:10:52 2024 +0100
+
+    Changing Nav
+
+[33mcommit 4e91ae517ee6d62b2bed8e490277a9e331aa1470[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Fri Dec 6 15:13:12 2024 +0100
+
+    Categorie Client
+
+[33mcommit aa024d0f688e9f65c4b4c52b10795093f1999cbf[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Fri Dec 6 14:21:38 2024 +0100
+
+    Adding Categorie Client
+
+[33mcommit 89696ce229488ea03c16e51974f4c433e47412c0[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Fri Dec 6 09:37:17 2024 +0100
+
+    Jointute
+
+[33mcommit 5d249c7c4eab73bcd02439bf12608d3d56319744[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Thu Dec 5 13:16:43 2024 +0100
+
+    Menu
+
+[33mcommit 0e2af1ec64f6b7d2bcd22fa9249b51307b7a09eb[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Dec 4 17:23:51 2024 +0100
+
+    Databases
+
+[33mcommit 9cce02a8ffaaf7410d074b947a95c2da87eab3ac[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Dec 4 16:54:45 2024 +0100
+
+    Agence
+
+[33mcommit 62b3b027e86bc76786fc3c9cc2343e4845ce0e32[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Dec 4 16:26:27 2024 +0100
+
+    Design
+
+[33mcommit def89635e9cba0d763a7a096e93456e0210d6eab[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Dec 4 13:16:18 2024 +0100
+
+    Repository Agence
+
+[33mcommit de7af2044ed298b4cc1b8e1de4fc9d498c25b4fd[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Dec 4 10:34:17 2024 +0100
+
+    Categorie/Agence
+
+[33mcommit c02d6cc283d88be3cdd5363e5d0c0cb2875fb32f[m
+Merge: 546f41c e250b72
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Dec 4 09:32:22 2024 +0100
+
+    Merge branch 'master' of https://github.com/ipalakot/da_24_immobilier
+
+[33mcommit 546f41c382343265e38c88548315df4e5de4acc7[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Dec 4 09:32:08 2024 +0100
+
+    Article repository
+
+[33mcommit e250b72a4e4bf532f756e7946612c29a86e6ea92[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Dec 4 09:10:06 2024 +0100
+
+    Trie
+
+[33mcommit e7b1cb06d337ed91970527d968390dde26992379[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Dec 4 08:57:40 2024 +0100
+
+    Article Page
+
+[33mcommit 983aa0048ef5e5f632c63f3d02550d097cafecb9[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Dec 4 02:47:45 2024 +0100
+
+    Enregistrement article
+
+[33mcommit 7445a6173103af3061120b90126d2cf322b5de45[m
+Merge: 160a472 c32fa23
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Dec 4 00:50:00 2024 +0100
+
+    Merge branch 'master' of https://github.com/ipalakot/da_24_immobilier
+
+[33mcommit 160a4728b006f0c8975edb19339930b236fecce7[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Dec 4 00:49:50 2024 +0100
+
+    Repository
+
+[33mcommit bd051a54ef0fffa75ba4909f98376063f123aa68[m
+Merge: 8aa2191 c32fa23
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Tue Dec 3 15:34:17 2024 +0100
+
+    Merge branch 'master' of https://github.com/ipalakot/da_24_immobilier
+
+[33mcommit 8aa21912515e8b0fdbc564e598b4a873c1ac502c[m
+Merge: db5bff4 145f088
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Tue Dec 3 15:33:25 2024 +0100
+
+    agenceControiller
+
+[33mcommit c32fa230be2e84882725291c6b55089e792460df[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Dec 3 15:29:58 2024 +0100
+
+    Jointure Appart/Maison
+
+[33mcommit 0898ccbec2e73cc6a1e31eb67681d0856456eb5c[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Dec 3 13:21:57 2024 +0100
+
+    Trie par Type2
+
+[33mcommit 0669a0232c632bafef9e032c063c3cfef7c055ca[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Dec 3 13:14:21 2024 +0100
+
+    Trie par Type
+
+[33mcommit db5bff45ded2af3cceece784f33da5a8280320e4[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Tue Dec 3 11:05:43 2024 +0100
+
+    employe index
+
+[33mcommit 145f088f066420cc5d62a3ccc661f383b5f1be58[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Dec 3 10:36:48 2024 +0100
+
+    Trie
+
+[33mcommit 22ffd1be788b8b271ada1b05ed69edb0de0f1ff1[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Mon Dec 2 13:11:32 2024 +0100
+
+    Affichage / Trie
+
+[33mcommit ee8262b3ebcd5c86c0f9b7477a492509de1e2411[m
+Merge: 7d4bc41 b49fa11
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Mon Dec 2 12:10:14 2024 +0100
+
+    Employés MAJ
+
+[33mcommit 7d4bc41c72a73c08602c99e150d420d8b0e1207b[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Mon Dec 2 11:09:23 2024 +0100
+
+    Article MAJ
+
+[33mcommit b49fa11b5a9659c852d6bb7b44d45a3e572a4521[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Mon Dec 2 11:05:41 2024 +0100
+
+    Direction
+
+[33mcommit 63dbdbd6de9e25438116ae7d2838a92f33ad9a61[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Mon Dec 2 09:09:48 2024 +0100
+
+    articles
+
+[33mcommit 0d735171d764776cd8d88ce91cad2d54b1e0b83d[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Mon Dec 2 07:09:27 2024 +0100
+
+    Repository article
+
+[33mcommit 38e925463d80201a6428d50c1e5c66924967934e[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Fri Nov 29 15:03:58 2024 +0100
+
+    Finalisation
+
+[33mcommit e2e1c346d29ac96274e4cfe961e110dd195b3d02[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Fri Nov 29 12:06:44 2024 +0100
+
+    Finalisation Directeur
+
+[33mcommit bcbbe61031cc9c27f113b8c2265075f55bfaed15[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Fri Nov 29 11:12:30 2024 +0100
+
+    utilisateur
+
+[33mcommit f120bca61b34847e35db25ef49253bd182989b34[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Thu Nov 28 17:12:32 2024 +0100
+
+    Unique validator
+
+[33mcommit 5d313b50274d5562b75de654adddfed9d1434a74[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Thu Nov 28 16:49:40 2024 +0100
+
+    UniquEntity
+
+[33mcommit 910292972c69580f43c3a6cba84cf9f91c6b6581[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Thu Nov 28 14:21:13 2024 +0100
+
+    Utilisateur constraint
+
+[33mcommit 72f79912711ad4accedb4757708f595f92a37a3b[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Nov 27 15:07:50 2024 +0100
+
+    Utilisateur Age
+
+[33mcommit e735f039b926a34ceeb941993ebfd03da5e474f0[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Nov 27 13:39:07 2024 +0100
+
+    Utilisateur Entity
+
+[33mcommit bc032d85aac26a80bb4b4c8eb4db3aa5df4b6344[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Nov 27 12:05:33 2024 +0100
+
+    Ajout des utilisateurs
+
+[33mcommit 885042424d32cf8746589d923b27e10d44aa598c[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Nov 26 10:52:30 2024 +0100
+
+    repository
+
+[33mcommit abd2d64fcccabca7800bb82562eaba4703298f93[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Tue Nov 26 09:06:16 2024 +0100
+
+    Datafixtures
+
+[33mcommit 9b56cc653e0480e89e4efead7c49be4b911ae09a[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Mon Nov 25 15:36:13 2024 +0100
+
+    FindByValeur
+
+[33mcommit 7b2480ebd88dec35699e8ff130880386d899f69e[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Mon Nov 25 13:38:59 2024 +0100
+
+    Methode Repository
+
+[33mcommit fcb1e241c86c945472807fd9602f7abf0ca5ab81[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Mon Nov 25 10:56:38 2024 +0100
+
+    FindOneBy
+
+[33mcommit 79a76d4f055551d799bbf709a9d7ba8a3a8fabe9[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Mon Nov 25 10:40:12 2024 +0100
+
+    Article find(id)
+
+[33mcommit b0bb7254d08a9e24b2315e305202be6f7876f694[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Nov 20 17:28:26 2024 +0100
+
+    Validation
+
+[33mcommit ab82f585b3e9ab601ab06ca371950d3f37098a06[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Nov 19 16:07:12 2024 +0100
+
+    startted assertion
+
+[33mcommit d390dd75626f2c6da98bb8fce11443484ee133bd[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Nov 19 15:21:11 2024 +0100
+
+    Forms
+
+[33mcommit e8f94192091178eb6afaf9ec9b4760e2dfd03327[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Nov 19 13:29:01 2024 +0100
+
+    Typage Forms
+
+[33mcommit 6ee1fe65681b7eb10f1d8e66ab0b2a2ecd1e1588[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Nov 19 10:44:24 2024 +0100
+
+    Typage formulaire
+
+[33mcommit 20cc9c59009ec0c90ad5006b687b87df5cde42de[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Mon Nov 18 12:22:18 2024 +0100
+
+    Client
+
+[33mcommit 7c5f0e60230911e794cda88ccc1ac4b16bf7cc2a[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Mon Nov 18 11:36:41 2024 +0100
+
+    Formulaire du Siege
+
+[33mcommit da27d889f0922e086608bd1023d778c6935b4bb7[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Mon Nov 18 10:21:26 2024 +0100
+
+    Fomulaire d'article
+
+[33mcommit a00a8052d427dff83c5a04e90e13ccaba0ee6a59[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Mon Nov 18 10:09:36 2024 +0100
+
+    Relations
+
+[33mcommit 5939e92088acf6f20331ad88c451abc2d02ff562[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Fri Nov 15 14:54:45 2024 +0100
+
+    Fixyures Employees
+
+[33mcommit 71401ec24817213b2098ff440189f9a5b0c0e088[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Fri Nov 15 14:48:37 2024 +0100
+
+    Client - Employee
+
+[33mcommit f3e838955f0b3809e2f3774fde23909206405eef[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Fri Nov 15 12:05:44 2024 +0100
+
+    Article-Employee
+
+[33mcommit 5eb4c7514f39b78c7cda97031e29b3b428d1e912[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Fri Nov 15 11:16:34 2024 +0100
+
+    Agence-Article
+
+[33mcommit 7b2dba0a6bc0e575ddaddb2d5e58a1f79f9a946a[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Fri Nov 15 10:11:24 2024 +0100
+
+    Client-Biens
+
+[33mcommit f47202709ad5e45b1c9a319ad6239c719bf9c2e8[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Fri Nov 15 09:28:56 2024 +0100
+
+    Relation Article - Clients
+
+[33mcommit d90b91718b5eaffd1eaad5fe84e5c95a3fc0983e[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Nov 13 15:43:06 2024 +0100
+
+    utilisateur MAJ
+
+[33mcommit 23e7b874b81d768108c0cfba4cc61434970e010d[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Nov 13 14:58:36 2024 +0100
+
+    Siege Modif
+
+[33mcommit 813f96d31583fc3f5d233c3617d4daabc23c3685[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Nov 13 14:38:19 2024 +0100
+
+    Siege Test
+
+[33mcommit b8330d9bfaf5dd19e1d155134cf9b38cd0fbb29e[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Nov 13 14:26:02 2024 +0100
+
+    Save All
+
+[33mcommit 11d1f23ea1ceb2896cfba7e8a84c96235f56e560[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Nov 13 14:05:17 2024 +0100
+
+    Directeur Modif
+
+[33mcommit e75136f7484896089f41f63649b06c3c1e4c86e5[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Nov 13 12:04:04 2024 +0100
+
+    uitlisateur CRUD
+
+[33mcommit c70fe18192e9c11f2ace45f3274298699a5a3e19[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Tue Nov 12 17:24:34 2024 +0100
+
+    Agence Controller
+
+[33mcommit e6effc66b88d9090cdb98fab42f5e793689e61ca[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Tue Nov 12 13:45:18 2024 +0100
+
+    Agence ctrlr
+
+[33mcommit 452d8d73dd37dec7bade48abc9acd8f577e436a3[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Tue Nov 12 13:40:30 2024 +0100
+
+    Agence Controller
+
+[33mcommit 0ecda05238eeaf8c3b0e6d4e121af3102672b141[m
+Merge: c593ecf 1c5d795
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Tue Nov 12 11:06:56 2024 +0100
+
+    Merge branch 'master' of https://github.com/ipalakot/da_24_immobilier_tp_classe
+
+[33mcommit c593ecf6c89763ea703fbb4616d4d115b61628c0[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Tue Nov 12 11:06:38 2024 +0100
+
+    12.11
+
+[33mcommit 1c5d79593cefb839e36467dcc8272dc0a3abd1ba[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Nov 12 10:36:46 2024 +0100
+
+    Adding Ctrlr
+
+[33mcommit 9c86399cded03cf2fc4230dac69f76b6293f9cd0[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Nov 12 09:44:52 2024 +0100
+
+    Les Controller
+
+[33mcommit 6ab27c5e22efbb16b53bbdb933a43d24e3ff9d7d[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Nov 6 17:18:43 2024 +0100
+
+    Enregistrement
+
+[33mcommit a333694b390841fd574b2ff0ebe39dd8a88baec3[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Nov 6 10:42:15 2024 +0100
+
+    Ading Clien
+
+[33mcommit 3ea830613015f8ab43fce8600dd5a5d452f3d3e8[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Nov 6 10:37:37 2024 +0100
+
+    Affichage d'une categorie
+
+[33mcommit 9d58d0e0907ec3770990cadaf98cc7e0822f5f28[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Nov 6 09:14:21 2024 +0100
+
+    Affichage
+
+[33mcommit a6e7e9b00a1bab3e14a8a4b16dfc423cac7a07a6[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Wed Oct 23 13:39:34 2024 +0200
+
+    Contact
+
+[33mcommit a89b2322a332a27a1ec25249be9ca315cc184302[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Oct 23 03:55:21 2024 +0200
+
+    Article Controller
+
+[33mcommit dc749131b7572840b3bb5bcdd73ca10613d01cbc[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Oct 23 03:40:16 2024 +0200
+
+    Routing
+
+[33mcommit 7e0e6b54b40a87dbbd2799487548af866bb148e7[m
+Author: ipalakot <ipalakot@gmail.com>
+Date:   Wed Oct 23 02:23:03 2024 +0200
+
+    Nav
+
+[33mcommit b8eb4343c6696f220bc68f10a251358d1163aef0[m
+Author: Ipalakot <ipalakot@gmail.com>
+Date:   Tue Oct 22 13:20:43 2024 +0200
+
+    10.22.a
+
+[33mcommit e765a186c91558f9477c2c96801f955887aefba3[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Tue Oct 22 11:55:13 2024 +0200
+
+    v10.22
+
+[33mcommit f1a0924a9237851518d5075e3bc537e7b5668996[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Fri Oct 18 15:11:52 2024 +0200
+
+    v10.18b
+
+[33mcommit dc826a499ed9bad9489d49ae98b45f25bcdf9116[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Fri Oct 18 14:10:04 2024 +0200
+
+    Articles2
+
+[33mcommit a7134d35764bbcc58a76c67717b6636bc959233b[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Fri Oct 18 14:00:18 2024 +0200
+
+    Articles
+
+[33mcommit 3e4b61dffa3180b566f4f31a432a17ea84dd05c2[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Fri Oct 18 12:23:43 2024 +0200
+
+    Confi Routes
+
+[33mcommit 58b85784bc46ea640f8b7a7aa70a9ee308a315d0[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Fri Oct 18 12:14:04 2024 +0200
+
+    Adding Article Controller
+
+[33mcommit cfe283d5c135267f6a7f1065178f91f4baebf2bb[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Fri Oct 18 12:12:08 2024 +0200
+
+    Routes
+
+[33mcommit 417d57a584912cfcb8cad55b93d79905421236a3[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Thu Oct 17 14:56:21 2024 +0200
+
+    Adding tools
+
+[33mcommit f987e5d75f87e2c5fe8ac9135ff822688c686e90[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Oct 16 15:47:01 2024 +0200
+
+    Routes en yaml2
+
+[33mcommit 1546dbaae064c644a122812c68559e99135d64e0[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Oct 16 15:18:20 2024 +0200
+
+    Routes en yaml
+
+[33mcommit c16a49e042114bd20fad290e8fa10fac6bb4af96[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Oct 16 10:00:17 2024 +0200
+
+    Add webapp packages
+
+[33mcommit feb62e391287848d9bfaab30911d33d97fd38657[m
+Author: Igor Palakot <ipalakot@guinot.com>
+Date:   Wed Oct 16 09:55:15 2024 +0200
+
+    Add initial set of files
