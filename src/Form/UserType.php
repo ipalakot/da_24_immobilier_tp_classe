@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\CallbackTransformer;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class UserType extends AbstractType
 {
@@ -14,7 +15,12 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('roles')
+            ->add('roles', TextType::class,[
+                'label' => 'Roles',
+                'required' => true,
+                'disabled' => true,
+                'empty_data' => 'Sans Reference',
+            ])
             ->add('password')
             ->add('username')
         ;
