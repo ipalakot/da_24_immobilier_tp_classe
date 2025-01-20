@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-#[Route('/admin/user')]
+
 final class UserController extends AbstractController
 {
     private $passwordHasher;
@@ -22,7 +22,8 @@ public function __construct(UserPasswordHasherInterface $passwordHasher)
     $this->passwordHasher = $passwordHasher;
 }
 
-#[Route(name: 'user_index', methods: ['GET'])]
+
+#[Route('/admin/user', name: 'user_index', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
         return $this->render('user/index.html.twig', [
@@ -30,7 +31,7 @@ public function __construct(UserPasswordHasherInterface $passwordHasher)
         ]);
     }
 
-    #[Route('/new', name: 'user_new', methods: ['GET', 'POST'])]
+    #[Route('/registration', name: 'user_registration', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $user = new User();
@@ -38,7 +39,7 @@ public function __construct(UserPasswordHasherInterface $passwordHasher)
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setRoles(['ROLE_USER']);
+            ## $user->setRoles(['ROLE_USER']);
             $user->setPassword($this->passwordHasher->hashPassword($user, $user->getPassword()));
            ## $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
@@ -53,7 +54,7 @@ public function __construct(UserPasswordHasherInterface $passwordHasher)
         ]);
     }
 
-    #[Route('/{id}', name: 'user_show', methods: ['GET'])]
+    #[Route('/admin/user/{id}', name: 'user_show', methods: ['GET'])]
     public function show(User $user): Response
     {
         return $this->render('user/show.html.twig', [
@@ -61,7 +62,7 @@ public function __construct(UserPasswordHasherInterface $passwordHasher)
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'user_edit', methods: ['GET', 'POST'])]
+    #[Route('/admin/user/{id}/edit', name: 'user_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(UserType::class, $user);
@@ -81,7 +82,7 @@ public function __construct(UserPasswordHasherInterface $passwordHasher)
         ]);
     }
 
-    #[Route('/{id}', name: 'user_delete', methods: ['POST'])]
+    #[Route('/admin/user/{id}', name: 'user_delete', methods: ['POST'])]
     public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->getPayload()->getString('_token'))) {

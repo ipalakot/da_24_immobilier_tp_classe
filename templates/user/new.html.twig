@@ -9,8 +9,23 @@
     <div class="container">
 		<hr/>
 
+
+				{% if app.user %}
+
+				{% else %}
+					<h1> Vous n'êtes pas encore un utilisateur de cette application<br>
+					Veuillez donc vous enregistrer avant d'avoir accès à la page demandée
+					<br>
+					Merci !
+					</h1>
+					<br><br><br><br>
+					{% endif %}	<hr/> 
+
+
+
+
 		<h1>
-			Enregistrement Nouveau Utiisateur
+			Enregistrement Nouvel Utiisateur
 		</h1>
 		<hr/>
 
