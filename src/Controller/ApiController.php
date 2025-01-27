@@ -45,7 +45,6 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
                        ]);*/
                 //$articleJson = json_encode($articles );          
                 // dd($articleJson);   
-
                 #_3 Normalization
                 // Consiste à ustiliser la function NORMALIZER
                 // Elle est un plus puissante que le Json_Encode

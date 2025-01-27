@@ -3,16 +3,4 @@ GET http://127.0.0.1:8000/api/articles
 #GET http://127.0.0.1:8000/api/new
 
 
-#Liste des article sde categorie Bricolage
-#GET http://127.0.0.1:8000/api/articlesCategBrico 
-
-#Liste des article sde categorie Bricolage
-#GET http://127.0.0.1:8000/api/articlesprixAsc 
-
-#Liste des article sde categorie Bricolage
-#GET http://127.0.0.1:8000/api/articlesCategJouets
-
-#Liste des article sde categorie Bricolage
-# GET http://127.0.0.1:8000/api/articlesCategInformatique
-
 

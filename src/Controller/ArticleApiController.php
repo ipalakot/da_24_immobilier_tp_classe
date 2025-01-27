@@ -6,14 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route("/api", name:"api_")]
-final class AgenceApiController extends AbstractController
+final class ArticleApiController extends AbstractController
 {
-    #[Route('/agence', name: 'agence',  methods:('GET'))]
+    #[Route('/article/api', name: 'app_article_api')]
     public function index(): Response
     {
-        return $this->render('agence_api/index.html.twig', [
-
+        return $this->render('article_api/index.html.twig', [
+            'controller_name' => 'ArticleApiController',
         ]);
     }
 }
