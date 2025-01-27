@@ -1,0 +1,30 @@
+# Liste des Utilisateur:
+GET http://127.0.0.1:8000/api/utilisateur
+
+#Ajout des utilisateur
+POST  http://127.0.0.1:8000/api/utilisateur/nouveau
+
+{
+    "noms": "",
+   "prenoms" : "",
+   "datenaiss": "2019-01-01 00:00:00",
+   "adresse": "",
+   "photo": "",
+   "email": "",
+   "username": "",
+   "nationalite": "",
+   "image_name": "dfssqf",
+   "updated_at": ""
+  }
+
+# Utilisateur par ID Croissant
+GET http://127.0.0.1:8000/api/utilisateur-IdCroissant
+
+# Utilisateur par Prenoms Croissants
+GET http://127.0.0.1:8000/api/utilisateur-PrenomCroissant
+
+# Utilisateur par Noms Croissants
+GET http://127.0.0.1:8000/api//utilisateur-NomCroissant 
+
+# ajout Nouveau utilisateur
+GET http://127.0.0.1:8000/api/utilisateur/nouveau

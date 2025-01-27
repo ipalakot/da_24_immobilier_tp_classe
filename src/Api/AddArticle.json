@@ -1,0 +1,14 @@
+{
+  "titre": "string",
+ "categorie_id" : "",
+ "auteur_id": "",
+ "titre": "",
+ "resume" : " ",
+ "contenu" : " ",
+ "created_at": " ",
+ "prix": " ",
+ "disponibilite": " ",
+ "localite": "",
+ "une": "",
+ "resume": "string"
+}

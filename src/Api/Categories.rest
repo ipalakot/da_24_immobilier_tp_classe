@@ -1,0 +1,22 @@
+<<<<<<< HEAD
+        POST http://127.0.0.1:8000/api/newCatRest
+        Content-Type: application/json
+
+        {
+            "titre": "Nouvelle catégorie",
+            "resume": "Une nouvelle catégorie de test"
+        }
+        DELETE http://127.0.0.1:8000/api/deleteCatRest/28        
+=======
+
+#Liste des categories
+GET http://127.0.0.1:8000/api/categories 
+
+#Ajouter une categorie
+POST  http://127.0.0.1:8000/api/categorie-nouveau 
+
+{
+    "titre":"",
+    "resume":""
+}
+>>>>>>> 4c967b42ba53149b496145f65f04d3812b35f48b

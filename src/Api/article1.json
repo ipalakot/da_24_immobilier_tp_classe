@@ -1,0 +1,13 @@
+{
+    "titre" : "TestSymfony pour un projet web",
+    "resume" :"L'ensemble de cuisine OLIWIA 2,4 m sera une solution", 
+    "contenu" :"L'ensemble de cuisine OLIWIA 2,4 m sera une solution", 
+    "categorie":"9",
+    "commentaires":"Test",
+    "auteur":"108",
+    "createdAt" :"2018-09-01 00:00:00", 
+    "prix" :"121", 
+    "disponibilite":"12",
+    "localite":"Orleans",
+    "une" : "0"  
+}
