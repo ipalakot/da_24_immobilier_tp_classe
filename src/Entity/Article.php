@@ -18,6 +18,7 @@ class Article
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['list_articles'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -28,6 +29,7 @@ class Article
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',
     )]
+    #[Groups(['list_articles'])]
     private ?string $titre = null;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -37,14 +39,17 @@ class Article
         max: 50,
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters', )]
+        #[Groups(['list_articles'])]
     private ?string $adresse = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
+    #[Groups(['list_articles'])]
     private ?string $images = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
+    #[Groups(['list_articles'])]
     private ?string $type = null;
 
     #[ORM\Column]
@@ -53,10 +58,12 @@ class Article
 
     #[ORM\Column]
     #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
+    #[Groups(['list_articles'])]
     private ?int $prix = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'ce champ ne peut pas être vide')]
+    #[Groups(['list_articles'])]
     private ?string $owner = null;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -67,6 +74,7 @@ class Article
     minMessage: 'taille minimale est  {{ limit }} characters',
     maxMessage: 'la taille maximale est de  {{ limit }} characters',
     )]*/
+    #[Groups(['list_articles'])]
     private ?string $description = null;
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
