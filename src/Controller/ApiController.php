@@ -21,6 +21,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
             // On récupère la liste des articles et on les affiche comme nous savons dejà faire
             // $articles = $articleRepo -> findAll();
              // dd($articles);    
+             
             #_2 Json_Encode
                 // Affichage en JSon de mes articles
                 //J'utilise la function Json_encode pour lister mes artcles
