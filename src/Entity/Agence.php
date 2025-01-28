@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\AgenceRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\AgenceRepository;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: AgenceRepository::class)]
 
@@ -18,6 +19,7 @@ class Agence
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['agence'])]
     private ?int $id = null;
 
     #[ORM\Column]
@@ -26,6 +28,7 @@ class Agence
         type: 'number',
         message: 'The value {{ value }} is not a valid {{ type }}.',
     )]
+    #[Groups(['agence'])]
     private ?float $numeroAgence = null;
 
     #[ORM\Column(length: 255)]
@@ -35,15 +38,19 @@ class Agence
         max: 50,
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters', )]
+        #[Groups(['agence'])]
     private ?string $adresse = null;
 
     #[Vich\UploadableField(mapping: 'articles', fileNameProperty: 'imageName')]
+    #[Groups(['agence'])]
     private ?File $imageFile = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['agence'])]
     private ?string $imageName = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['agence'])]
     private ?\DateTimeImmutable $updatedAt = null;
 
     /**
