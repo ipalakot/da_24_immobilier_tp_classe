@@ -2,24 +2,25 @@
 
 namespace App\Entity;
 
-use App\Repository\EmployeRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\EmployeRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Persistence\Mapping\ClassMetadata;
+
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
+
+
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+//use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 use Doctrine\ORM\Mapping\MappingException as ORMMappingException;
-use Doctrine\Persistence\Mapping\ClassMetadata;
-use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException;
-
-
-use Symfony\Component\Validator\Constraints as Assert;
-//use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
-
-use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException;
 
 
 #[ORM\Entity(repositoryClass: EmployeRepository::class)]
@@ -30,6 +31,7 @@ class Employe implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['employe'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -40,6 +42,7 @@ class Employe implements UserInterface, PasswordAuthenticatedUserInterface
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',
     )]
+    #[Groups(['employe'])]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
@@ -50,38 +53,47 @@ class Employe implements UserInterface, PasswordAuthenticatedUserInterface
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',
     )]
+    #[Groups(['employe'])]
     private ?string $prenom = null;
 
     #[Vich\UploadableField(mapping: 'articles', fileNameProperty: 'imageName')]
+    #[Groups(['employe'])]
     private ?File $imageFile = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['employe'])]
     private ?string $imageName = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['employe'])]
     private ?\DateTimeImmutable $updatedAt = null;
     
     #[ORM\Column]
+    #[Groups(['employe'])]
     private ?\DateTimeImmutable $createdAt = null;
 
 
     //UserInteface && Authentication
     #[ORM\Column(length: 255)]
+    #[Groups(['employe'])]
     private ?string $email = null;
 
     /**
      * @var list<string> The user roles
      */
     #[ORM\Column]
+    #[Groups(['employe'])]
     private array $roles = [];
 
     /**
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Groups(['employe'])]
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['employe'])]
     private ?string $username = null;
 
 

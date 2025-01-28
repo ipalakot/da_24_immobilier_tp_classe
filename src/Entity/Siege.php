@@ -2,15 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\SiegeRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
-use Doctrine\ORM\Mapping\MappingException as ORMMappingException;
+use App\Repository\SiegeRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Persistence\Mapping\ClassMetadata;
-use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping\MappingException as ORMMappingException;
+use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException;
 
 
 
@@ -20,6 +21,7 @@ class Siege
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['siege'])]
     private ?int $id = null;
 
     #[ORM\Column]
@@ -30,6 +32,7 @@ class Siege
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',
     )]
+    #[Groups(['siege'])]
     private ?float $capital = null;
 
     #[ORM\Column(length: 255)]
@@ -40,6 +43,7 @@ class Siege
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',
     )]
+    #[Groups(['siege'])]
     private ?string $nom = null;
 
 
@@ -50,6 +54,7 @@ class Siege
         max: 50,
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',)]
+        #[Groups(['siege'])]
     private ?string $adresse = null;
 
 
