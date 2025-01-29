@@ -2,18 +2,18 @@
 
 namespace App\Entity;
 
-use App\Repository\UtilisateurRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\MappingException as ORMMappingException;
+use App\Repository\UtilisateurRepository;
+use PHPUnit\TextUI\XmlConfiguration\Groups;
 use Doctrine\Persistence\Mapping\ClassMetadata;
-use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException;
-
-
 use Symfony\Component\Validator\Constraints as Assert;
-//use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
+
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+//use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
+use Doctrine\ORM\Mapping\MappingException as ORMMappingException;
+use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException;
 
 //#[ORM\Entity]
 #[UniqueEntity(
@@ -28,6 +28,7 @@ class Utilisateur
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['utilisateur'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -38,6 +39,7 @@ class Utilisateur
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',
     )]
+    #[Groups(['utilisateur'])]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
@@ -48,6 +50,7 @@ class Utilisateur
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',
     )]
+    #[Groups(['utilisateur'])]
     private ?string $prenoms = null;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -57,11 +60,13 @@ class Utilisateur
         max: 50,
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',)]
+        #[Groups(['utilisateur'])]
     private ?string $adresse = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\Email]
     #[Assert\NotBlank]
+    #[Groups(['utilisateur'])]
     private ?string $Email = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -71,6 +76,7 @@ class Utilisateur
         max: 50,
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',)]
+        #[Groups(['utilisateur'])]
     private ?string $login = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -80,6 +86,7 @@ class Utilisateur
         max: 50,
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',)]
+        #[Groups(['utilisateur'])]
     private ?string $password = null;
 
     #[ORM\Column]
@@ -89,9 +96,11 @@ class Utilisateur
         max: 12,
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',)]
+        #[Groups(['utilisateur'])]
     private ?int $phone = null;
 
     #[ORM\Column]
+    #[Groups(['utilisateur'])]
     private ?int $age = null;
 
     public function getId(): ?int

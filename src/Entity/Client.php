@@ -10,10 +10,11 @@ use Doctrine\Persistence\Mapping\ClassMetadata;
 use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
 
+use Symfony\Component\Serializer\Annotation\Groups;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Security\Core\User\UserInterface;
 
+use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping\MappingException as ORMMappingException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException;
@@ -28,6 +29,7 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['client'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -38,6 +40,7 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',
     )]
+    #[Groups(['client'])]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
@@ -48,6 +51,7 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',
     )]
+    #[Groups(['client'])]
     private ?string $prenom = null;
 
     #[ORM\Column(length: 255)]
@@ -57,6 +61,7 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
         max: 50,
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',)]
+        #[Groups(['client'])]
     private ?string $adresse = null;
 
     #[ORM\Column(length: 255)]
@@ -66,29 +71,35 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
         max: 50,
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',)]
+        #[Groups(['client'])]
     private ?string $type = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Groups(['client'])]
     private ?\DateTimeInterface $dateNaissance = null;
 
 
     
     #[ORM\Column(length: 255)]
+    #[Groups(['client'])]
     private ?string $email = null;
 
     /**
      * @var list<string> The user roles
      */
     #[ORM\Column]
+    #[Groups(['client'])]
     private array $roles = [];
 
     /**
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Groups(['client'])]
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['client'])]
     private ?string $username = null;
 
     /**

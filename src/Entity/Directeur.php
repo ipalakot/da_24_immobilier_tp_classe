@@ -2,16 +2,17 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use App\Repository\DirecteurRepository;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
-use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\MappingException as ORMMappingException;
 use Doctrine\Persistence\Mapping\ClassMetadata;
-use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException;
-
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
+
+use Doctrine\ORM\Mapping\MappingException as ORMMappingException;
+use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException;
 
 #[ORM\Entity(repositoryClass: DirecteurRepository::class)]
 class Directeur
@@ -19,6 +20,7 @@ class Directeur
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['directeur'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -29,6 +31,7 @@ class Directeur
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',
     )]
+    #[Groups(['directeur'])]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
@@ -39,6 +42,7 @@ class Directeur
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',
     )]
+    #[Groups(['directeur'])]
     private ?string $prenom = null;
 
     #[ORM\Column]
@@ -48,7 +52,8 @@ class Directeur
         max: 10,
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters',)]
-    private ?float $revenus = null;
+        #[Groups(['directeur'])]
+        private ?float $revenus = null;
 
     /**
      * @var Collection<int, Agence>

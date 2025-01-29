@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\CategorieRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CategorieRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 //use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
@@ -17,6 +18,7 @@ class Categorie
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['categorie'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -25,6 +27,7 @@ class Categorie
         message: 'Ce titre est dejà en utilisation sur notre server. veuillez choisir un autre ',
 
     )]
+    #[Groups(['categorie'])]
     private ?string $titre = null;
 
     #[ORM\Column(length: 255)]
@@ -33,12 +36,14 @@ class Categorie
         max: 50,
         minMessage: 'taille minimale est  {{ limit }} characters',
         maxMessage: 'la taille maximale est de  {{ limit }} characters', )]
+        #[Groups(['categorie'])]
     private ?string $description = null;
 
     /**
      * @var Collection<int, Article>
      */
     #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'categorie', orphanRemoval: true)]
+    
     private Collection $articles;
 
     public function __construct()
