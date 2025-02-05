@@ -1,6 +1,4 @@
-GET http://127.0.0.1:8000/api/article
+GET http://127.0.0.1:8000/api/listes
 
-#GET http://127.0.0.1:8000/api/new
-
-
-
+#  GET http://127.0.0.1:8000/api/article/9
+#GET http://127.0.0.1:8000/api/nouveau

@@ -1,18 +1,18 @@
 # Liste des Utilisateur:
-GET http://127.0.0.1:8000/api/utilisateur
+//GET http://127.0.0.1:8000/api/utilisateur
 
 #Ajout des utilisateur
 POST  http://127.0.0.1:8000/api/utilisateur/nouveau
 
 {
-    "noms": "",
-   "prenoms" : "",
-   "datenaiss": "2019-01-01 00:00:00",
-   "adresse": "",
-   "photo": "",
-   "email": "",
-   "username": "",
-   "nationalite": "",
-   "image_name": "dfssqf",
-   "updated_at": ""
+"id": "",
+"nom": "PALAKOT",
+"prenoms" : "IGOR",
+"adresse": "vILLEjUIF",
+"email": "ipalkot@mail.fr",
+"login": "iplkt", 
+"password": "iplkt",
+"photo": "",
+"phone": 1212121,
+"age": 100
   }

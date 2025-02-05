@@ -15,6 +15,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping\MappingException as ORMMappingException;
 use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException;
 
+use ApiPlatform\Metadata\ApiResource;
+
 //#[ORM\Entity]
 #[UniqueEntity(
     fields: ['Email'],
@@ -23,6 +25,9 @@ use Doctrine\Persistence\Mapping\MappingException as PersistenceMappingException
 )]
     
 #[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
+
+
+#[ApiResource]
 class Utilisateur
 {
     #[ORM\Id]

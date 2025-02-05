@@ -1,12 +1,13 @@
 {
-    "noms": "",
-   "prenoms" : "",
-   "datenaiss": "2019-01-01 00:00:00",
-   "adresse": "",
+    "id": "",
+    "nom": "PALAKOT",
+   "prenoms" : "IGOR",
+   "adresse": "vILLEjUIF",
+   "email": "ipalkot@mail.fr",
+   "login": "iplkt", 
+   "password": "iplkt",
    "photo": "",
-   "email": "",
-   "username": "",
-   "nationalite": "",
-   "image_name": "",
-   "updated_at": ""
+   "phone": 1212121,
+   "age": 100
+
   }
